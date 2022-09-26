@@ -10,17 +10,52 @@ namespace Mauve.Tests.Core.Extensibility
     public class IComparableExtensionTests
     {
 
-        #region Constants
+        #region Public Methods
 
-        private const int LowerBound = 1;
-        private const int UpperBound = 10;
+        [TestMethod()]
+        [DataRow(3, 0, 1, false)]
+        [DataRow(3, 5, 9, false)]
+        [DataRow(3, 0, 5, true)]
+        [DataRow(3, 5, 1, false)]
+        public void WithinRange(IComparable input, IComparable lowerBound, IComparable upperBound, bool expectedResult)
+        {
+            try
+            {
+                bool withinRange = input.WithinRange(lowerBound, upperBound);
+                Assert.AreEqual(expectedResult, withinRange);
+            } catch (Exception e)
+            {
+                // An exception is thrown if the bounds are out of order.
+                bool offBalance = lowerBound.CompareTo(upperBound) > 0 ||
+                                  upperBound.CompareTo(lowerBound) < 0;
 
-        #endregion
+                // If we're not off balance, then something else happened.
+                if (!offBalance)
+                    Assert.Fail(e.Message);
+            }
+        }
+        [TestMethod()]
+        [DataRow(3, 0, 1, 1)]
+        [DataRow(3, 5, 9, 5)]
+        [DataRow(3, 0, 5, 3)]
+        [DataRow(3, 5, 1, 3)]
+        public void Constrain(IComparable input, IComparable lowerBound, IComparable upperBound, IComparable expectedResult)
+        {
+            try
+            {
+                IComparable constrainedValue = input.Constrain(lowerBound, upperBound);
+                Assert.AreEqual(expectedResult, constrainedValue);
+            } catch (Exception e)
+            {
+                // An exception is thrown if the bounds are out of order.
+                bool offBalance = lowerBound.CompareTo(upperBound) > 0 ||
+                                  upperBound.CompareTo(lowerBound) < 0;
 
-        #region Tests
-
-        [TestMethod("Range Exceeded")] public void RangeExceeded() => Assert.IsFalse(15.WithinRange(LowerBound, UpperBound));
-        [TestMethod("Within Range")] public void WithinRange() => Assert.IsTrue(3.WithinRange(LowerBound, UpperBound));
+                // If we're not off balance, then something else happened.
+                if (!offBalance)
+                    Assert.Fail(e.Message);
+            }
+        }
 
         #endregion
 

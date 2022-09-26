@@ -99,13 +99,7 @@ namespace Mauve.VisualStudio.Community.Core
                 OLEMSGBUTTON.OLEMSGBUTTON_OK,
                 OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
         }
-        protected abstract void Run();
-        protected string GetActiveDocumentName()
-        {
-            ThreadHelper.ThrowIfNotOnUIThread();
-            var dte = ShellPackage.GetGlobalService(typeof(SDTE)) as DTE;
-            return dte?.ActiveDocument?.Name;
-        }
+        protected abstract void Run(DTE dte);
 
         #endregion
 
@@ -121,7 +115,8 @@ namespace Mauve.VisualStudio.Community.Core
         private void Execute(object sender, EventArgs e)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            Run();
+            var dte = ShellPackage.GetGlobalService(typeof(SDTE)) as DTE;
+            Run(dte);
         }
 
         #endregion

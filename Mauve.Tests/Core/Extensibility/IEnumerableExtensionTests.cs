@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using Mauve.Extensibility;
 
@@ -9,22 +10,13 @@ namespace Mauve.Tests.Core.Extensibility
     [TestClass]
     public class IEnumerableExtensionTests
     {
-        [TestMethod("Write Each")]
-        public void WriteEach()
+        [TestMethod()]
+        [DataRow(new int[] { 2, 3, 5, 7 }, 17)]
+        public void SumCollection(IEnumerable<int> inputCollection, int expectedResult)
         {
-            var guids = new Guid[100];
-            for (int i = 0; i < 100; i++)
-                guids[i] = Guid.NewGuid();
-
-            try
-            {
-                int iteratedGuids = 0;
-                guids.ForEach(guid => Console.WriteLine($"{++iteratedGuids}: {guid}"));
-                Assert.AreEqual(guids.Length, iteratedGuids);
-            } catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+            int sum = 0;
+            inputCollection.ForEach(i => sum += i);
+            Assert.AreEqual(expectedResult, sum);
         }
     }
 }

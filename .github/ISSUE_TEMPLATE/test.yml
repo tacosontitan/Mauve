@@ -1,7 +1,7 @@
-name: 🐙 Request a new Extension Method
-title: 🐙 Add an extension method.
-description: Have an idea to simplify a very repetative process for a specific type? While extension methods have a bad reputation, when implemented properly, they can be very powerful.
-labels: [enhancement,framework,under review]
+name: 🧪 Request a new Test Case
+title: 🧪 Add a new test case.
+description: Have an idea for a test case we haven't accounted for yet? Share it with us, it'll only make Mauve stronger.
+labels: [test,under review]
 body:
   - type: dropdown
     id: version
@@ -16,7 +16,7 @@ body:
     id: product
     attributes:
       label: 🌠 Product
-      description: Which sub-product of Mauve is this feature for?
+      description: Which sub-product of Mauve is this test for?
       options:
         - Ⓜ️ Framework
         - 📝 Dapper Support Kit
@@ -25,7 +25,7 @@ body:
       required: true
   - type: input
     attributes:
-      label: 🦖 What type is this extension method for?
+      label: 🦖 What type is this test for?
       description: Please include the namespace and type if applicable.
   - type: textarea
     attributes:
@@ -33,5 +33,5 @@ body:
       description: Please give a brief explanation and a sample implementation.
   - type: textarea
     attributes:
-      label: 📝 How would you like the extension method to work?
+      label: 📝 How would you like the test case to work?
       description: Please give a brief explanation and a sample implementation.

@@ -52,6 +52,8 @@
     <Compile Include="Core\Extensibility\IComparableExtensionTests.cs" />
     <Compile Include="Core\Extensibility\StringExtensionsTests.cs" />
     <Compile Include="Core\Extensibility\IEnumerableExtensionTests.cs" />
+    <Compile Include="Core\Extensibility\DateTimeExtensionTests.cs" />
+    <Compile Include="Core\Extensibility\GenericExtensionTests.cs" />
     <Compile Include="Core\Security\RijndaelCryptographyProviderTests.cs" />
     <Compile Include="Core\Serialization\RawSerializationTests.cs" />
     <Compile Include="Core\Serialization\BinarySerializationTests.cs" />

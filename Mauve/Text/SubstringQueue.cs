@@ -63,7 +63,11 @@ namespace Mauve.Text
         /// Skips the specified number of characters in the queue from the current index.
         /// </summary>
         /// <param name="length">The number of characters to skip.</param>
-        public void Skip(int length) => _index += length;
+        public SubstringQueue Skip(int length)
+        {
+            _index += length;
+            return this;
+        }
 
         #endregion
 

@@ -1,8 +1,11 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using System.Globalization;
+using System.Runtime.Remoting.Contexts;
 using System.Threading;
 using System.Threading.Tasks;
+
+using EnvDTE;
 
 using Mauve.VisualStudio.Community.Core;
 
@@ -26,11 +29,26 @@ namespace Mauve.VisualStudio.Community.Commands
 
         #region Protected Methods
 
-        protected override void Run()
+        protected override void Run(DTE dte)
         {
-            string currentFile = GetActiveDocumentName();
-            if (!string.IsNullOrWhiteSpace(currentFile))
+            ThreadHelper.ThrowIfNotOnUIThread();
+            Document activeDocument = dte?.ActiveDocument;
+            if (!(activeDocument is null))
             {
+                // Get the current contents of the document.
+                //var textDocument = activeDocument.Object("TextDocument") as TextDocument;
+                //EditPoint editPoint = textDocument.StartPoint.CreateEditPoint();
+                //string documentText = editPoint.GetText(textDocument.EndPoint);
+
+                // Remove and sort usings.
+                activeDocument.DTE.ExecuteCommand("Edit.RemoveAndSort");
+
+                // Format document.
+                activeDocument.DTE.ExecuteCommand("Edit.FormatDocument");
+
+                // Save document.
+                _ = activeDocument.Save();
+
                 // Notify that we've finished our work.
                 Alert("Standardization complete.");
             }
