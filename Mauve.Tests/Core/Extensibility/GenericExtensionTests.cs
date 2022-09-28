@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Mauve.Extensibility;
+using Mauve.Serialization;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
