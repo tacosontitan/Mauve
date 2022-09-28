@@ -63,7 +63,7 @@
     <Compile Include="Security\CryptographyProvider.cs" />
     <Compile Include="Security\RijndaelCryptographyProvider.Constructors.cs" />
     <Compile Include="Security\RijndaelCryptographyProvider.cs" />
-    <Compile Include="SerializationMethod.cs" />
+    <Compile Include="Serialization\SerializationMethod.cs" />
     <Compile Include="Serialization\BinarySerializationProvider.cs" />
     <Compile Include="Serialization\JsonSerializationProvider.cs" />
     <Compile Include="Serialization\RawSerializationProvider.cs" />
