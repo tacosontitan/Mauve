@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 
 using Mauve.Extensibility;
+using Mauve.Serialization;
 
 namespace Mauve.Security
 {
