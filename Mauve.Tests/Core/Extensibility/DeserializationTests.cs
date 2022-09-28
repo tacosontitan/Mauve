@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Mauve.Extensibility;
+using Mauve.Serialization;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
