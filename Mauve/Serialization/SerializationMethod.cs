@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization.Formatters.Binary;
 
-namespace Mauve
+namespace Mauve.Extensibility
 {
     /// <summary>
     /// Represents a <see cref="SerializationMethod"/> for the serialization and deserialization of data.
