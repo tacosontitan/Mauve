@@ -11,6 +11,7 @@ namespace Mauve.Security
     /// <summary>
     /// Represents a <see cref="CryptographyProvider"/> providing simplified access to the managed version of the <see cref="Rijndael"/> algorithm.
     /// </summary>
+    /// <inheritdoc/>
     public partial class RijndaelCryptographyProvider : CryptographyProvider
     {
 
