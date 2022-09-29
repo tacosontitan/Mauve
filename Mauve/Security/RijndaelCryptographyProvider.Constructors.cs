@@ -8,6 +8,7 @@ namespace Mauve.Security
         /// <summary>
         /// Creates a new instance of <see cref="RijndaelCryptographyProvider"/> using <see cref="Encoding.Unicode"/>, <see cref="CipherMode.CBC"/>, <see cref="PaddingMode.PKCS7"/>, and randomly generated symmetric algorithm parameters.
         /// </summary>
+        /// <inheritdoc/>
         public RijndaelCryptographyProvider() :
             this(key: null, string.Empty, Encoding.Unicode, CipherMode.CBC, PaddingMode.PKCS7)
         { }
