@@ -48,6 +48,7 @@
     <Compile Include="AliasAttribute.cs" />
     <Compile Include="DateFormat.cs" />
     <Compile Include="Extensibility\DateTimeExtensions.cs" />
+    <Compile Include="Extensibility\ExceptionExtensions.cs" />
     <Compile Include="Extensibility\GenericExtensions.cs" />
     <Compile Include="Extensibility\IComparableExtensions.cs" />
     <Compile Include="Extensibility\IEnumerableExtensions.cs" />
