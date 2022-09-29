@@ -57,6 +57,7 @@
     <Compile Include="Net\INetworkRequest.cs" />
     <Compile Include="Net\INetworkRequestBuilder.cs" />
     <Compile Include="Net\INetworkResponse.cs" />
+    <Compile Include="Patterns\Builder\IBuilder.cs" />
     <Compile Include="Patterns\Mediator\IMediator.cs" />
     <Compile Include="Patterns\Mediator\IMediatorClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
