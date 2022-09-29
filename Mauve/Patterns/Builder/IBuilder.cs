@@ -1,4 +1,4 @@
-﻿namespace Mauve.Patterns.Builder
+﻿namespace Mauve.Patterns
 {
     /// <summary>
     /// Represents an <see cref="IBuilder{T}"/> interface that defines a method of building an instace of <see cref="T"/>.
