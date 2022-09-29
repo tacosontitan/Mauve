@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mauve.Net.Smtp
 {
+    /// <summary>
+    /// Represents a <see cref="SmtpNetworkClient"/> for executing <see cref="SmtpNetworkRequest"/> instances.
+    /// </summary>
+    /// <inheritdoc/>
     public class SmtpNetworkClient : NetworkClient<SmtpNetworkRequest, MailMessage>, IDisposable
     {
 
@@ -19,12 +18,20 @@ namespace Mauve.Net.Smtp
 
         #region Properties
 
+        /// <summary>
+        /// The <see cref="NetworkConnectionInformation"/> this <see cref="SmtpNetworkClient"/> uses to send messages.
+        /// </summary>
         public NetworkConnectionInformation ConnectionInformation { get; internal set; }
 
         #endregion
 
         #region Constructor
 
+        /// <summary>
+        /// Creates a new <see cref="SmtpNetworkClient"/> instance with the specified connection information.
+        /// </summary>
+        /// <param name="connectionInformation">The <see cref="NetworkConnectionInformation"/> this <see cref="SmtpNetworkClient"/> uses to send messages.</param>
+        /// <param name="enableSsl">Whether or not SSL is enabled.</param>
         public SmtpNetworkClient(NetworkConnectionInformation connectionInformation, bool enableSsl)
         {
             // Set properties.
