@@ -11,7 +11,7 @@ namespace Mauve.Net
     {
         public bool UseDefaultCredentials { get; set; }
         public int? Port { get; set; }
-        public string Identifier { get; set; }
+        public string Host { get; set; }
         public string Focus { get; set; }
         public NetworkCredential Credential { get; set; }
     }
