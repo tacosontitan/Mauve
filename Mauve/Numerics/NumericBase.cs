@@ -10,7 +10,7 @@
         /// </summary>
         None = 0,
         /// <summary>
-        /// 
+        /// A method of mathematical expression which uses only two symbols, typically <c>0</c> and <c>1</c>.
         /// </summary>
         Binary = 2,
         /// <summary>
