@@ -9,7 +9,7 @@ using Mauve.Patterns;
 
 namespace Mauve.Net.Smtp
 {
-    internal class SmtpNetworkClientBuilder : IBuilder<SmtpNetworkClient>
+    public class SmtpNetworkClientBuilder : IBuilder<SmtpNetworkClient>
     {
 
         #region Fields
