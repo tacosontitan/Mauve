@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Mauve.Net.Smtp
 {
-    public class SmtpNetworkClient : INetworkClient<SmtpNetworkRequest>, IDisposable
+    public class SmtpNetworkClient : NetworkClient<SmtpNetworkRequest, MailMessage>, IDisposable
     {
 
         #region Fields
@@ -46,9 +47,15 @@ namespace Mauve.Net.Smtp
         #region Public Methods
 
         public void Dispose() => _client?.Dispose();
-        public INetworkResponse Execute(SmtpNetworkRequest request)
+
+        #endregion
+
+        #region Protected Methods
+
+        protected override MailMessage ExecuteRequest(SmtpNetworkRequest request)
         {
-            return null;
+            _client.Send(request.Data);
+            return request.Data;
         }
 
         #endregion

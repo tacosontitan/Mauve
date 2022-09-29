@@ -56,7 +56,9 @@
     <Compile Include="Net\INetworkClient.cs" />
     <Compile Include="Net\INetworkRequest.cs" />
     <Compile Include="Net\INetworkResponse.cs" />
+    <Compile Include="Net\NetworkClient.cs" />
     <Compile Include="Net\NetworkConnectionInformation.cs" />
+    <Compile Include="Net\NetworkResponse.cs" />
     <Compile Include="Net\Smtp\SmtpNetworkClient.cs" />
     <Compile Include="Net\Smtp\SmtpNetworkClientBuilder.cs" />
     <Compile Include="Net\Smtp\SmtpNetworkRequest.cs" />
