@@ -5,5 +5,6 @@
     /// </summary>
     public interface INetworkClient
     {
+        INetworkResponse Execute(INetworkRequest request);
     }
 }
