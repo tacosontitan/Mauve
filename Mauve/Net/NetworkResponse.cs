@@ -12,5 +12,8 @@ namespace Mauve.Net
         public T Content { get; set; }
         public string Message { get; set; }
         public HttpStatusCode StatusCode { get; set; }
+        public bool IsSucccessful =>
+            StatusCode < System.Net.HttpStatusCode.OK ||
+            StatusCode >= System.Net.HttpStatusCode.MultipleChoices;
     }
 }
