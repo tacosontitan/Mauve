@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mauve.Net.Smtp
 {
-    internal class SmtpNetworkRequest : INetworkRequest
+    public class SmtpNetworkRequest : INetworkRequest
     {
     }
 }
