@@ -8,6 +8,7 @@ namespace Mauve.Serialization
     /// <summary>
     /// Represents a <see cref="SerializationProvider"/> focused on serializing and deserializing data using <see cref="SerializationMethod.Xml"/>.
     /// </summary>
+    /// <inheritdoc/>
     public class XmlSerializationProvider : SerializationProvider
     {
 
