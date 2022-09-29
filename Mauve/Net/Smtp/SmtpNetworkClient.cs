@@ -25,7 +25,7 @@ namespace Mauve.Net.Smtp
 
         #region Constructor
 
-        public SmtpNetworkClient(NetworkConnectionInformation connectionInformation)
+        public SmtpNetworkClient(NetworkConnectionInformation connectionInformation, bool enableSsl)
         {
             // Set properties.
             ConnectionInformation = connectionInformation;
@@ -33,6 +33,7 @@ namespace Mauve.Net.Smtp
             // Create a new raw client.
             _client = new SmtpClient(ConnectionInformation.Host)
             {
+                EnableSsl = enableSsl,
                 UseDefaultCredentials = ConnectionInformation.UseDefaultCredentials,
                 Credentials = ConnectionInformation.Credential
             };
