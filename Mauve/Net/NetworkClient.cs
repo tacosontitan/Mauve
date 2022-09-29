@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
+
+using Mauve.Extensibility;
 
 namespace Mauve.Net
 {
@@ -19,7 +23,9 @@ namespace Mauve.Net
                 statusCode = HttpStatusCode.OK;
             } catch (Exception e)
             {
-                responseMessage = e.Message;
+                IEnumerable<Exception> flattenedExceptionTree = e.Flatten();
+                IEnumerable<string> exeptionMessages = flattenedExceptionTree.Select(exception => exception.Message);
+                responseMessage = string.Join(" ", exeptionMessages);
             }
 
             // Return the network response.
