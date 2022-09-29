@@ -8,6 +8,10 @@ namespace Mauve.Net
     public interface INetworkResponse<T>
     {
         /// <summary>
+        /// Specifies whether the response is considered successful.
+        /// </summary>
+        bool IsSucccessful { get; }
+        /// <summary>
         /// The content of the response.
         /// </summary>
         T Content { get; set; }
