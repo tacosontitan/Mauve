@@ -3,8 +3,8 @@
     /// <summary>
     /// Represents an <see cref="INetworkClient"/> instance capable of executing <see cref="INetworkRequest"/> instances.
     /// </summary>
-    public interface INetworkClient
+    public interface INetworkClient<T> where T : INetworkRequest
     {
-        INetworkResponse Execute(INetworkRequest request);
+        INetworkResponse Execute(T request);
     }
 }
