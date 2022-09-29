@@ -120,6 +120,11 @@ namespace Mauve.Net.Smtp
             _subject = subject;
             return this;
         }
+        public SmtpNetworkRequestBuilder ReplyTo(string address)
+        {
+            _replyToAddresses.Add(new MailAddress(address));
+            return this;
+        }
         public SmtpNetworkRequestBuilder SendTo(string address)
         {
             _toAddresses.Add(new MailAddress(address));
