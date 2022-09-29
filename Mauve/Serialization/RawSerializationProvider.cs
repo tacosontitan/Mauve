@@ -5,6 +5,7 @@ namespace Mauve.Serialization
     /// <summary>
     /// Represents a <see cref="SerializationProvider"/> focused on serializing and deserializing data using <see cref="SerializationMethod.None"/>.
     /// </summary>
+    /// <inheritdoc/>
     internal class RawSerializationProvider : SerializationProvider
     {
 
