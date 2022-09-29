@@ -7,14 +7,20 @@ using Mauve.Extensibility;
 
 namespace Mauve.Net
 {
-    public abstract class NetworkClient<TRequest, TData> : INetworkClient<TRequest, TData> where TRequest : INetworkRequest<TData>
+
+    public abstract class NetworkClient<TRequest, TData> :
+        NetworkClient<TRequest, TData, TData> where TRequest : INetworkRequest<TData>
+    {
+        // This class is up for debate as we're not a big fan of a new class definition with no unique members.
+    }
+    public abstract class NetworkClient<TRequest, TIn, TOut> : INetworkClient<TRequest, TIn, TOut> where TRequest : INetworkRequest<TIn>
     {
 
         #region Public Methods
 
-        public virtual INetworkResponse<TData> Execute(TRequest request)
+        public virtual INetworkResponse<TOut> Execute(TRequest request)
         {
-            TData response = default;
+            TOut response = default;
             HttpStatusCode statusCode = HttpStatusCode.InternalServerError;
             string responseMessage = string.Empty;
             try
@@ -29,7 +35,7 @@ namespace Mauve.Net
             }
 
             // Return the network response.
-            return new NetworkResponse<TData>
+            return new NetworkResponse<TOut>
             {
                 Content = response,
                 StatusCode = statusCode,
@@ -41,7 +47,7 @@ namespace Mauve.Net
 
         #region Protected Methods
 
-        protected abstract TData ExecuteRequest(TRequest request);
+        protected abstract TOut ExecuteRequest(TRequest request);
 
         #endregion
 
