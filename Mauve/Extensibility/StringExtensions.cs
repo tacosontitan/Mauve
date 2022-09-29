@@ -4,6 +4,9 @@ using Mauve.Serialization;
 
 namespace Mauve.Extensibility
 {
+    /// <summary>
+    /// Represents a collection of extension methods for <see cref="string"/> instances.
+    /// </summary>
     public static class StringExtensions
     {
         /// <summary>
