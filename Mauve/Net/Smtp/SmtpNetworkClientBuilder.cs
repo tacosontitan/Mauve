@@ -14,6 +14,7 @@ namespace Mauve.Net.Smtp
 
         #region Fields
 
+        private bool _useSsl;
         private bool _useDefaultCredentials;
         private int _port;
         private string _host;
@@ -60,7 +61,7 @@ namespace Mauve.Net.Smtp
             networkConnectionInfo.Credential = networkCredential;
 
             // Create the network client.
-            return new SmtpNetworkClient(networkConnectionInfo);
+            return new SmtpNetworkClient(networkConnectionInfo, _useSsl);
         }
         public SmtpNetworkClientBuilder UsePort(int port)
         {
@@ -81,6 +82,11 @@ namespace Mauve.Net.Smtp
         public SmtpNetworkClientBuilder UseDomain(string domain)
         {
             _domain = domain;
+            return this;
+        }
+        public SmtpNetworkClientBuilder UseSsl()
+        {
+            _useSsl = true;
             return this;
         }
 
