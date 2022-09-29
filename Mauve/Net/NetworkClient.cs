@@ -7,12 +7,16 @@ using Mauve.Extensibility;
 
 namespace Mauve.Net
 {
-
+    /// <inheritdoc/>
     public abstract class NetworkClient<TRequest, TData> :
         NetworkClient<TRequest, TData, TData> where TRequest : INetworkRequest<TData>
     {
         // This class is up for debate as we're not a big fan of a new class definition with no unique members.
     }
+    /// <summary>
+    /// Represents a <see langword="abstract"/> implementation of <see cref="INetworkClient{TRequest, TIn, TOut}"/> that handles exceptions and response codes natively.
+    /// </summary>
+    /// <inheritdoc/>
     public abstract class NetworkClient<TRequest, TIn, TOut> : INetworkClient<TRequest, TIn, TOut> where TRequest : INetworkRequest<TIn>
     {
 
@@ -47,6 +51,11 @@ namespace Mauve.Net
 
         #region Protected Methods
 
+        /// <summary>
+        /// Executes the specified <see cref="TRequest"/>.
+        /// </summary>
+        /// <param name="request">The request to execute.</param>
+        /// <returns>Returns the appropriate <see cref="TOut"/> instance representing the result of executing the specified <see cref="TRequest"/>.</returns>
         protected abstract TOut ExecuteRequest(TRequest request);
 
         #endregion
