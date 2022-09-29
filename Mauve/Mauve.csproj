@@ -54,9 +54,7 @@
     <Compile Include="Extensibility\Int32Extensions.cs" />
     <Compile Include="Extensibility\StringExtensions.cs" />
     <Compile Include="Net\INetworkClient.cs" />
-    <Compile Include="Net\INetworkClientBuilder.cs" />
     <Compile Include="Net\INetworkRequest.cs" />
-    <Compile Include="Net\INetworkRequestBuilder.cs" />
     <Compile Include="Net\INetworkResponse.cs" />
     <Compile Include="Net\NetworkConnectionInformation.cs" />
     <Compile Include="Net\Smtp\SmtpNetworkClient.cs" />
