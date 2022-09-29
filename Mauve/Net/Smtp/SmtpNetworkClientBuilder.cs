@@ -16,6 +16,7 @@ namespace Mauve.Net.Smtp
 
         private bool _useDefaultCredentials;
         private int _port;
+        private string _host;
         private string _domain;
         private string _username;
         private string _password;
@@ -24,10 +25,7 @@ namespace Mauve.Net.Smtp
 
         #region Constructor
 
-        public SmtpNetworkClientBuilder()
-        {
-
-        }
+        public SmtpNetworkClientBuilder(string host) => _host = host;
 
         #endregion
 
@@ -38,6 +36,7 @@ namespace Mauve.Net.Smtp
             // Create the network information object.
             var networkConnectionInfo = new NetworkConnectionInformation
             {
+                Host = _host,
                 Port = _port,
                 UseDefaultCredentials = _useDefaultCredentials
             };
@@ -61,10 +60,7 @@ namespace Mauve.Net.Smtp
             networkConnectionInfo.Credential = networkCredential;
 
             // Create the network client.
-            return new SmtpNetworkClient
-            {
-                ConnectionInformation = networkConnectionInfo
-            };
+            return new SmtpNetworkClient(networkConnectionInfo);
         }
         public SmtpNetworkClientBuilder UsePort(int port)
         {
