@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Mail;
 using System.Text;
-using System.Threading.Tasks;
 
 using Mauve.Extensibility;
 using Mauve.Patterns;
@@ -12,13 +10,13 @@ using Mauve.Serialization;
 
 namespace Mauve.Net.Smtp
 {
-    public class SmtpNetworkRequestBuilder : IBuilder<SmtpNetworkRequest>
+    public class SmtpNetworkRequestBuilder : IBuilder<SmtpNetworkRequest>, IDisposable
     {
 
         #region Fields
 
         private string _subject;
-        private StringBuilder _bodyBuilder;
+        private readonly StringBuilder _bodyBuilder;
         private readonly Encoding _encoding;
         private readonly MailAddress _fromAddress;
         private readonly List<MailAddress> _toAddresses;
@@ -26,6 +24,7 @@ namespace Mauve.Net.Smtp
         private readonly List<MailAddress> _carbonCopyAddresses;
         private readonly List<MailAddress> _blindCarbonCopyAddresses;
         private readonly List<Attachment> _attachments;
+        private readonly List<MemoryStream> _attachmentMemoryStreams;
         private readonly Dictionary<string, string> _headers;
 
         #endregion
@@ -37,9 +36,11 @@ namespace Mauve.Net.Smtp
             _bodyBuilder = new StringBuilder();
             _encoding = Encoding.UTF8;
             _toAddresses = new List<MailAddress>();
+            _replyToAddresses = new List<MailAddress>();
             _carbonCopyAddresses = new List<MailAddress>();
             _blindCarbonCopyAddresses = new List<MailAddress>();
             _attachments = new List<Attachment>();
+            _attachmentMemoryStreams = new List<MemoryStream>();
             _headers = new Dictionary<string, string>();
         }
         public SmtpNetworkRequestBuilder(string from) : this() =>
@@ -51,6 +52,29 @@ namespace Mauve.Net.Smtp
 
         #region Public Methods
 
+        public SmtpNetworkRequestBuilder Attach(string file)
+        {
+            _attachments.Add(new Attachment(file));
+            return this;
+        }
+        public SmtpNetworkRequestBuilder Attach<T>(string name, T data) => Attach(name, data, SerializationMethod.Json);
+        public SmtpNetworkRequestBuilder Attach<T>(string name, T data, SerializationMethod serializationMethod)
+        {
+            string serializedData = data.Serialize(serializationMethod);
+            var memoryStream = new MemoryStream();
+            using (var streamWriter = new StreamWriter(memoryStream))
+                streamWriter.Write(serializedData);
+
+            string extension = serializationMethod.ToString().ToLowerInvariant();
+            _attachments.Add(new Attachment(memoryStream, $"{name}.{extension}"));
+            _attachmentMemoryStreams.Add(memoryStream);
+            return this;
+        }
+        public SmtpNetworkRequestBuilder BlindCarbonCopy(string address)
+        {
+            _toAddresses.Add(new MailAddress(address));
+            return this;
+        }
         public SmtpNetworkRequest Build()
         {
             // Create the MailMessage object to be sent.
@@ -86,30 +110,6 @@ namespace Mauve.Net.Smtp
             // Create a new network request.
             return new SmtpNetworkRequest(message);
         }
-        public SmtpNetworkRequestBuilder Attach(string file)
-        {
-            _attachments.Add(new Attachment(file));
-            return this;
-        }
-        public SmtpNetworkRequestBuilder Attach<T>(string name, T data) => Attach(name, data, SerializationMethod.Json);
-        public SmtpNetworkRequestBuilder Attach<T>(string name, T data, SerializationMethod serializationMethod)
-        {
-            string serializedData = data.Serialize(serializationMethod);
-            using (var memoryStream = new MemoryStream())
-            {
-                using (var streamWriter = new StreamWriter(memoryStream))
-                    streamWriter.Write(serializedData);
-
-                string extension = serializationMethod.ToString().ToLowerInvariant();
-                _attachments.Add(new Attachment(memoryStream, $"{name}.{extension}"));
-            }
-            return this;
-        }
-        public SmtpNetworkRequestBuilder BlindCarbonCopy(string address)
-        {
-            _toAddresses.Add(new MailAddress(address));
-            return this;
-        }
         public SmtpNetworkRequestBuilder CarbonCopy(string address)
         {
             _toAddresses.Add(new MailAddress(address));
@@ -120,6 +120,7 @@ namespace Mauve.Net.Smtp
             _subject = subject;
             return this;
         }
+        public void Dispose() => _attachmentMemoryStreams.ForEach(memoryStream => memoryStream.Dispose());
         public SmtpNetworkRequestBuilder ReplyTo(string address)
         {
             _replyToAddresses.Add(new MailAddress(address));
