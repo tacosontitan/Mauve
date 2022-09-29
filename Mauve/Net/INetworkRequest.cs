@@ -1,9 +1,13 @@
 ﻿namespace Mauve.Net
 {
     /// <summary>
-    /// Represents an <see cref="INetworkRequest"/> instance utilized for requesting data over a network.
+    /// Represents an <see cref="INetworkRequest{T}"/> instance utilized for requesting data over a network.
     /// </summary>
-    public interface INetworkRequest
+    public interface INetworkRequest<T>
     {
+        /// <summary>
+        /// The data for this specific request.
+        /// </summary>
+        T Data { get; set; }
     }
 }
