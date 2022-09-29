@@ -3,6 +3,9 @@
     /// <summary>
     /// Represents an <see cref="INetworkClient{TRequest, TIn, TOut}"/> instance capable of executing <see cref="INetworkRequest{TIn}"/> instances.
     /// </summary>
+    /// <typeparam name="TRequest">The type of rquest this client executes.</typeparam>
+    /// <typeparam name="TIn">The type of data the request uses.</typeparam>
+    /// <typeparam name="TOut">The type of data returned by executing the request.</typeparam>
     public interface INetworkClient<TRequest, TIn, TOut> where TRequest : INetworkRequest<TIn>
     {
         /// <summary>
