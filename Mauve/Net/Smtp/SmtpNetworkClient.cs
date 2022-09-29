@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mauve.Net.Smtp
 {
-    public class SmtpNetworkClient : INetworkClient, IDisposable
+    public class SmtpNetworkClient : INetworkClient<SmtpNetworkRequest>, IDisposable
     {
 
         #region Fields
@@ -46,7 +46,7 @@ namespace Mauve.Net.Smtp
         #region Public Methods
 
         public void Dispose() => _client?.Dispose();
-        public INetworkResponse Execute(INetworkRequest request)
+        public INetworkResponse Execute(SmtpNetworkRequest request)
         {
             return null;
         }
