@@ -1,9 +1,12 @@
-﻿namespace Mauve.Net
+﻿using MauvePatterns;
+
+namespace Mauve.Net
 {
     /// <summary>
     /// Represents an <see cref="INetworkClientBuilder"/> instance capable of building <see cref="INetworkClient"/> instances.
     /// </summary>
-    public interface INetworkClientBuilder
+    public interface INetworkClientBuilder<T> : IBuilder<T> where T : INetworkClient
     {
+
     }
 }
