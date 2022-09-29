@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Mauve.Patterns;
+
 namespace Mauve.Net.Smtp
 {
-    internal class SmtpNetworkRequestBuilder : INetworkRequestBuilder<SmtpNetworkRequest>
+    internal class SmtpNetworkRequestBuilder : IBuilder<SmtpNetworkRequest>
     {
 
         #region Fields
