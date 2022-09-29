@@ -1,4 +1,4 @@
-﻿using MauvePatterns;
+﻿using Mauve.Patterns;
 
 namespace Mauve.Net
 {
