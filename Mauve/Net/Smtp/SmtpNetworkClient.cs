@@ -12,7 +12,7 @@ namespace Mauve.Net.Smtp
 
         #region Fields
 
-        private SmtpClient _client;
+        private readonly SmtpClient _client;
 
         #endregion
 
