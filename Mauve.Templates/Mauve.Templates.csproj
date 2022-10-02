@@ -41,7 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\FlagEnumTemplate.cs" />
+    <Compile Include="Core\EnumTemplate.cs" />
+    <Compile Include="Core\InterfaceTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\StandardizedStructTemplate.cs" />
+    <Compile Include="Core\StandardizedClassTemplate.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
