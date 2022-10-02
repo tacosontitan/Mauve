@@ -75,6 +75,7 @@
     <Compile Include="Net\Sql\SqlNetworkRequest.cs" />
     <Compile Include="Net\Sql\SqlNetworkRequestBuilder.cs" />
     <Compile Include="Numerics\NumericBase.cs" />
+    <Compile Include="Patterns\Handler.cs" />
     <Compile Include="Patterns\IBuilder.cs" />
     <Compile Include="Patterns\IFactory.cs" />
     <Compile Include="Patterns\IMediator.cs" />
