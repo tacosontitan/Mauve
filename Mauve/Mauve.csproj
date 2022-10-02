@@ -54,6 +54,8 @@
     <Compile Include="Extensibility\IEnumerableExtensions.cs" />
     <Compile Include="Extensibility\Int32Extensions.cs" />
     <Compile Include="Extensibility\StringExtensions.cs" />
+    <Compile Include="IExecutableT.cs" />
+    <Compile Include="IExecutable.cs" />
     <Compile Include="Net\Api\RestNetworkClient.cs" />
     <Compile Include="Net\Api\RestNetworkRequest.cs" />
     <Compile Include="Net\Api\SoapNetworkClient.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="Net\Sql\SqlNetworkRequest.cs" />
     <Compile Include="Net\Sql\SqlNetworkRequestBuilder.cs" />
     <Compile Include="Numerics\NumericBase.cs" />
+    <Compile Include="Patterns\Handler.cs" />
     <Compile Include="Patterns\IBuilder.cs" />
     <Compile Include="Patterns\IFactory.cs" />
     <Compile Include="Patterns\IMediator.cs" />
