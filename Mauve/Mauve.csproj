@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="AliasAttribute.cs" />
     <Compile Include="DateFormat.cs" />
+    <Compile Include="EventType.cs" />
     <Compile Include="Extensibility\DateTimeExtensions.cs" />
     <Compile Include="Extensibility\ExceptionExtensions.cs" />
     <Compile Include="Extensibility\GenericExtensions.cs" />
@@ -81,6 +82,12 @@
     <Compile Include="Patterns\IMediator.cs" />
     <Compile Include="Patterns\IMediatorClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Runtime\EventMessageConsoleLogger.cs" />
+    <Compile Include="Runtime\EventMessageFileLogger.cs" />
+    <Compile Include="Runtime\EventMessageLogger.cs" />
+    <Compile Include="Runtime\ILogger.cs" />
+    <Compile Include="Runtime\EventMessage.cs" />
+    <Compile Include="Runtime\EventMessageSmtpLogger.cs" />
     <Compile Include="Security\CryptographyProvider.cs" />
     <Compile Include="Security\RijndaelCryptographyProvider.Constructors.cs" />
     <Compile Include="Security\RijndaelCryptographyProvider.cs" />
