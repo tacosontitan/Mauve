@@ -23,10 +23,16 @@
 					<ButtonText>Standardize</ButtonText>
 				</Strings>
 			</Button>
-			<Button guid="guidVisualStudioCommunityPackageCmdSet" id="CopyUnixNowId" priority="0x0100" type="Button">
+			<Button guid="guidVisualStudioCommunityPackageCmdSet" id="CopyUnixNowId" priority="0x0101" type="Button">
 				<Parent guid="guidVisualStudioCommunityPackageCmdSet" id="MyMenuGroup" />
 				<Strings>
 					<ButtonText>Copy Unix Milliseconds</ButtonText>
+				</Strings>
+			</Button>
+			<Button guid="guidVisualStudioCommunityPackageCmdSet" id="RegionalizeId" priority="0x0102" type="Button">
+				<Parent guid="guidVisualStudioCommunityPackageCmdSet" id="MyMenuGroup" />
+				<Strings>
+					<ButtonText>Regionalize</ButtonText>
 				</Strings>
 			</Button>
 		</Buttons>
@@ -38,6 +44,7 @@
 			<IDSymbol name="TopLevelMenu" value="0x1021" />
 			<IDSymbol name="StandardizeId" value="0x0100" />
 			<IDSymbol name="CopyUnixNowId" value="0x0101" />
+			<IDSymbol name="RegionalizeId" value="0x0102" />
 		</GuidSymbol>
 		<GuidSymbol name="guidImages" value="{0a1196f5-d8cc-4eba-acde-250598d385a1}">
 			<IDSymbol name="bmpPic1" value="1" />
