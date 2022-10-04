@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mauve.Net.Sql
 {
-    internal class SqlNetworkRequest
+    public class SqlNetworkRequest
     {
     }
 }
