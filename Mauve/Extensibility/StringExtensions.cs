@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Mauve.Serialization;
+using Mauve.Text;
 
 namespace Mauve.Extensibility
 {
@@ -63,6 +64,20 @@ namespace Mauve.Extensibility
 
             // Return whether or not the input string is equal to the comparison string, with respect to the comparison type.
             return input?.Equals(target, comparisonType) == true;
+        }
+        /// <summary>
+        /// Replaces <see cref="Lexicon"/> instances within an input string.
+        /// </summary>
+        /// <param name="input">The input string to replace lexicons in.</param>
+        /// <param name="lexicons">The lexicons to replace.</param>
+        /// <returns>Returns the input string with all present <see cref="Lexicon"/> tokens replaced with their values.</returns>
+        public static string Replace(this string input, params Lexicon[] lexicons)
+        {
+            string result = input;
+            foreach (Lexicon lexicon in lexicons)
+                result = result.Replace(lexicon.Token, lexicon.Value.ToString());
+
+            return result;
         }
     }
 }
