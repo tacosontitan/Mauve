@@ -75,7 +75,7 @@
     <Compile Include="Net\Sql\SqlNetworkClientBuilder.cs" />
     <Compile Include="Net\Sql\SqlNetworkRequest.cs" />
     <Compile Include="Net\Sql\SqlNetworkRequestBuilder.cs" />
-    <Compile Include="Numerics\NumericBase.cs" />
+    <Compile Include="Math\NumericBase.cs" />
     <Compile Include="Patterns\Handler.cs" />
     <Compile Include="Patterns\IBuilder.cs" />
     <Compile Include="Patterns\IFactory.cs" />
@@ -100,7 +100,11 @@
     <Compile Include="Serialization\SerializationProvider.cs" />
     <Compile Include="Serialization\XmlSerializationProvider.cs" />
     <Compile Include="Serialization\YamlSerializationProvider.cs" />
+    <Compile Include="Text\Lexicon.cs" />
     <Compile Include="Text\SubstringQueue.cs" />
+    <Compile Include="Validation\IValidator.cs" />
+    <Compile Include="Validation\NotAuthorizedException.cs" />
+    <Compile Include="Validation\NotFoundException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
