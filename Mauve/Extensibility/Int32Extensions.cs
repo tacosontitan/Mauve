@@ -1,6 +1,6 @@
 ﻿using System;
 
-using Mauve.Numerics;
+using Mauve.Math;
 
 namespace Mauve.Extensibility
 {
