@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using Mauve.Extensibility;
-using Mauve.Numerics;
+using Mauve.Math;
 using Mauve.Serialization;
 
 namespace Mauve.Security
