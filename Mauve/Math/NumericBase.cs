@@ -1,4 +1,4 @@
-﻿namespace Mauve.Numerics
+﻿namespace Mauve.Math
 {
     /// <summary>
     /// Represents a <see cref="NumericBase"/> for specification of base.
