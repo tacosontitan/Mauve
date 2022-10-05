@@ -12,25 +12,25 @@
 			</Menu>
 		</Menus>
 		<Groups>
-			<Group guid="guidVisualStudioCommunityPackageCmdSet" id="MyMenuGroup" priority="0x0600">
+			<Group guid="guidVisualStudioCommunityPackageCmdSet" id="MainGroup" priority="0x0600">
 				<Parent guid="guidVisualStudioCommunityPackageCmdSet" id="TopLevelMenu" />
 			</Group>
 		</Groups>
 		<Buttons>
 			<Button guid="guidVisualStudioCommunityPackageCmdSet" id="StandardizeId" priority="0x0100" type="Button">
-				<Parent guid="guidVisualStudioCommunityPackageCmdSet" id="MyMenuGroup" />
+				<Parent guid="guidVisualStudioCommunityPackageCmdSet" id="MainGroup" />
 				<Strings>
 					<ButtonText>Standardize</ButtonText>
 				</Strings>
 			</Button>
 			<Button guid="guidVisualStudioCommunityPackageCmdSet" id="CopyUnixNowId" priority="0x0101" type="Button">
-				<Parent guid="guidVisualStudioCommunityPackageCmdSet" id="MyMenuGroup" />
+				<Parent guid="guidVisualStudioCommunityPackageCmdSet" id="MainGroup" />
 				<Strings>
 					<ButtonText>Copy Unix Milliseconds</ButtonText>
 				</Strings>
 			</Button>
 			<Button guid="guidVisualStudioCommunityPackageCmdSet" id="RegionalizeId" priority="0x0102" type="Button">
-				<Parent guid="guidVisualStudioCommunityPackageCmdSet" id="MyMenuGroup" />
+				<Parent guid="guidVisualStudioCommunityPackageCmdSet" id="MainGroup" />
 				<Strings>
 					<ButtonText>Regionalize</ButtonText>
 				</Strings>
@@ -40,7 +40,7 @@
 	<Symbols>
 		<GuidSymbol name="guidVisualStudioCommunityPackage" value="{c75916e7-e57a-4b9f-94b5-0720adc69dd3}" />
 		<GuidSymbol name="guidVisualStudioCommunityPackageCmdSet" value="{7a54043a-2ca9-4ec1-8313-712c01c181ad}">
-			<IDSymbol name="MyMenuGroup" value="0x1020" />
+			<IDSymbol name="MainGroup" value="0x1020" />
 			<IDSymbol name="TopLevelMenu" value="0x1021" />
 			<IDSymbol name="StandardizeId" value="0x0100" />
 			<IDSymbol name="CopyUnixNowId" value="0x0101" />

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="Mauve.e965b14e-5222-4d44-8451-932d88aa2269" Version="0.0.0.6" Language="en-US" Publisher="tacosontitan" />
+        <Identity Id="Mauve.e965b14e-5222-4d44-8451-932d88aa2269" Version="0.0.0.7" Language="en-US" Publisher="tacosontitan" />
         <DisplayName>Mauve</DisplayName>
         <Description xml:space="preserve">From basic extension methods to complete implementations of design patterns, Mauve offers a colorful suite of functionality for utilization in even the grandest applications. Grab a brush and join us!</Description>
         <Icon>mauve-banner.png</Icon>
