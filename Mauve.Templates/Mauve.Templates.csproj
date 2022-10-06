@@ -45,6 +45,7 @@
     <Compile Include="Core\EnumTemplate.cs" />
     <Compile Include="Core\InterfaceTemplate.cs" />
     <Compile Include="Patterns\BuilderTemplate.cs" />
+    <Compile Include="Patterns\CommandTemplate.cs" />
     <Compile Include="Patterns\FactoryTemplate.cs" />
     <Compile Include="Patterns\HandlerTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
