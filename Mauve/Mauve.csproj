@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <HintPath>..\..\..\nuget\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -76,6 +79,7 @@
     <Compile Include="Net\Sql\SqlNetworkRequest.cs" />
     <Compile Include="Net\Sql\SqlNetworkRequestBuilder.cs" />
     <Compile Include="Math\NumericBase.cs" />
+    <Compile Include="Patterns\DependencyDescriptor.cs" />
     <Compile Include="Patterns\Handler.cs" />
     <Compile Include="Patterns\IBuilder.cs" />
     <Compile Include="Patterns\IFactory.cs" />
@@ -88,6 +92,7 @@
     <Compile Include="Runtime\ILogger.cs" />
     <Compile Include="Runtime\EventMessage.cs" />
     <Compile Include="Runtime\EventMessageSmtpLogger.cs" />
+    <Compile Include="Patterns\IDependencyCollection.cs" />
     <Compile Include="Security\CryptographyProvider.cs" />
     <Compile Include="Security\RijndaelCryptographyProvider.Constructors.cs" />
     <Compile Include="Security\RijndaelCryptographyProvider.cs" />
