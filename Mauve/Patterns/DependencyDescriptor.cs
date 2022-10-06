@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mauve.Patterns
+﻿namespace Mauve.Patterns
 {
+    /// <summary>
+    /// Represents a <see langword="class"/> that descibes a dependency.
+    /// </summary>
     public class DependencyDescriptor
     {
+        /// <summary>
+        /// The identifier used to describe the dependency.
+        /// </summary>
         public string Identifier { get; set; }
+        /// <summary>
+        /// The value of the dependency being described.
+        /// </summary>
         public object Value { get; set; }
     }
 }
