@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mauve.Patterns
+﻿namespace Mauve.Patterns
 {
-    internal interface ICommand
+    /// <summary>
+    /// Represents an <see langword="interface"/> that exposes methods for executing and rolling back commands.
+    /// </summary>
+    /// <remarks>Derives from <see cref="IExecutable"/>.</remarks>
+    internal interface ICommand : IExecutable
     {
+        /// <summary>
+        /// Performs a rollback operation for the command.
+        /// </summary>
+        void Rollback();
     }
 }
