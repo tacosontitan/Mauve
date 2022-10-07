@@ -94,6 +94,7 @@
     <Compile Include="Runtime\EventMessage.cs" />
     <Compile Include="Runtime\EventMessageSmtpLogger.cs" />
     <Compile Include="Patterns\IDependencyCollection.cs" />
+    <Compile Include="Security\CaesarCryptographyProvider.cs" />
     <Compile Include="Security\CryptographyProvider.cs" />
     <Compile Include="Security\RijndaelCryptographyProvider.Constructors.cs" />
     <Compile Include="Security\RijndaelCryptographyProvider.cs" />
