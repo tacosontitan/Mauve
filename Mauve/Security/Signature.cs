@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-
-using Mauve.Extensibility;
-using Mauve.Math;
-using Mauve.Serialization;
 
 namespace Mauve.Security
 {
@@ -14,12 +9,6 @@ namespace Mauve.Security
     /// <typeparam name="T">The type of data acting as the signing authority for the signature.</typeparam>
     public abstract class Signature<T> : IEquatable<Signature<T>>
     {
-
-        #region Fields
-
-        private readonly Guid _noise;
-
-        #endregion
 
         #region Properties
 
@@ -43,11 +32,7 @@ namespace Mauve.Security
         /// <summary>
         /// Creates a new <see cref="Signature{T}"/> instance.
         /// </summary>
-        public Signature()
-        {
-            _noise = Guid.NewGuid();
-            AdditionalInformation = new Dictionary<string, object>();
-        }
+        public Signature() => AdditionalInformation = new Dictionary<string, object>();
         /// <summary>
         /// Creates a new <see cref="Signature{T}"/> instance using the specified authority.
         /// </summary>
@@ -73,31 +58,10 @@ namespace Mauve.Security
         /// </summary>
         /// <param name="other">The <see cref="Signature{T}"/> instance to compare the current instance to.</param>
         /// <returns>Returns <see langword="true"/> if the current instance is equal to the specified <see cref="Signature{T}"/>, otherwise <see langword="false"/>.</returns>
-        public bool Equals(Signature<T> other)
-        {
-            byte[] currentValue = CalculateValue();
-            byte[] otherValue = other?.CalculateValue();
-            return currentValue?.Equals(otherValue) == true;
-        }
-
-        #endregion
-
-        #region Protected Methods
-
-        /// <summary>
-        /// Calculates a serialized and encoded value of the <see cref="Signature{T}"/>.
-        /// </summary>
-        /// <returns>Returns a  representing the serialized and encoded value of the <see cref="Signature{T}"/>.</returns>
-        protected virtual byte[] CalculateValue()
-        {
-            string hexadecimalNoise = _noise.GetHashCode().ToString(NumericBase.Hexadecimal);
-            string separator = $"{{{{{hexadecimalNoise}}}}}";
-            string serializedAuthority = Authority.Serialize(SerializationMethod.Json);
-            string serializedTimestamp = Timestamp?.ToString(DateFormat.Iso8601);
-            string serializedInformation = AdditionalInformation.Serialize(SerializationMethod.Json);
-            string rawValue = string.Join(separator, serializedAuthority, serializedTimestamp, serializedInformation);
-            return Encoding.Unicode.GetBytes(rawValue);
-        }
+        public bool Equals(Signature<T> other) =>
+            Authority.Equals(other.Authority) &&
+            Timestamp.Equals(other.Timestamp) &&
+            AdditionalInformation.Equals(other.AdditionalInformation);
 
         #endregion
 
