@@ -4,10 +4,10 @@ using System.Collections.Generic;
 namespace Mauve.Security
 {
     /// <summary>
-    /// Represents a <see cref="Signature{T}"/>
+    /// Represents a <see cref="Signature{T}"/>.
     /// </summary>
     /// <typeparam name="T">The type of data acting as the signing authority for the signature.</typeparam>
-    public abstract class Signature<T> : IEquatable<Signature<T>>
+    public class Signature<T> : IEquatable<Signature<T>>
     {
 
         #region Properties
