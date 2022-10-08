@@ -1,4 +1,5 @@
 ﻿
+using Mauve.Math;
 using Mauve.Serialization;
 
 namespace Mauve.Extensibility
@@ -11,6 +12,15 @@ namespace Mauve.Extensibility
 
         #region Public Methods
 
+        /// <summary>
+        /// Gets the hash code of the input in the specified <see cref="NumericBase"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of the input.</typeparam>
+        /// <param name="input">The input to get the hash code of.</param>
+        /// <param name="numericBase">The <see cref="NumericBase"/> to return the hash code in.</param>
+        /// <returns>Returns the hash code of the specified input in the specified <see cref="NumericBase"/>.</returns>
+        public static string GetHashCode<T>(this T input, NumericBase numericBase) =>
+            input.GetHashCode().ToString(numericBase);
         /// <summary>
         /// Serializes the current state of the specified input utilizing the specified <see cref="SerializationMethod"/>.
         /// </summary>
