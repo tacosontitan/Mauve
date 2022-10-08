@@ -4,7 +4,7 @@ using YamlDotNet.Serialization.NamingConventions;
 namespace Mauve.Serialization
 {
     /// <summary>
-    /// Represents a <see cref="SerializationProvider"/> focused on serializing and deserializing data using <see cref="SerializationMethod.Json"/>.
+    /// Represents a <see cref="SerializationProvider"/> focused on serializing and deserializing data using <see cref="SerializationMethod.Yaml"/>.
     /// </summary>
     /// <inheritdoc/>
     internal class YamlSerializationProvider : SerializationProvider
@@ -38,7 +38,9 @@ namespace Mauve.Serialization
 
         #region Public Methods
 
+        /// <inheritdoc/>
         public override T Deserialize<T>(string input) => _deserializer.Deserialize<T>(input);
+        /// <inheritdoc/>
         public override string Serialize<T>(T input) => _serializer.Serialize(input);
 
         #endregion
