@@ -28,6 +28,8 @@ Here you can find the most recent release notes for each Mauve product.
  - Visual Studio Community: 🐣 Pre-Release
  - Visual Studio Code: 🐣 Pre-Release
 
+---
+
  <p align="center">
 
 <a href="https://github.com/tacosontitan/Mauve" target="_blank" rel="noreferrer">
