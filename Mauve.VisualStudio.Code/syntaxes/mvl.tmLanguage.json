@@ -4,28 +4,14 @@
 	"patterns": [
 		{
 			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
 		}
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
-				"name": "keyword.control.mvl",
-				"match": "\\b(if|while|for|return)\\b"
+				"name": "keyword.mvl",
+				"match": "(?i)(exception|error|warning|success)"
 			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.mvl",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.mvl",
-					"match": "\\\\."
-				}
-			]
 		}
 	},
 	"scopeName": "source.mvl"
