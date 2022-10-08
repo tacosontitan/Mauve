@@ -1,7 +1,7 @@
 ﻿namespace Mauve.Patterns
 {
     /// <summary>
-    /// Represents an <see cref="interface"/> that exposes and input for interpretation to an output.
+    /// Represents an <see langword="interface"/> that exposes and input for interpretation to an output.
     /// </summary>
     /// <typeparam name="TIn">The type of data for the input.</typeparam>
     /// <typeparam name="TOut">The type of data for the output.</typeparam>
