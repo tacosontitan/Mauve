@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Mauve.Extensibility;
 using Mauve.Serialization;
@@ -25,6 +21,10 @@ namespace Mauve.Security
 
         #region Constructor
 
+        /// <summary>
+        /// Creates a new <see cref="CaesarCryptographyProvider"/> instance using the specified shift.
+        /// </summary>
+        /// <param name="shift">The shift that the cipher should use.</param>
         public CaesarCryptographyProvider(int shift) =>
             _shift = shift;
 
@@ -32,6 +32,7 @@ namespace Mauve.Security
 
         #region Public Methods
 
+        /// <inheritdoc/>
         public override T Decrypt<T>(string input)
         {
             // If no shift is present then simply deserialize.
@@ -40,7 +41,9 @@ namespace Mauve.Security
 
             return default;
         }
+        /// <inheritdoc/>
         public override void Dispose() => throw new NotImplementedException();
+        /// <inheritdoc/>
         public override string Encrypt<T>(T input)
         {
             // Serialize the data so we can perform the cipher over the input regardless of type.
