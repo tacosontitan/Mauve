@@ -13,7 +13,7 @@ namespace Mauve.Security
     /// Represents a <see cref="CryptographyProvider"/> implementation of the Caesar cipher.
     /// </summary>
     /// <inheritdoc/>
-    internal class CaesarCryptographyProvider : CryptographyProvider
+    public class CaesarCryptographyProvider : CryptographyProvider
     {
 
         #region Fields
