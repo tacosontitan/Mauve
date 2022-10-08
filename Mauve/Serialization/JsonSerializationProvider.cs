@@ -29,8 +29,12 @@ namespace Mauve.Serialization
 
         #region Public Methods
 
-        public override T Deserialize<T>(string input) => JsonConvert.DeserializeObject<T>(input, Settings);
-        public override string Serialize<T>(T input) => JsonConvert.SerializeObject(input, Settings);
+        /// <inheritdoc/>
+        public override T Deserialize<T>(string input) =>
+            JsonConvert.DeserializeObject<T>(input, Settings);
+        /// <inheritdoc/>
+        public override string Serialize<T>(T input) =>
+            JsonConvert.SerializeObject(input, Settings);
 
         #endregion
 
