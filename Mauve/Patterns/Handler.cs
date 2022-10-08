@@ -11,7 +11,7 @@ namespace Mauve.Patterns
         #region Fields
 
         private readonly T _request;
-        private readonly Handler<T> _nextHandler;
+        private Handler<T> _nextHandler;
 
         #endregion
 
@@ -38,6 +38,13 @@ namespace Mauve.Patterns
 
             await Task.CompletedTask;
         }
+
+        #endregion
+
+        #region Internal Methods
+
+        internal void SetNextHandler(Handler<T> handler) =>
+            _nextHandler = handler;
 
         #endregion
 
