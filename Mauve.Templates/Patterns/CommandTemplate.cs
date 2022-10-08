@@ -17,7 +17,9 @@ namespace $rootnamespace$
 
         #region Public Methods
 
+        /// <inheritdoc/>
         public void Execute() => throw new NotImplementedException();
+        /// <inheritdoc/>
         public void Rollback() => throw new NotImplementedException();
 
         #endregion
