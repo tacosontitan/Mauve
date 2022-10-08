@@ -14,6 +14,9 @@ namespace Mauve.Serialization
 
         #region Properties
 
+        /// <summary>
+        /// The <see cref="System.Text.Encoding"/> the data should be serialized and deserialized with.
+        /// </summary>
         public Encoding Encoding { get; private set; }
 
         #endregion
@@ -35,6 +38,7 @@ namespace Mauve.Serialization
 
         #region Public Methods
 
+        /// <inheritdoc/>
         public override T Deserialize<T>(string input)
         {
             byte[] decodedInput = Encoding.GetBytes(input);
@@ -47,6 +51,7 @@ namespace Mauve.Serialization
                 return (T)Convert.ChangeType(deserializedObject, typeof(T));
             }
         }
+        /// <inheritdoc/>
         public override string Serialize<T>(T input)
         {
             byte[] serializedBytes = null;
