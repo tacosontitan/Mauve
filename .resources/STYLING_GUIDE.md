@@ -46,7 +46,7 @@ Expression bodied methods should be use wherever possible. However, the contents
  - ✅ DO move expressions to a new line in constructors.
  - ✅ DO move expressions to a new line in methods.
 
- <sub>ℹ️ *Exception: Expressions may violate the above rules in the case of word-wrap or runoff.*</sub>
+ <sub>ℹ️ *Expressions may violate the above rules in the case of word-wrap or runoff.*</sub>
 
  ```csharp
  public bool AlwaysTrue => true;
