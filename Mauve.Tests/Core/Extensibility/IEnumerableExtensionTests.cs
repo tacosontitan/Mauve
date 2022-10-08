@@ -32,10 +32,16 @@ namespace Mauve.Tests.Core.Extensibility
         [DataRow(new int[] { 2, 3, 5, 7 }, 2, 3)]
         [DataRow(new int[] { 2, 3, 5, 7 }, 3, 5)]
         [DataRow(new int[] { 2, 3, 5, 7 }, 5, 7)]
+        [DataRow(new int[] { 2, 3, 5, 7 }, 7, -1)]
+        [DataRow(new int[] { 2, 3, 5, 7 }, 9, -1)]
         public void Next(IEnumerable<int> inputCollection, int searchValue, int expectedResult)
         {
-            int next = inputCollection.Next(searchValue);
-            Assert.AreEqual(expectedResult, next);
+            int result = -1;
+            try
+            {
+                result = inputCollection.Next(searchValue);
+            } catch { /* Gracefully ignore. */ }
+            Assert.AreEqual(expectedResult, result);
         }
     }
 }
