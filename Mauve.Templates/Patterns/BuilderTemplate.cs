@@ -17,6 +17,7 @@ namespace $rootnamespace$
 
         #region Public Methods
 
+        /// <inheritdoc/>
         public T Build() => throw new NotImplementedException();
 
         #endregion
