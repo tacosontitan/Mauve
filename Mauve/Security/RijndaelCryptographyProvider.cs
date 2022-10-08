@@ -419,6 +419,7 @@ namespace Mauve.Security
         /// <param name="paddingMode">The <see cref="PaddingMode"/> used in the symmetric algorithm.</param>
         public RijndaelCryptographyProvider(string password, byte[] salt, int pseudoByteCount, byte[] initializationVector, Encoding encoding, CipherMode cipherMode, PaddingMode paddingMode)
         {
+            AppendIv = true;
             using (var pdb = new PasswordDeriveBytes(password, salt))
                 Initialize(pdb.GetBytes(pseudoByteCount), initializationVector, encoding, cipherMode, paddingMode);
         }
@@ -443,9 +444,14 @@ namespace Mauve.Security
             {
                 // Read the initialization vector from the stream.
                 byte[] iv = new byte[16];
-                int offset = 0;
-                while (offset < iv.Length)
-                    offset += memoryStream.Read(iv, offset, iv.Length - offset);
+
+                if (AppendIv)
+                {
+                    int offset = 0;
+                    while (offset < iv.Length)
+                        offset += memoryStream.Read(iv, offset, iv.Length - offset);
+                } else
+                    iv = InitializationVector;
 
                 // Set the initialization vector and key.
                 using (var cryptoStream = new CryptoStream(memoryStream, _managedRijndael.CreateDecryptor(Key, iv), CryptoStreamMode.Read))
@@ -460,7 +466,9 @@ namespace Mauve.Security
         {
             using (var memoryStream = new MemoryStream())
             {
-                memoryStream.Write(InitializationVector, 0, InitializationVector.Length);
+                if (AppendIv)
+                    memoryStream.Write(InitializationVector, 0, InitializationVector.Length);
+
                 using (var cryptoStream = new CryptoStream(memoryStream, _encryptionTransform, CryptoStreamMode.Write))
                 {
                     // Get the raw data and write it to the stream.
