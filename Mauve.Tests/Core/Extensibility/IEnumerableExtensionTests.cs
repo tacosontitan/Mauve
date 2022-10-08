@@ -28,5 +28,14 @@ namespace Mauve.Tests.Core.Extensibility
             int index = inputCollection.IndexOf(searchValue);
             Assert.AreEqual(expectedResult, index);
         }
+        [TestMethod()]
+        [DataRow(new int[] { 2, 3, 5, 7 }, 2, 3)]
+        [DataRow(new int[] { 2, 3, 5, 7 }, 3, 5)]
+        [DataRow(new int[] { 2, 3, 5, 7 }, 5, 7)]
+        public void Next(IEnumerable<int> inputCollection, int searchValue, int expectedResult)
+        {
+            int index = inputCollection.Next(searchValue);
+            Assert.AreEqual(expectedResult, index);
+        }
     }
 }
