@@ -23,6 +23,7 @@ namespace Mauve.Serialization
 
         #region Public Methods
 
+        /// <inheritdoc/>
         public override T Deserialize<T>(string input)
         {
             using (var stringReader = new StringReader(input))
@@ -35,6 +36,7 @@ namespace Mauve.Serialization
                 }
             }
         }
+        /// <inheritdoc/>
         public override string Serialize<T>(T input)
         {
             using (var textWriter = new StringWriter())
