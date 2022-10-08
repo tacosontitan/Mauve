@@ -76,5 +76,21 @@ namespace Mauve.Tests.Core.Extensibility
             } catch { /* Gracefully ignore. */ }
             Assert.AreEqual(expectedResult, result);
         }
+        [TestMethod()]
+        [DataRow(new int[] { 2, 3, 5, 7 }, 2, 0)]
+        [DataRow(new int[] { 2, 3, 5, 7 }, 3, 2)]
+        [DataRow(new int[] { 2, 3, 5, 7 }, 5, 3)]
+        [DataRow(new int[] { 2, 3, 5, 7 }, 7, 5)]
+        [DataRow(new int[] { 2, 3, 5, 7 }, 9, 0)]
+        [DataRow(null, 9, 0)]
+        public void PreviousOrDefault(IEnumerable<int> inputCollection, int searchValue, int expectedResult)
+        {
+            int result = -1;
+            try
+            {
+                result = inputCollection.PreviousOrDefault(searchValue);
+            } catch { /* Gracefully ignore. */ }
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }
