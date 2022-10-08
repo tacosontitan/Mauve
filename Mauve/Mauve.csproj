@@ -105,6 +105,7 @@
     <Compile Include="Patterns\IDependencyCollection.cs" />
     <Compile Include="Security\CaesarCryptographyProvider.cs" />
     <Compile Include="Security\CryptographyProvider.cs" />
+    <Compile Include="Security\ITokenBuilder.cs" />
     <Compile Include="Security\RijndaelCryptographyProvider.cs" />
     <Compile Include="Security\Signature.cs" />
     <Compile Include="Security\Signed.cs" />
