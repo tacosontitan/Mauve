@@ -34,8 +34,8 @@ namespace Mauve.Tests.Core.Extensibility
         [DataRow(new int[] { 2, 3, 5, 7 }, 5, 7)]
         public void Next(IEnumerable<int> inputCollection, int searchValue, int expectedResult)
         {
-            int index = inputCollection.Next(searchValue);
-            Assert.AreEqual(expectedResult, index);
+            int next = inputCollection.Next(searchValue);
+            Assert.AreEqual(expectedResult, next);
         }
     }
 }
