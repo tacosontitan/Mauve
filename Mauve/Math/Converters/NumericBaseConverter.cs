@@ -1,12 +1,30 @@
 ﻿using System;
 
-namespace Mauve.Math
+namespace Mauve.Math.Converters
 {
     /// <summary>
     /// Represents a simplified interface for converting between different values of <see cref="NumericBase"/>.
     /// </summary>
     public abstract class NumericBaseConverter
     {
+
+        #region Properties
+
+        /// <summary>
+        /// The core converter.
+        /// </summary>
+        protected DecimalConverter CoreConverter { get; set; }
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Creates a new instance of <see cref="NumericBaseConverter"/>.
+        /// </summary>
+        public NumericBaseConverter() => CoreConverter = new DecimalConverter();
+
+        #endregion
 
         #region Public Methods
 
@@ -18,6 +36,8 @@ namespace Mauve.Math
         /// <returns>Returns the specified <paramref name="input"/> converted from the specified <see cref="NumericBase"/>.</returns>
         /// <exception cref="ArgumentNullException">Thrown if the specified <paramref name="input"/> is null or whitespace.</exception>
         /// <exception cref="NotSupportedException">Thrown if the specified <see cref="NumericBase"/> is not supported.</exception>
+        /// <exception cref="FormatException"><paramref name="input"/> is not in the correct format.</exception>
+        /// <exception cref="OverflowException"><paramref name="input"/> represents a number less than <see cref="long.MinValue"/> or greater than <see cref="long.MaxValue"/>.</exception>
         public string From(NumericBase numericBase, string input)
         {
             // Validate the input.
@@ -53,6 +73,8 @@ namespace Mauve.Math
         /// <returns>Returns the specified <paramref name="input"/> converted to the specified <see cref="NumericBase"/>.</returns>
         /// <exception cref="ArgumentNullException">Thrown if the specified <paramref name="input"/> is null or whitespace.</exception>
         /// <exception cref="NotSupportedException">Thrown if the specified <see cref="NumericBase"/> is not supported.</exception>
+        /// <exception cref="FormatException"><paramref name="input"/> is not in the correct format.</exception>
+        /// <exception cref="OverflowException"><paramref name="input"/> represents a number less than <see cref="long.MinValue"/> or greater than <see cref="long.MaxValue"/>.</exception>
         public string To(NumericBase numericBase, string input)
         {
             // Validate the input.
