@@ -7,6 +7,9 @@
     "vscode": "^1.71.0"
   },
   "categories": [
+    "Extension Packs",
+    "Language Packs",
+    "Programming Languages",
     "Other"
   ],
   "activationEvents": [
@@ -19,7 +22,18 @@
         "command": "mauve.helloWorld",
         "title": "Hello World"
       }
-    ]
+    ],
+    "languages": [{
+      "id": "mvl",
+      "aliases": ["Mauve Log", "mvl"],
+      "extensions": [".mvl",".log",".mvlog"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "mvl",
+      "scopeName": "source.mvl",
+      "path": "./syntaxes/mvl.tmLanguage.json"
+    }]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
