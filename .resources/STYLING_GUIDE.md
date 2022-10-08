@@ -36,3 +36,11 @@ private readonly string _sampleString;
 
 ...
 ```
+
+### Expression Bodied Methods
+Expression bodied methods should be use wherever possible. However, the contents of the expression should go on a new line based on the following check list:
+
+ - ❌ DO NOT move expressions to a new line in getters.
+ - ❌ DO NOT move expressions to a new line in setters.
+ - ✅ DO move expressions to a new line in constructors.
+ - ✅ DO move expressions to a new line in methods.
