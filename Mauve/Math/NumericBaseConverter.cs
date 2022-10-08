@@ -10,7 +10,7 @@ namespace Mauve.Math
 
         #region Constants
 
-        private const string CharacterSet = @"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        private const string CharacterSet = @"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghjklmnopqrstuvwxyz";
 
         #endregion
 
