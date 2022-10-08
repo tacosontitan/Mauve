@@ -44,3 +44,11 @@ Expression bodied methods should be use wherever possible. However, the contents
  - ❌ DO NOT move expressions to a new line in setters.
  - ✅ DO move expressions to a new line in constructors.
  - ✅ DO move expressions to a new line in methods.
+
+ ```csharp
+ public int SampleInteger { get => _sample; set => _sample = value + 5; }
+ public Sample() =>
+    SampleInteger = 3;
+public void UpdateSample() =>
+    SampleInteger = 5;
+```
