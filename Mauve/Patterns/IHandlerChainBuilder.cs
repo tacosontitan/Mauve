@@ -1,7 +1,7 @@
 ﻿namespace Mauve.Patterns
 {
     /// <summary>
-    /// Represents an <see cref="interface"/> that exposes methods to build a chain of <see cref="Handler{T}"/> instances.
+    /// Represents an <see langword="interface"/> that exposes methods to build a chain of <see cref="Handler{T}"/> instances.
     /// </summary>
     /// <typeparam name="T">The type of request the <see cref="Handler{T}"/> chain will work with.</typeparam>
     public interface IHandlerChainBuilder<T> : IBuilder<Handler<T>>
