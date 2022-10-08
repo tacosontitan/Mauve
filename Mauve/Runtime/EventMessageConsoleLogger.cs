@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mauve.Runtime
 {
+    /// <summary>
+    /// Represents an <see cref="EventMessageLogger"/> for writing <see cref="EventMessage"/> data using a <see cref="Console"/>.
+    /// </summary>
+    /// <inheritdoc/>
     public class EventMessageConsoleLogger : EventMessageLogger
     {
 
@@ -19,12 +19,21 @@ namespace Mauve.Runtime
 
         #region Constructor
 
+        /// <summary>
+        /// Creates a new <see cref="EventMessageConsoleLogger"/> instance.
+        /// </summary>
         public EventMessageConsoleLogger() : base() { }
 
         #endregion
 
         #region Public Methods
 
+        /// <summary>
+        /// Specifies the colors to use for core <see cref="EventType"/> flags.
+        /// </summary>
+        /// <param name="errorColor">The <see cref="ConsoleColor"/> to use as the foreground color when <see cref="EventType.Error"/> or <see cref="EventType.Exception"/> is present.</param>
+        /// <param name="warningColor">The <see cref="ConsoleColor"/> to use as the foreground color when <see cref="EventType.Warning"/> is present.</param>
+        /// <param name="successColor">The <see cref="ConsoleColor"/> to use as the foreground color when <see cref="EventType.Success"/> is present.</param>
         public void UseColors(ConsoleColor errorColor, ConsoleColor warningColor, ConsoleColor successColor)
         {
             _errorColor = errorColor;
