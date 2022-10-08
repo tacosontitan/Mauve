@@ -3,6 +3,10 @@ using System.IO;
 
 namespace Mauve.Runtime
 {
+    /// <summary>
+    /// Represents an <see cref="EventMessageLogger"/> for writing <see cref="EventMessage"/> data to disk.
+    /// </summary>
+    /// <inheritdoc/>
     public class EventMessageFileLogger : EventMessageLogger
     {
 
@@ -16,6 +20,12 @@ namespace Mauve.Runtime
 
         #region Constructor
 
+        /// <summary>
+        /// Creates a new <see cref="EventMessageFileLogger"/> targeting the specified directory and file.
+        /// </summary>
+        /// <param name="create">Should the directory be created if it doesn't exist?</param>
+        /// <param name="fileName">The name of the file to write to.</param>
+        /// <param name="directory">The directory where the file should reside.</param>
         public EventMessageFileLogger(bool create, string fileName, string directory)
         {
             _createDirectory = create;
