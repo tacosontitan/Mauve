@@ -45,6 +45,11 @@ namespace Mauve.Text
         /// <param name="length">The number of characters to select from the current index.</param>
         /// <param name="result">The resulting selection converted to the specified type.</param>
         /// <returns>Returns the resulting selection converted to the specified type.</returns>
+        /// <exception cref="ArgumentNullException">conversionType is null.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">startIndex plus length indicates a position not within this instance. -or- startIndex or length is less than zero.</exception>
+        /// <exception cref="InvalidCastException">This conversion is not supported. -or- value is null and conversionType is a value type. -or- value does not implement the System.IConvertible interface.</exception>
+        /// <exception cref="FormatException">value is not in a format recognized by conversionType.</exception>
+        /// <exception cref="OverflowException">value represents a number that is out of the range of conversionType.</exception>
         public SubstringQueue Next<T>(int length, out T result)
         {
             string substring = _fullString.Substring(_index, length);
@@ -58,6 +63,11 @@ namespace Mauve.Text
         /// </summary>
         /// <typeparam name="T">The type to convert the result to.</typeparam>
         /// <param name="result">The resulting selection converted to the specified type.</param>
+        /// <exception cref="ArgumentNullException">conversionType is null.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">startIndex plus length indicates a position not within this instance. -or- startIndex or length is less than zero.</exception>
+        /// <exception cref="InvalidCastException">This conversion is not supported. -or- value is null and conversionType is a value type. -or- value does not implement the System.IConvertible interface.</exception>
+        /// <exception cref="FormatException">value is not in a format recognized by conversionType.</exception>
+        /// <exception cref="OverflowException">value represents a number that is out of the range of conversionType.</exception>
         public void Remainder<T>(out T result) => Next(_fullString.Length - _index, out result);
         /// <summary>
         /// Skips the specified number of characters in the queue from the current index.
