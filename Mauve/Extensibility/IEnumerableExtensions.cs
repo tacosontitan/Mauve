@@ -77,5 +77,23 @@ namespace Mauve.Extensibility
                 return default;
             }
         }
+        /// <summary>
+        /// Gets the previous element in the specified <see cref="IEnumerable{T}"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of object contained in the <see cref="IEnumerable{T}"/> instance.</typeparam>
+        /// <param name="collection">The collection of objects to work with.</param>
+        /// <param name="item">The element to search for.</param>
+        /// <returns>Returns the previous element in the <see cref="IEnumerable{T}"/> if one is available.</returns>
+        /// <exception cref="NotFoundException">The specified <paramref name="item"/> is not found in the collection.</exception>
+        /// <exception cref="IndexOutOfRangeException">There is no element before the specified <paramref name="item"/>.</exception>
+        public static T Previous<T>(this IEnumerable<T> collection, T item)
+        {
+            int index = collection.IndexOf(item);
+            return index == -1
+                ? throw new NotFoundException()
+                : index - 1 > collection.Count()
+                    ? throw new IndexOutOfRangeException("There is no element before the specified item.")
+                    : collection.ElementAt(index - 1);
+        }
     }
 }
