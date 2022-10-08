@@ -20,7 +20,9 @@ namespace Mauve.Serialization
 
         #region Public Methods
 
+        /// <inheritdoc/>
         public override T Deserialize<T>(string input) => (T)Convert.ChangeType(input, typeof(T));
+        /// <inheritdoc/>
         public override string Serialize<T>(T input) => input.ToString();
 
         #endregion
