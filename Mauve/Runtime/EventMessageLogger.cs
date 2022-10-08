@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Mauve.Runtime
 {
+    /// <summary>
+    /// Represents an <see langword="abstract"/> implementation of <see cref="ILogger{T}"/> for working with <see cref="EventMessage"/> instances.
+    /// </summary>
+    /// <inheritdoc/>
     public abstract class EventMessageLogger : ILogger<EventMessage>
     {
 
@@ -17,6 +20,9 @@ namespace Mauve.Runtime
 
         #region Constructor
 
+        /// <summary>
+        /// Creates a new <see cref="EventMessageLogger"/> instance with all <see cref="EventType"/> values permitted.
+        /// </summary>
         public EventMessageLogger()
         {
             PermittedEventTypes = new List<EventType>();
@@ -29,8 +35,20 @@ namespace Mauve.Runtime
 
         #region Public Methods
 
+        /// <summary>
+        /// Filters the incoming <see cref="EventMessage"/> based on <see cref="PermittedEventTypes"/>, and writes permitted messages.
+        /// </summary>
+        /// <param name="input">The <see cref="EventMessage"/> being logged.</param>
         public void Log(EventMessage input) => FilterAndWrite(input);
+        /// <summary>
+        /// Filters the incoming <see cref="EventMessage"/> based on <see cref="PermittedEventTypes"/>, and writes permitted messages.
+        /// </summary>
+        /// <param name="input">The <see cref="EventMessage"/> being logged.</param>
         public async Task LogAsync(EventMessage input) => await Task.Run(() => FilterAndWrite(input));
+        /// <summary>
+        /// Restricts the <see cref="PermittedEventTypes"/> to only those specified in the <paramref name="permittedEventTypeFlags"/> parameter.
+        /// </summary>
+        /// <param name="permittedEventTypeFlags">The <see cref="EventType"/> flags to permit.</param>
         public void RestrictEventTypes(params EventType[] permittedEventTypeFlags) =>
             PermittedEventTypes = new List<EventType>(permittedEventTypeFlags);
 
