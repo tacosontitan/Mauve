@@ -4,6 +4,10 @@ using Mauve.Net.Smtp;
 
 namespace Mauve.Runtime
 {
+    /// <summary>
+    /// Represents an <see cref="EventMessageLogger"/> for writing <see cref="EventMessage"/> data using a <see cref="SmtpNetworkClient"/>.
+    /// </summary>
+    /// <inheritdoc/>
     public class EventMessageSmtpLogger : EventMessageLogger
     {
 
@@ -17,6 +21,12 @@ namespace Mauve.Runtime
 
         #region Constructor
 
+        /// <summary>
+        /// Creates a new <see cref="EventMessageSmtpLogger"/> instance using the specified <see cref="SmtpNetworkClientBuilder"/>, sender, and recipients.
+        /// </summary>
+        /// <param name="clientBuilder">The <see cref="SmtpNetworkClientBuilder"/> capable of building <see cref="SmtpNetworkClient"/> instances.</param>
+        /// <param name="senderAddress">The sender of the emails.</param>
+        /// <param name="recipientAddresses">The recipients of the emails.</param>
         public EventMessageSmtpLogger(SmtpNetworkClientBuilder clientBuilder, string senderAddress, params string[] recipientAddresses)
         {
             _sender = senderAddress;
