@@ -30,17 +30,17 @@ namespace Mauve.Security
         /// </summary>
         public bool AppendIv { get; set; }
         /// <summary>
-        /// The secret key to be utilized by the symmetric algorithm to encrypt and decrypt data.
+        /// The encoding that used during the encryption and decryption process.
         /// </summary>
-        public byte[] Key { get; private set; }
+        public Encoding Encoding { get; private set; }
         /// <summary>
         /// The initialization vector for the symmetric algorithm.
         /// </summary>
         public byte[] InitializationVector { get; private set; }
         /// <summary>
-        /// The encoding that used during the encryption and decryption process.
+        /// The secret key to be utilized by the symmetric algorithm to encrypt and decrypt data.
         /// </summary>
-        public Encoding Encoding { get; private set; }
+        public byte[] Key { get; private set; }
 
         #endregion
 
