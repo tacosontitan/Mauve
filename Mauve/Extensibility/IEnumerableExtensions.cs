@@ -29,8 +29,12 @@ namespace Mauve.Extensibility
         /// <param name="collection">The collection of objects to work with.</param>
         /// <param name="searchValue">The element to search for.</param>
         /// <returns>The index of a specified <see cref="T"/>, otherwise <c>-1</c>.</returns>
+        /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is null.</exception>
         public static int IndexOf<T>(this IEnumerable<T> collection, T searchValue)
         {
+            if (collection == null)
+                throw new ArgumentNullException(nameof(collection));
+
             int index = 0;
             foreach (T item in collection)
             {
@@ -51,6 +55,7 @@ namespace Mauve.Extensibility
         /// <returns>Returns the next element in the <see cref="IEnumerable{T}"/> if one is available.</returns>
         /// <exception cref="NotFoundException">The specified <paramref name="item"/> is not found in the collection.</exception>
         /// <exception cref="IndexOutOfRangeException">There is no element after the specified <paramref name="item"/>.</exception>
+        /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is null.</exception>
         public static T Next<T>(this IEnumerable<T> collection, T item)
         {
             int index = collection.IndexOf(item);
@@ -86,6 +91,7 @@ namespace Mauve.Extensibility
         /// <returns>Returns the previous element in the <see cref="IEnumerable{T}"/> if one is available.</returns>
         /// <exception cref="NotFoundException">The specified <paramref name="item"/> is not found in the collection.</exception>
         /// <exception cref="IndexOutOfRangeException">There is no element before the specified <paramref name="item"/>.</exception>
+        /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is null.</exception>
         public static T Previous<T>(this IEnumerable<T> collection, T item)
         {
             int index = collection.IndexOf(item);
