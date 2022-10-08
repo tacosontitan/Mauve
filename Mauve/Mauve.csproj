@@ -87,6 +87,8 @@
     <Compile Include="Patterns\ICommand.cs" />
     <Compile Include="Patterns\IFactory.cs" />
     <Compile Include="Patterns\IHandlerChainBuilder.cs" />
+    <Compile Include="Patterns\IInterpretationContext.cs" />
+    <Compile Include="Patterns\IInterpreter.cs" />
     <Compile Include="Patterns\IMediator.cs" />
     <Compile Include="Patterns\IMediatorClient.cs" />
     <Compile Include="Patterns\IRestorable.cs" />
