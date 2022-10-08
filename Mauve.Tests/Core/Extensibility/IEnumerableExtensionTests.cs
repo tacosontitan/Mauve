@@ -34,6 +34,7 @@ namespace Mauve.Tests.Core.Extensibility
         [DataRow(new int[] { 2, 3, 5, 7 }, 5, 7)]
         [DataRow(new int[] { 2, 3, 5, 7 }, 7, -1)]
         [DataRow(new int[] { 2, 3, 5, 7 }, 9, -1)]
+        [DataRow(null, 9, -1)]
         public void Next(IEnumerable<int> inputCollection, int searchValue, int expectedResult)
         {
             int result = -1;
