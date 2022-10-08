@@ -31,7 +31,7 @@ Here you can find the most recent release notes for each Mauve product.
  <p align="center">
 
 <a href="https://github.com/tacosontitan/Mauve" target="_blank" rel="noreferrer">
-![Mauve Banner](/.resources/mauve-banner.png "Mauve Banner")
+<img src="https://raw.githubusercontent.com/tacosontitan/mauve/main/.resources/mauve-m.png" alt="Mauve" width="150" height="150"/>
 </a>
 
 </p>
