@@ -30,7 +30,7 @@ namespace Mauve.Security
         /// </summary>
         public bool AppendIv { get; set; }
         /// <summary>
-        /// The encoding that used during the encryption and decryption process.
+        /// The encoding that is used during the encryption and decryption process.
         /// </summary>
         public Encoding Encoding { get; private set; }
         /// <summary>
@@ -427,12 +427,14 @@ namespace Mauve.Security
 
         #region Public Methods
 
+        /// <inheritdoc/>
         public override void Dispose()
         {
             _decryptionTransform.Dispose();
             _encryptionTransform.Dispose();
             _managedRijndael.Dispose();
         }
+        /// <inheritdoc/>
         public override T Decrypt<T>(string input)
         {
             string decryptedData = string.Empty;
@@ -453,6 +455,7 @@ namespace Mauve.Security
 
             return decryptedData.Deserialize<T>(SerializationMethod.Json);
         }
+        /// <inheritdoc/>
         public override string Encrypt<T>(T input)
         {
             using (var memoryStream = new MemoryStream())
@@ -479,10 +482,10 @@ namespace Mauve.Security
         /// <summary>
         /// Initializes the <see cref="RijndaelCryptographyProvider"/>.
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="initializationVector"></param>
-        /// <param name="encoding"></param>
-        /// <param name="cipherMode"></param>
+        /// <param name="key">The secret key to be utilized by the symmetric algorithm to encrypt and decrypt data.</param>
+        /// <param name="initializationVector">The initialization vector for the symmetric algorithm.</param>
+        /// <param name="encoding">The encoding that is used during the encryption and decryption process.</param>
+        /// <param name="cipherMode">The <see cref="CipherMode"/> for operation of the symmetric algorithm.</param>
         private void Initialize(byte[] key, byte[] initializationVector, Encoding encoding, CipherMode cipherMode, PaddingMode paddingMode)
         {
             Encoding = encoding;
