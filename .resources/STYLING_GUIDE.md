@@ -40,13 +40,22 @@ private readonly string _sampleString;
 ### Expression Bodied Methods
 Expression bodied methods should be use wherever possible. However, the contents of the expression should go on a new line based on the following check list:
 
+ - ❌ DO NOT move expressions to a new line in read-only properties.
  - ❌ DO NOT move expressions to a new line in getters.
  - ❌ DO NOT move expressions to a new line in setters.
  - ✅ DO move expressions to a new line in constructors.
  - ✅ DO move expressions to a new line in methods.
 
+ <sub>*Exception: Expressions may violate the above rules in the case of word-wrap or runoff.</sub>
+
  ```csharp
- public int SampleInteger { get => _sample; set => _sample = value + 5; }
+ public bool AlwaysTrue => true;
+ public int SampleInteger { get => _sampleInteger; set => _sampleInteger = value + 5; }
+ public string SampleString
+ {
+    get => _sampleString + $"getter sample {SampleInteger}";
+    set => _sampleString += $"setter sample {value}";
+ }
  public Sample() =>
     SampleInteger = 3;
 public void UpdateSample() =>
