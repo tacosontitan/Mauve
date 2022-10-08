@@ -56,10 +56,6 @@
     <Compile Include="Core\Extensibility\DateTimeExtensionTests.cs" />
     <Compile Include="Core\Extensibility\GenericExtensionTests.cs" />
     <Compile Include="Core\Security\RijndaelCryptographyProviderTests.cs" />
-    <Compile Include="Core\Serialization\RawSerializationTests.cs" />
-    <Compile Include="Core\Serialization\BinarySerializationTests.cs" />
-    <Compile Include="Core\Serialization\JsonSerializationTests.cs" />
-    <Compile Include="Core\Serialization\XmlSerializationTests.cs" />
     <Compile Include="Core\Text\SubstringQueueTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
