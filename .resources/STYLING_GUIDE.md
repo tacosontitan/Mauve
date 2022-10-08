@@ -1,4 +1,8 @@
-The following `C#` snippet demonstrates all of our standardized styling rules.
+The following basic rules apply to all files:
+
+ - Only one namespace per file.
+ - Only one object definition per file.
+  - Sub-types are excluded from this rule, but should be limited.
 
 ### Using Directives
 Always remove and sort using directives before saving. Visual Studio Community will ensure they look similar to the following snippet:
@@ -9,9 +13,6 @@ using System;
 
 using Mauve.Math;
 ```
-
-### Namespaces
-Only one namespace per file is permitted.
 
 ### Classes
 All classes should be named using pascal case and start in an `internal sealed` state, at least mentally. Justification should be identified for adjusting the access level and allowing inheritance. In most cases, classes will be given a `public` access level and inheritance will be allowed, but we prefer that contributors determine if it makes more sense to seal a class or mark it as `internal`.
