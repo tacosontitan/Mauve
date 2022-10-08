@@ -60,6 +60,7 @@
     <Compile Include="Extensibility\StringExtensions.cs" />
     <Compile Include="IExecutableT.cs" />
     <Compile Include="IExecutable.cs" />
+    <Compile Include="Math\NumericBaseConverter.cs" />
     <Compile Include="Net\Api\RestNetworkClient.cs" />
     <Compile Include="Net\Api\RestNetworkRequest.cs" />
     <Compile Include="Net\Api\SoapNetworkClient.cs" />
