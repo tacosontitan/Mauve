@@ -82,9 +82,11 @@
     <Compile Include="Math\NumericBase.cs" />
     <Compile Include="Patterns\DependencyDescriptor.cs" />
     <Compile Include="Patterns\Handler.cs" />
+    <Compile Include="Patterns\HandlerChainBuilder.cs" />
     <Compile Include="Patterns\IBuilder.cs" />
     <Compile Include="Patterns\ICommand.cs" />
     <Compile Include="Patterns\IFactory.cs" />
+    <Compile Include="Patterns\IHandlerChainBuilder.cs" />
     <Compile Include="Patterns\IMediator.cs" />
     <Compile Include="Patterns\IMediatorClient.cs" />
     <Compile Include="Patterns\IRestorable.cs" />
