@@ -2,6 +2,9 @@
 
 namespace Mauve.Math
 {
+    /// <summary>
+    /// Represents a <see langword="class"/> capable of converting between different <see cref="NumericBase"/> values. 
+    /// </summary>
     public class NumericBaseConverter
     {
 
@@ -13,6 +16,13 @@ namespace Mauve.Math
 
         #region Public Methods
 
+        /// <summary>
+        /// Converts the specified input between the specified <paramref name="from"/> <see cref="NumericBase"/> and <paramref name="to"/> <see cref="NumericBase"/>.
+        /// </summary>
+        /// <param name="input">The input to convert.</param>
+        /// <param name="from">The <see cref="NumericBase"/> to convert from.</param>
+        /// <param name="to">The <see cref="NumericBase"/> to convert to.</param>
+        /// <returns>The input converted from the specified <paramref name="from"/> <see cref="NumericBase"/> to the <paramref name="to"/> <see cref="NumericBase"/>.</returns>
         public string Convert(string input, NumericBase from, NumericBase to)
         {
             char[] fromSet = CharacterSet.Take((int)from).ToArray();
