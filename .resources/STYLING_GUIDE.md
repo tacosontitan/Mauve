@@ -26,6 +26,7 @@ All structs should be named using pascal case and similar to classes and interfa
 All `#` directives should include a line of whitespace before and after, for example with regions:
 
 ```csharp
+...
 
 #region Sample Region
 
@@ -33,4 +34,5 @@ private readonly string _sampleString;
 
 #endregion
 
+...
 ```
