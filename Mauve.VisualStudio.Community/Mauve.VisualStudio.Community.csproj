@@ -46,6 +46,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commands\CopyUnixNow.cs" />
+    <Compile Include="Commands\RegionalizeSelection.cs" />
     <Compile Include="Commands\Standardize.cs" />
     <Compile Include="Options\StandardizationOptions.cs" />
     <Compile Include="Core\CommandBase.cs" />

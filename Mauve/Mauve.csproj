@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <HintPath>..\..\..\nuget\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,6 +50,7 @@
   <ItemGroup>
     <Compile Include="AliasAttribute.cs" />
     <Compile Include="DateFormat.cs" />
+    <Compile Include="EventType.cs" />
     <Compile Include="Extensibility\DateTimeExtensions.cs" />
     <Compile Include="Extensibility\ExceptionExtensions.cs" />
     <Compile Include="Extensibility\GenericExtensions.cs" />
@@ -74,13 +78,23 @@
     <Compile Include="Net\Sql\SqlNetworkClientBuilder.cs" />
     <Compile Include="Net\Sql\SqlNetworkRequest.cs" />
     <Compile Include="Net\Sql\SqlNetworkRequestBuilder.cs" />
-    <Compile Include="Numerics\NumericBase.cs" />
+    <Compile Include="Math\NumericBase.cs" />
+    <Compile Include="Patterns\DependencyDescriptor.cs" />
     <Compile Include="Patterns\Handler.cs" />
     <Compile Include="Patterns\IBuilder.cs" />
+    <Compile Include="Patterns\ICommand.cs" />
     <Compile Include="Patterns\IFactory.cs" />
     <Compile Include="Patterns\IMediator.cs" />
     <Compile Include="Patterns\IMediatorClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Runtime\EventMessageConsoleLogger.cs" />
+    <Compile Include="Runtime\EventMessageFileLogger.cs" />
+    <Compile Include="Runtime\EventMessageLogger.cs" />
+    <Compile Include="Runtime\ILogger.cs" />
+    <Compile Include="Runtime\EventMessage.cs" />
+    <Compile Include="Runtime\EventMessageSmtpLogger.cs" />
+    <Compile Include="Patterns\IDependencyCollection.cs" />
+    <Compile Include="Security\CaesarCryptographyProvider.cs" />
     <Compile Include="Security\CryptographyProvider.cs" />
     <Compile Include="Security\RijndaelCryptographyProvider.Constructors.cs" />
     <Compile Include="Security\RijndaelCryptographyProvider.cs" />
@@ -93,7 +107,11 @@
     <Compile Include="Serialization\SerializationProvider.cs" />
     <Compile Include="Serialization\XmlSerializationProvider.cs" />
     <Compile Include="Serialization\YamlSerializationProvider.cs" />
+    <Compile Include="Text\Lexicon.cs" />
     <Compile Include="Text\SubstringQueue.cs" />
+    <Compile Include="Validation\IValidator.cs" />
+    <Compile Include="Validation\NotAuthorizedException.cs" />
+    <Compile Include="Validation\NotFoundException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
