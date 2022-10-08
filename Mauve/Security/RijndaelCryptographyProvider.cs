@@ -26,6 +26,10 @@ namespace Mauve.Security
         #region Properties
 
         /// <summary>
+        /// Specifies whether or not the <see cref="InitializationVector"/> should be appended to the output stream.
+        /// </summary>
+        public bool AppendIv { get; set; }
+        /// <summary>
         /// The secret key to be utilized by the symmetric algorithm to encrypt and decrypt data.
         /// </summary>
         public byte[] Key { get; private set; }
