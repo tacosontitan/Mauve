@@ -60,5 +60,22 @@ namespace Mauve.Extensibility
                     ? throw new IndexOutOfRangeException("There is no element after the specified item.")
                     : collection.ElementAt(index + 1);
         }
+        /// <summary>
+        /// Gets the next element in the specified <see cref="IEnumerable{T}"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of object contained in the <see cref="IEnumerable{T}"/> instance.</typeparam>
+        /// <param name="collection">The collection of objects to work with.</param>
+        /// <param name="item">The element to search for.</param>
+        /// <returns>Returns the next element in the <see cref="IEnumerable{T}"/> if one is available.</returns>
+        public static T NextOrDefault<T>(this IEnumerable<T> collection, T item)
+        {
+            try
+            {
+                return collection.Next(item);
+            } catch
+            {
+                return default;
+            }
+        }
     }
 }
