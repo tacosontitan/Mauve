@@ -2,6 +2,9 @@
 
 namespace Mauve
 {
+    /// <summary>
+    /// Represents an <see langword="enum"/> used to classify event messages.
+    /// </summary>
     [Flags]
     public enum EventType : long
     {
