@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -50,7 +51,7 @@ namespace Mauve.Extensibility
 
             byte[] data = encoding.GetBytes(serializedInput);
             byte[] hash = hashAlgorithm.ComputeHash(data);
-            return encoding.GetString(hash);
+            return BitConverter.ToString(hash).Replace("-", "").ToLower();
         }
         /// <summary>
         /// Serializes the current state of the specified input utilizing the specified <see cref="SerializationMethod"/>.
