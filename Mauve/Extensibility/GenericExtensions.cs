@@ -15,7 +15,7 @@ namespace Mauve.Extensibility
     public static class GenericExtensions
     {
 
-        #region Public Methods
+        #region Get Hash Code
 
         /// <summary>
         /// Gets the hash code of the input in the specified <see cref="NumericBase"/>.
@@ -104,6 +104,11 @@ namespace Mauve.Extensibility
             var converter = new NumericBaseConverter();
             return converter.Convert(result, NumericBase.Hexadecimal, numericBase);
         }
+
+        #endregion
+
+        #region Other Methods
+
         /// <summary>
         /// Serializes the current state of the specified input utilizing the specified <see cref="SerializationMethod"/>.
         /// </summary>
