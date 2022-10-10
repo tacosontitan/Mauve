@@ -73,7 +73,7 @@ namespace Mauve.Extensibility
         {
             // Serialize the input and determine the hashing algorithm to use.
             string serializedInput = input.Serialize(serializationMethod);
-            HashAlgorithm hashAlgorithm;
+            HashAlgorithm hashAlgorithm = null;
             switch (hashType)
             {
                 case HashType.Md5: hashAlgorithm = new MD5CryptoServiceProvider(); break;
@@ -81,19 +81,28 @@ namespace Mauve.Extensibility
                 case HashType.Sha384: hashAlgorithm = new SHA384CryptoServiceProvider(); break;
                 case HashType.Sha512: hashAlgorithm = new SHA512CryptoServiceProvider(); break;
                 case HashType.RipeMd: hashAlgorithm = new RIPEMD160Managed(); break;
-                default: return input.GetHashCode().ToString();
             }
 
-            // Compute the hash and convert it to hexadecimal.
-            byte[] data = encoding.GetBytes(serializedInput);
-            byte[] hash = hashAlgorithm.ComputeHash(data);
-            string hexadecimalHash = BitConverter.ToString(hash).Replace("-", "").ToLower();
-            if (numericBase.Equals(NumericBase.Hexadecimal))
-                return hexadecimalHash;
+            // Create a variable for storing the result.
+            string result;
 
-            // If a different base was specified, then convert to it and return.
+            // Compute the hash and convert it to hexadecimal.
+            if (hashAlgorithm is null)
+                result = serializedInput.GetHashCode().ToString("x");
+            else
+            {
+                byte[] data = encoding.GetBytes(serializedInput);
+                byte[] hash = hashAlgorithm.ComputeHash(data);
+                result = BitConverter.ToString(hash).Replace("-", "").ToLower();
+            }
+
+            // If the desired base is hexadecimal, we're done.
+            if (numericBase.Equals(NumericBase.Hexadecimal))
+                return result;
+
+            // If a different base was specified, then convert to it and return the result.
             var converter = new NumericBaseConverter();
-            return converter.Convert(hexadecimalHash, NumericBase.Hexadecimal, numericBase);
+            return converter.Convert(result, NumericBase.Hexadecimal, numericBase);
         }
         /// <summary>
         /// Serializes the current state of the specified input utilizing the specified <see cref="SerializationMethod"/>.
