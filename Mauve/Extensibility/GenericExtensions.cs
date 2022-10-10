@@ -27,6 +27,17 @@ namespace Mauve.Extensibility
         public static string GetHashCode<T>(this T input, NumericBase numericBase) =>
             input.GetHashCode().ToString(numericBase);
         /// <summary>
+        /// Gets the hash code of the input using <see cref="SerializationMethod.Json"/> along with the specified <see cref="HashType"/> and <see cref="Encoding"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of the input.</typeparam>
+        /// <param name="input">The input to get the hash code of.</param>
+        /// <param name="hashType">The <see cref="HashType"/> that should be used to compute the hash of the input.</param>
+        /// <param name="encoding">The <see cref="Encoding"/> that should be used to encode the serialized input.</param>
+        /// <returns>Returns the hash code of the specified input.</returns>
+        /// <remarks>Defaults to <see cref="object.GetHashCode()"/></remarks>
+        public static string GetHashCode<T>(this T input, HashType hashType, Encoding encoding) =>
+            GetHashCode(input, hashType, encoding, SerializationMethod.Json);
+        /// <summary>
         /// Gets the hash code of the input using the specified <see cref="HashType"/>, <see cref="Encoding"/>, and <see cref="SerializationMethod"/>.
         /// </summary>
         /// <typeparam name="T">The type of the input.</typeparam>
