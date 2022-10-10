@@ -32,6 +32,7 @@ namespace Mauve.Extensibility
         /// <typeparam name="T">The type of the input.</typeparam>
         /// <param name="input">The input to get the hash code of.</param>
         /// <param name="hashType">The <see cref="HashType"/> that should be used to compute the hash of the input.</param>
+        /// <param name="encoding">The <see cref="Encoding"/> that should be used to encode the serialized input.</param>
         /// <param name="serializationMethod">The <see cref="SerializationMethod"/> that should be used to serialize the input prior to hashing.</param>
         /// <returns>Returns the hash code of the specified input.</returns>
         /// <remarks>Defaults to <see cref="object.GetHashCode()"/></remarks>
