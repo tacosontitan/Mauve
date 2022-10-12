@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="AliasAttribute.cs" />
     <Compile Include="DateFormat.cs" />
+    <Compile Include="DiscoverableAttribute.cs" />
     <Compile Include="EventType.cs" />
     <Compile Include="Extensibility\DateTimeExtensions.cs" />
     <Compile Include="Extensibility\ExceptionExtensions.cs" />
