@@ -1,5 +1,7 @@
 ﻿
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -104,6 +106,30 @@ namespace Mauve.Extensibility
             var converter = new NumericBaseConverter();
             return converter.Convert(result, NumericBase.Hexadecimal, numericBase);
         }
+
+        #endregion
+
+        #region In
+
+        /// <summary>
+        /// Determines if a specified value is present in a specified collection using a specified equality comparer.
+        /// </summary>
+        /// <typeparam name="T">Specifies the type of data in the collection.</typeparam>
+        /// <param name="input">The value to search the collection for.</param>
+        /// <param name="collection">The collection to look through.</param>
+        /// <returns><see langword="true"/> if the specified collection contains the specified input, otherwise <see langword="false"/>.</returns>
+        public static bool In<T>(this T input, params T[] collection) =>
+            collection.Any(a => a.Equals(input));
+        /// <summary>
+        /// Determines if a specified value is present in a specified collection using a specified equality comparer.
+        /// </summary>
+        /// <typeparam name="T">Specifies the type of data in the collection.</typeparam>
+        /// <param name="input">The value to search the collection for.</param>
+        /// <param name="equalityComparer">The comparer that should be used to check equality.</param>
+        /// <param name="collection">The collection to look through.</param>
+        /// <returns><see langword="true"/> if the specified collection contains the specified input, otherwise <see langword="false"/>.</returns>
+        public static bool In<T>(this T input, IEqualityComparer<T> equalityComparer, params T[] collection) =>
+            collection.Any(a => equalityComparer.Equals(a, input));
 
         #endregion
 
