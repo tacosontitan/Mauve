@@ -121,6 +121,7 @@
     <Compile Include="Serialization\YamlSerializationProvider.cs" />
     <Compile Include="Text\Lexicon.cs" />
     <Compile Include="Text\SubstringQueue.cs" />
+    <Compile Include="Ui\ControlType.cs" />
     <Compile Include="Validation\IValidator.cs" />
     <Compile Include="Validation\NotAuthorizedException.cs" />
     <Compile Include="Validation\NotFoundException.cs" />
