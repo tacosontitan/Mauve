@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace Mauve.Patterns
 {
@@ -50,6 +51,14 @@ namespace Mauve.Patterns
             if (!TryHandleRequest(_request))
                 if (_nextHandler != null)
                     await _nextHandler.ExecuteAsync();
+
+            await Task.CompletedTask;
+        }
+        public async Task ExecuteAsync(CancellationToken cancellationToken)
+        {
+            if (!TryHandleRequest(_request))
+                if (_nextHandler != null)
+                    await _nextHandler.ExecuteAsync(cancellationToken);
 
             await Task.CompletedTask;
         }
