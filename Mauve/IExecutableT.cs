@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace Mauve
 {
@@ -9,5 +10,6 @@ namespace Mauve
     {
         T Execute();
         Task<T> ExecuteAsync();
+        Task<T> ExecuteAsync(CancellationToken cancellationToken);
     }
 }
