@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace Mauve.Patterns
 {
@@ -20,5 +21,13 @@ namespace Mauve.Patterns
         /// <param name="input">The input for the middleware.</param>
         /// <param name="next">The next middleware to utilize.</param>
         Task InvokeAsync(T input, MiddlewareDelegate<T> next);
+        /// <summary>
+        /// Invokes the middleware.
+        /// </summary>
+        /// <param name="input">The input for the middleware.</param>
+        /// <param name="next">The next middleware to utilize.</param>
+        /// <param name="cancellationToken">The cancellation token used to cancel asynchronous processing.</param>
+        /// <returns></returns>
+        Task InvokeAsync(T input, MiddlewareDelegate next, CancellationToken cancellationToken);
     }
 }
