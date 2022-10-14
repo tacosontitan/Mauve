@@ -49,6 +49,7 @@
     <Compile Include="Patterns\CommandTemplate.cs" />
     <Compile Include="Patterns\FactoryTemplate.cs" />
     <Compile Include="Patterns\HandlerTemplate.cs" />
+    <Compile Include="Patterns\MiddlewareTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\StandardizedStructTemplate.cs" />
     <Compile Include="Core\StandardizedClassTemplate.cs" />
