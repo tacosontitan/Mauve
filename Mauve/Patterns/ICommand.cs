@@ -1,4 +1,7 @@
-﻿namespace Mauve.Patterns
+﻿using System.Threading;
+using System.Threading.Tasks;
+
+namespace Mauve.Patterns
 {
     /// <summary>
     /// Represents an <see langword="interface"/> that exposes methods for executing and rolling back commands.
@@ -10,5 +13,14 @@
         /// Performs a rollback operation for the command.
         /// </summary>
         void Rollback();
+        /// <summary>
+        /// Performs a rollback operation for the command.
+        /// </summary>
+        Task RollbackAsync();
+        /// <summary>
+        /// Performs a rollback operation for the command.
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        Task RollbackAsync(CancellationToken cancellationToken);
     }
 }
