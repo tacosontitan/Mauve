@@ -96,7 +96,12 @@
     <Compile Include="Patterns\IInterpreter.cs" />
     <Compile Include="Patterns\IMediator.cs" />
     <Compile Include="Patterns\IMediatorClient.cs" />
+    <Compile Include="Patterns\IMiddleware.cs" />
+    <Compile Include="Patterns\IMiddlewareT.cs" />
+    <Compile Include="Patterns\IMiddlewareTU.cs" />
+    <Compile Include="Patterns\IMiddlewareTUV.cs" />
     <Compile Include="Patterns\IRestorable.cs" />
+    <Compile Include="Patterns\MiddlewareDelegate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runtime\EventMessageConsoleLogger.cs" />
     <Compile Include="Runtime\EventMessageFileLogger.cs" />
@@ -121,6 +126,7 @@
     <Compile Include="Serialization\YamlSerializationProvider.cs" />
     <Compile Include="Text\Lexicon.cs" />
     <Compile Include="Text\SubstringQueue.cs" />
+    <Compile Include="Threading\SynchronousAwaiter.cs" />
     <Compile Include="Ui\ControlType.cs" />
     <Compile Include="Ui\UiEditableAttribute.cs" />
     <Compile Include="Validation\IValidator.cs" />
