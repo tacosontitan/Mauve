@@ -20,7 +20,7 @@ namespace Mauve.Patterns
         /// <summary>
         /// Performs a rollback operation for the command.
         /// </summary>
-        /// <param name="cancellationToken"></param>
+        /// <param name="cancellationToken">The cancellation token used to cancel asynchronous processing.</param>
         Task RollbackAsync(CancellationToken cancellationToken);
     }
 }
