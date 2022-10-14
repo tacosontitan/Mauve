@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Mauve.Patterns
@@ -35,5 +36,13 @@ namespace Mauve.Patterns
         /// <param name="recipients"></param>
         /// <returns></returns>
         Task SendAsync(T data, IEnumerable<IMediatorClient<T>> recipients);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="recipients"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        Task SendAsync(T data, IEnumerable<IMediatorClient<T>> recipients, CancellationToken cancellationToken);
     }
 }
