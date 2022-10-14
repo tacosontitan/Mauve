@@ -2,6 +2,10 @@
 
 namespace Mauve.Patterns
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public delegate Task MiddlewareDelegate();
     /// <summary>
     /// 
