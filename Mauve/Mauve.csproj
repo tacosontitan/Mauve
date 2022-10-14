@@ -126,7 +126,6 @@
     <Compile Include="Serialization\YamlSerializationProvider.cs" />
     <Compile Include="Text\Lexicon.cs" />
     <Compile Include="Text\SubstringQueue.cs" />
-    <Compile Include="Threading\SynchronousAwaiter.cs" />
     <Compile Include="Ui\ControlType.cs" />
     <Compile Include="Ui\UiEditableAttribute.cs" />
     <Compile Include="Validation\IValidator.cs" />
