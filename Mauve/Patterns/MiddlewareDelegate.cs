@@ -3,6 +3,12 @@
 namespace Mauve.Patterns
 {
     public delegate Task MiddlewareDelegate();
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T">The first type the delegate works with.</typeparam>
+    /// <param name="input">The first parameter for the delegate.</param>
+    /// <returns></returns>
     public delegate Task MiddlewareDelegate<T>(T input);
     /// <summary>
     /// 
