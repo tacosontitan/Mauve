@@ -28,6 +28,6 @@ namespace Mauve.Patterns
         /// <param name="next">The next middleware to utilize.</param>
         /// <param name="cancellationToken">The cancellation token used to cancel asynchronous processing.</param>
         /// <returns></returns>
-        Task InvokeAsync(T input, MiddlewareDelegate next, CancellationToken cancellationToken);
+        Task InvokeAsync(T input, MiddlewareDelegate<T> next, CancellationToken cancellationToken);
     }
 }
