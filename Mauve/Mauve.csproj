@@ -105,6 +105,7 @@
     <Compile Include="Patterns\IMiddlewareT6.cs" />
     <Compile Include="Patterns\IMiddlewareT7.cs" />
     <Compile Include="Patterns\IMiddlewareT8.cs" />
+    <Compile Include="Patterns\IMiddlewareT9.cs" />
     <Compile Include="Patterns\IRestorable.cs" />
     <Compile Include="Patterns\MiddlewareDelegate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
