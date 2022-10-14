@@ -98,8 +98,8 @@
     <Compile Include="Patterns\IMediatorClient.cs" />
     <Compile Include="Patterns\IMiddleware.cs" />
     <Compile Include="Patterns\IMiddlewareT.cs" />
-    <Compile Include="Patterns\IMiddlewareTU.cs" />
-    <Compile Include="Patterns\IMiddlewareTUV.cs" />
+    <Compile Include="Patterns\IMiddlewareT2.cs" />
+    <Compile Include="Patterns\IMiddlewareT3.cs" />
     <Compile Include="Patterns\IRestorable.cs" />
     <Compile Include="Patterns\MiddlewareDelegate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
