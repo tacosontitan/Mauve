@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Mauve.Runtime
@@ -39,12 +40,21 @@ namespace Mauve.Runtime
         /// Filters the incoming <see cref="EventMessage"/> based on <see cref="PermittedEventTypes"/>, and writes permitted messages.
         /// </summary>
         /// <param name="input">The <see cref="EventMessage"/> being logged.</param>
-        public void Log(EventMessage input) => FilterAndWrite(input);
+        public void Log(EventMessage input) =>
+            FilterAndWrite(input);
         /// <summary>
         /// Filters the incoming <see cref="EventMessage"/> based on <see cref="PermittedEventTypes"/>, and writes permitted messages.
         /// </summary>
         /// <param name="input">The <see cref="EventMessage"/> being logged.</param>
-        public async Task LogAsync(EventMessage input) => await Task.Run(() => FilterAndWrite(input));
+        public async Task LogAsync(EventMessage input) =>
+            await LogAsync(input, CancellationToken.None);
+        /// <summary>
+        /// Filters the incoming <see cref="EventMessage"/> based on <see cref="PermittedEventTypes"/>, and writes permitted messages.
+        /// </summary>
+        /// <param name="input">The <see cref="EventMessage"/> being logged.</param>
+        /// <param name="cancellationToken">The cancellation token used to cancel asynchronous processing.</param>
+        public async Task LogAsync(EventMessage input, CancellationToken cancellationToken) =>
+            await Task.Run(() => FilterAndWrite(input), cancellationToken);
         /// <summary>
         /// Restricts the <see cref="PermittedEventTypes"/> to only those specified in the <paramref name="permittedEventTypeFlags"/> parameter.
         /// </summary>
