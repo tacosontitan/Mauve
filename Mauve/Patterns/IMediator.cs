@@ -34,6 +34,14 @@ namespace Mauve.Patterns
         /// </summary>
         /// <param name="data"></param>
         /// <param name="recipients"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        Task SendAsync(T data, IMediatorClient<T> recipients, CancellationToken cancellationToken);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="recipients"></param>
         /// <returns></returns>
         Task SendAsync(T data, IEnumerable<IMediatorClient<T>> recipients);
         /// <summary>
