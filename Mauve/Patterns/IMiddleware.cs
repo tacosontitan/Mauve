@@ -11,6 +11,11 @@ namespace Mauve.Patterns
         /// Invokes the middleware.
         /// </summary>
         /// <param name="next">The next middleware to utilize.</param>
+        void Invoke(MiddlewareDelegate next);
+        /// <summary>
+        /// Invokes the middleware.
+        /// </summary>
+        /// <param name="next">The next middleware to utilize.</param>
         Task InvokeAsync(MiddlewareDelegate next);
     }
 }
