@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace Mauve.Runtime
 {
@@ -17,5 +18,11 @@ namespace Mauve.Runtime
         /// </summary>
         /// <param name="input">The input to log.</param>
         Task LogAsync(T input);
+        /// <summary>
+        /// Logs the specified input.
+        /// </summary>
+        /// <param name="input">The input to log.</param>
+        /// <param name="cancellationToken">The cancellation token used to cancel asynchronous processing.</param>
+        Task LogAsync(T input, CancellationToken cancellationToken);
     }
 }
