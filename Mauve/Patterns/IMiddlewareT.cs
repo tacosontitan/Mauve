@@ -13,6 +13,12 @@ namespace Mauve.Patterns
         /// </summary>
         /// <param name="input">The input for the middleware.</param>
         /// <param name="next">The next middleware to utilize.</param>
+        void Invoke(T input, MiddlewareDelegate<T> next);
+        /// <summary>
+        /// Invokes the middleware.
+        /// </summary>
+        /// <param name="input">The input for the middleware.</param>
+        /// <param name="next">The next middleware to utilize.</param>
         Task InvokeAsync(T input, MiddlewareDelegate<T> next);
     }
 }
