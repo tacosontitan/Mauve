@@ -11,12 +11,20 @@ namespace Mauve.Patterns
     public interface IMiddleware<T, U, V>
     {
         /// <summary>
-        /// Use the current middleware.
+        /// Invokes the middleware.
         /// </summary>
         /// <param name="t">The first input for the middleware.</param>
         /// <param name="u">The second input for the middleware.</param>
         /// <param name="v">The third input for the middleware.</param>
         /// <param name="next">The next middleware to utilize.</param>
-        Task Use(T t, U u, V v, MiddlewareDelegate<T, U, V> next);
+        void Invoke(T t, U u, V v, MiddlewareDelegate<T, U, V> next);
+        /// <summary>
+        /// Invokes the middleware.
+        /// </summary>
+        /// <param name="t">The first input for the middleware.</param>
+        /// <param name="u">The second input for the middleware.</param>
+        /// <param name="v">The third input for the middleware.</param>
+        /// <param name="next">The next middleware to utilize.</param>
+        Task InvokeAsync(T t, U u, V v, MiddlewareDelegate<T, U, V> next);
     }
 }
