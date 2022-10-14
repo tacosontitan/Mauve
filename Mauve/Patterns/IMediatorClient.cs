@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace Mauve.Patterns
 {
@@ -19,5 +20,12 @@ namespace Mauve.Patterns
         /// <param name="data"></param>
         /// <returns></returns>
         Task HandleIncomingDataAsync(T data);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        Task HandleIncomingDataAsync(T data, CancellationToken cancellationToken);
     }
 }
