@@ -3,7 +3,7 @@
 namespace Mauve.Validation
 {
     /// <summary>
-    /// Represents an <see cref="Exception"/> representing an issue with validation.
+    /// Represents an <see cref="Exception"/> expressing an issue with validation.
     /// </summary>
     public class ValidationException : Exception
     {
