@@ -139,6 +139,7 @@
     <Compile Include="Validation\NotFoundException.cs" />
     <Compile Include="Validation\ValidationException.cs" />
     <Compile Include="Validation\ValidationResult.cs" />
+    <Compile Include="Validation\Validator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
