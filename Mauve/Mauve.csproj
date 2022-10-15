@@ -76,10 +76,10 @@
     <Compile Include="Net\NetworkClient.cs" />
     <Compile Include="Net\NetworkConnectionInformation.cs" />
     <Compile Include="Net\NetworkResponse.cs" />
-    <Compile Include="Net\Smtp\SmtpNetworkClient.cs" />
-    <Compile Include="Net\Smtp\SmtpNetworkClientBuilder.cs" />
-    <Compile Include="Net\Smtp\SmtpNetworkRequest.cs" />
-    <Compile Include="Net\Smtp\SmtpNetworkRequestBuilder.cs" />
+    <Compile Include="Net\SmtpNetworkClient.cs" />
+    <Compile Include="Net\SmtpNetworkClientBuilder.cs" />
+    <Compile Include="Net\SmtpNetworkRequest.cs" />
+    <Compile Include="Net\SmtpNetworkRequestBuilder.cs" />
     <Compile Include="Net\Sql\SqlNetworkClient.cs" />
     <Compile Include="Net\Sql\SqlNetworkClientBuilder.cs" />
     <Compile Include="Net\Sql\SqlNetworkRequest.cs" />
@@ -146,6 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="mauve-m.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Net\Smtp\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

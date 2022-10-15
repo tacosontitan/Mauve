@@ -3,7 +3,7 @@ using System.Net;
 
 using Mauve.Patterns;
 
-namespace Mauve.Net.Smtp
+namespace Mauve.Net
 {
     /// <summary>
     /// Represents an implementation of <see cref="IBuilder{T}"/> that is capable of building <see cref="SmtpNetworkClient"/> instances.

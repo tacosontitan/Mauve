@@ -8,7 +8,7 @@ using Mauve.Extensibility;
 using Mauve.Patterns;
 using Mauve.Serialization;
 
-namespace Mauve.Net.Smtp
+namespace Mauve.Net
 {
     /// <summary>
     /// Represents an implementation of <see cref="IBuilder{T}"/> that is capable of building <see cref="SmtpNetworkRequest"/> instances.

@@ -1,6 +1,6 @@
 ﻿using System.Net.Mail;
 
-namespace Mauve.Net.Smtp
+namespace Mauve.Net
 {
     /// <summary>
     /// Represents an <see cref="INetworkRequest{T}"/> instance for sending <see cref="MailMessage"/> instances using <see cref="INetworkClient{TRequest, TIn, TOut}"/> implementations.
