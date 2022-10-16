@@ -4,7 +4,7 @@ using Mauve.Patterns;
 
 namespace Mauve.Runtime
 {
-    internal interface IServiceBuilder
+    public interface IServiceBuilder
     {
         IServiceBuilder AddSingleton<T>(string alias, T instance);
         IServiceBuilder AddSingleton<T>(T instance);
