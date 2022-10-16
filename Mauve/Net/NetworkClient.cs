@@ -14,19 +14,17 @@ namespace Mauve.Net
     /// </summary>
     /// <inheritdoc/>
     public abstract class NetworkClient<TRequest, TIn> : INetworkClient<TRequest, TIn>
+        where TRequest : INetworkRequest<TIn>
     {
 
         #region Properties
 
-        public Uri BaseUri { get; set; }
+        public NetworkConnectionInformation ConnectionInformation { get; set; }
 
         #endregion
 
-        public NetworkClient(string baseUri) :
-            this(new Uri(baseUri))
-        { }
-        public NetworkClient(Uri baseUri) =>
-            BaseUri = baseUri;
+        public NetworkClient(NetworkConnectionInformation connectionInformation) =>
+            ConnectionInformation = connectionInformation;
 
         #region Public Methods
 
