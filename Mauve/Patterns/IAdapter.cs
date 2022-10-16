@@ -5,7 +5,7 @@
     /// </summary>
     /// <typeparam name="T1">Specifies the first type this adapter uses.</typeparam>
     /// <typeparam name="T2">Specifies the second type this adapter uses.</typeparam>
-    internal interface IAdapter<T1, T2>
+    public interface IAdapter<T1, T2>
     {
         /// <summary>
         /// Converts from the first type to the second.
