@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mauve.Net
 {
-    public class ApiNetworkClient
+    public class HttpNetworkClient
     {
     }
 }

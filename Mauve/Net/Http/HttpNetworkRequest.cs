@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Mauve.Net
 {
-    internal class ApiNetworkRequest<T> : INetworkRequest<T>
+    internal class HttpNetworkRequest<T> : INetworkRequest<T>
     {
         public T Data { get; set; }
+        public Dictionary<string, object> Headers { get; set; }
     }
 }
