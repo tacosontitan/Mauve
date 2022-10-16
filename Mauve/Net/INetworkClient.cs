@@ -14,9 +14,9 @@ namespace Mauve.Net
         #region Properties
 
         /// <summary>
-        /// The base <see cref="Uri"/> this <see cref="INetworkClient{TRequest, TIn}"/> operates within.
+        /// The connection information for the client.
         /// </summary>
-        Uri BaseUri { get; set; }
+        NetworkConnectionInformation ConnectionInformation { get; set; }
 
         #endregion
 
