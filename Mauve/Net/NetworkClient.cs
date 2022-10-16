@@ -13,7 +13,7 @@ namespace Mauve.Net
     /// Represents a <see langword="abstract"/> implementation of <see cref="INetworkClient"/> that handles exceptions and response codes natively.
     /// </summary>
     /// <inheritdoc/>
-    public abstract class NetworkClient : INetworkClient
+    public abstract class NetworkClient<TRequest, TIn> : INetworkClient<TRequest, TIn>
     {
 
         #region Properties
@@ -30,15 +30,14 @@ namespace Mauve.Net
 
         #region Public Methods
 
-        public virtual INetworkResponse<TOut> Execute<TRequest, TIn, TOut>(TRequest request)
-            where TRequest : INetworkRequest<TIn>
+        public virtual INetworkResponse<TOut> Execute<TOut>(TRequest request)
         {
             TOut response = default;
             HttpStatusCode statusCode = HttpStatusCode.InternalServerError;
             string responseMessage = string.Empty;
             try
             {
-                response = ExecuteRequest<TRequest, TIn, TOut>(request);
+                response = ExecuteRequest<TOut>(request);
                 statusCode = HttpStatusCode.OK;
                 responseMessage = "Success.";
             } catch (Exception e)
@@ -56,12 +55,10 @@ namespace Mauve.Net
                 Message = responseMessage
             };
         }
-        public async Task<INetworkResponse<TOut>> ExecuteAsync<TRequest, TIn, TOut>(TRequest request)
-            where TRequest : INetworkRequest<TIn> =>
-                await ExecuteAsync<TRequest, TIn, TOut>(request, CancellationToken.None);
-        public async Task<INetworkResponse<TOut>> ExecuteAsync<TRequest, TIn, TOut>(TRequest request, CancellationToken cancellationToken)
-            where TRequest : INetworkRequest<TIn> =>
-                await Task.Run(() => Execute<TRequest, TIn, TOut>(request), cancellationToken);
+        public async Task<INetworkResponse<TOut>> ExecuteAsync<TOut>(TRequest request) =>
+            await ExecuteAsync<TOut>(request, CancellationToken.None);
+        public async Task<INetworkResponse<TOut>> ExecuteAsync<TOut>(TRequest request, CancellationToken cancellationToken) =>
+            await Task.Run(() => Execute<TOut>(request), cancellationToken);
 
         #endregion
 
@@ -72,7 +69,7 @@ namespace Mauve.Net
         /// </summary>
         /// <param name="request">The request to execute.</param>
         /// <returns>Returns the appropriate <see cref="TOut"/> instance representing the result of executing the specified <see cref="TRequest"/>.</returns>
-        protected abstract TOut ExecuteRequest<TRequest, TIn, TOut>(TRequest request) where TRequest : INetworkRequest<TIn>;
+        protected abstract TOut ExecuteRequest<TOut>(TRequest request);
 
         #endregion
 
