@@ -20,6 +20,7 @@ namespace Mauve.Net.Smtp
         #region Fields
 
         private string _subject;
+        private NetworkCredential _credential;
         private readonly StringBuilder _bodyBuilder;
         private readonly Encoding _encoding;
         private readonly MailAddress _fromAddress;
@@ -110,6 +111,11 @@ namespace Mauve.Net.Smtp
             _attachmentMemoryStreams.Add(memoryStream);
             return this;
         }
+        public INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> Authorize(NetworkCredential networkCredential)
+        {
+            _credential = networkCredential;
+            return this;
+        }
         /// <summary>
         /// Adds a blind carbon copy recipient to the request.
         /// </summary>
@@ -158,7 +164,12 @@ namespace Mauve.Net.Smtp
                 message.Attachments.Add(attachment);
 
             // Create a new network request.
-            return new SmtpNetworkRequest(message);
+            var request = new SmtpNetworkRequest(message);
+            if (!(_credential is null))
+                request.Credential = _credential;
+
+            // Return the newly built request.
+            return request;
         }
         /// <summary>
         /// Adds a blind carbon copy recipient to the request.
