@@ -123,6 +123,7 @@
     <Compile Include="Runtime\EventMessageSmtpLogger.cs" />
     <Compile Include="Patterns\IDependencyCollection.cs" />
     <Compile Include="Runtime\Services\IService.cs" />
+    <Compile Include="Runtime\Services\IServiceBuilderT5.cs" />
     <Compile Include="Runtime\Services\IServiceBuilderT4.cs" />
     <Compile Include="Runtime\Services\IServiceBuilderT3.cs" />
     <Compile Include="Runtime\Services\IServiceBuilderT2.cs" />
