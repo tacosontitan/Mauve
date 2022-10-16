@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Mail;
 
-namespace Mauve.Net
+namespace Mauve.Net.Smtp
 {
     /// <summary>
     /// Represents a <see cref="SmtpNetworkClient"/> for executing <see cref="SmtpNetworkRequest"/> instances.
