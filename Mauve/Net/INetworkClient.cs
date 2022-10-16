@@ -1,18 +1,56 @@
-﻿namespace Mauve.Net
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Mauve.Net
 {
     /// <summary>
-    /// Represents an <see cref="INetworkClient{TRequest, TIn, TOut}"/> instance capable of executing <see cref="INetworkRequest{TIn}"/> instances.
+    /// Represents an <see langword="interface"/> which exposes methods for executing an <see cref="INetworkRequest{T}"/>.
     /// </summary>
-    /// <typeparam name="TRequest">The type of rquest this client executes.</typeparam>
-    /// <typeparam name="TIn">The type of data the request uses.</typeparam>
-    /// <typeparam name="TOut">The type of data returned by executing the request.</typeparam>
-    public interface INetworkClient<TRequest, TIn, TOut> where TRequest : INetworkRequest<TIn>
+    public interface INetworkClient
     {
+
+        #region Properties
+
         /// <summary>
-        /// Executes the specified <see cref="TRequest"/> instance across the network this <see cref="INetworkClient{TRequest, TIn, TOut}"/> operates within.
+        /// The base <see cref="Uri"/> this <see cref="INetworkClient"/> operates within.
         /// </summary>
-        /// <param name="request">The <see cref="TRequest"/> to execute.</param>
-        /// <returns>Returns the <see cref="INetworkResponse{TOut}"/> containing response information from the network this <see cref="INetworkClient{TRequest, TIn, TOut}"/> operates within.</returns>
-        INetworkResponse<TOut> Execute(TRequest request);
+        Uri BaseUri { get; set; }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Executes the specified <see cref="INetworkRequest{T}"/>.
+        /// </summary>
+        /// <typeparam name="TRequest">Specifies the type of the request.</typeparam>
+        /// <typeparam name="TIn">Specifies the type of data the request works with.</typeparam>
+        /// <typeparam name="TOut">Specifies the type of data expected in the response.</typeparam>
+        /// <param name="request">The request to execute.</param>
+        /// <returns>Returns an <see cref="INetworkResponse{T}"/>.</returns>
+        INetworkResponse<TOut> Execute<TRequest, TIn, TOut>(TRequest request) where TRequest : INetworkRequest<TIn>;
+        /// <summary>
+        /// Executes the specified <see cref="INetworkRequest{T}"/>.
+        /// </summary>
+        /// <typeparam name="TRequest">Specifies the type of the request.</typeparam>
+        /// <typeparam name="TIn">Specifies the type of data the request works with.</typeparam>
+        /// <typeparam name="TOut">Specifies the type of data expected in the response.</typeparam>
+        /// <param name="request">The request to execute.</param>
+        /// <returns>Returns an <see cref="INetworkResponse{T}"/>.</returns>
+        Task<INetworkResponse<TOut>> ExecuteAsync<TRequest, TIn, TOut>(TRequest request) where TRequest : INetworkRequest<TIn>;
+        /// <summary>
+        /// Executes the specified <see cref="INetworkRequest{T}"/>.
+        /// </summary>
+        /// <typeparam name="TRequest">Specifies the type of the request.</typeparam>
+        /// <typeparam name="TIn">Specifies the type of data the request works with.</typeparam>
+        /// <typeparam name="TOut">Specifies the type of data expected in the response.</typeparam>
+        /// <param name="request">The request to execute.</param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>Returns an <see cref="INetworkResponse{T}"/>.</returns>
+        Task<INetworkResponse<TOut>> ExecuteAsync<TRequest, TIn, TOut>(TRequest request, CancellationToken cancellationToken) where TRequest : INetworkRequest<TIn>;
+
+        #endregion
+
     }
 }
