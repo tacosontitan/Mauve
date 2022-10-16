@@ -1,4 +1,4 @@
-﻿using System.Net;
+﻿using System;
 
 namespace Mauve.Net
 {
@@ -18,11 +18,7 @@ namespace Mauve.Net
         /// <summary>
         /// The host of the connection (e.g. the IP Address, Server Name, Base URL, etc).
         /// </summary>
-        public string Host { get; set; }
-        /// <summary>
-        /// The focus of the connection (e.g. the endpoint, object name, etc).
-        /// </summary>
-        public string Focus { get; set; }
+        public Uri Uri { get; set; }
         /// <summary>
         /// The credential to be utilized for connection.
         /// </summary>
