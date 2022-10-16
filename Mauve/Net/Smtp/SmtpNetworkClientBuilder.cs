@@ -17,7 +17,7 @@ namespace Mauve.Net.Smtp
         private bool _useSsl;
         private bool _useDefaultCredentials;
         private int _port;
-        private string _host;
+        private Uri _uri;
         private string _domain;
         private string _username;
         private string _password;
@@ -30,7 +30,11 @@ namespace Mauve.Net.Smtp
         /// Creates a new <see cref="SmtpNetworkClientBuilder"/> using the specified host.
         /// </summary>
         /// <param name="host">The host the <see cref="SmtpNetworkClient"/> should use.</param>
-        public SmtpNetworkClientBuilder(string host) => _host = host;
+        public SmtpNetworkClientBuilder(string uri) :
+            this(new Uri(uri))
+        { }
+        public SmtpNetworkClientBuilder(Uri uri) =>
+            _uri = uri;
 
         #endregion
 
@@ -46,7 +50,7 @@ namespace Mauve.Net.Smtp
             // Create the network information object.
             var networkConnectionInfo = new NetworkConnectionInformation
             {
-                Host = _host,
+                Uri = _uri,
                 Port = _port,
                 UseDefaultCredentials = _useDefaultCredentials
             };
@@ -63,8 +67,8 @@ namespace Mauve.Net.Smtp
 
             // Create the network credentials for the network information object.
             NetworkCredential networkCredential = !string.IsNullOrWhiteSpace(_domain)
-                ? new NetworkCredential(_username, _password, _domain)
-                : new NetworkCredential(_username, _password);
+                ? new BasicNetworkCredential(_username, _password, _domain)
+                : new BasicNetworkCredential(_username, _password);
 
             // Assign the credential to the network information.
             networkConnectionInfo.Credential = networkCredential;
