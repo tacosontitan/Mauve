@@ -79,5 +79,41 @@ namespace Mauve.Extensibility
 
             return result;
         }
+        /// <summary>
+        /// Takes from the input until a specified value is found.
+        /// </summary>
+        /// <param name="input">The input to search.</param>
+        /// <param name="searchValues">The values to search for.</param>
+        /// <returns>Returns the input string up to the first identified search value or, the end of the input when no values are found.</returns>
+        public static string TakeTo(this string input, params string[] searchValues) =>
+            TakeTo(input, ignoreCase: false, searchValues);
+        /// <summary>
+        /// Takes from the input until a specified value is found.
+        /// </summary>
+        /// <param name="input">The input to search.</param>
+        /// <param name="ignoreCase">Should casing be ignored?</param>
+        /// <param name="searchValues">The values to search for.</param>
+        /// <returns>Returns the input string up to the first identified search value or, the end of the input when no values are found.</returns>
+        public static string TakeTo(this string input, bool ignoreCase, params string[] searchValues)
+        {
+            // Determine which comparison should be used.
+            StringComparison comparison = ignoreCase
+                ? StringComparison.InvariantCultureIgnoreCase
+                : StringComparison.InvariantCulture;
+
+            // Search for the specified values.
+            foreach (string searchValue in searchValues)
+            {
+                // If a specified value is found, return the input up to that value.
+                int index = input.IndexOf(searchValue, comparison);
+                if (index >= 0)
+                    return index == 0
+                        ? string.Empty
+                        : input.Substring(0, index - 1);
+            }
+
+            // Return the input if no values were found.
+            return input;
+        }
     }
 }
