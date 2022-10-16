@@ -19,15 +19,8 @@ namespace Mauve.Net
         /// 
         /// </summary>
         /// <param name="baseUri"></param>
-        public VerboseNetworkClient(string baseUri) :
-            base(baseUri)
-        { }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="baseUri"></param>
-        public VerboseNetworkClient(Uri baseUri) :
-            base(baseUri)
+        public VerboseNetworkClient(NetworkConnectionInformation connectionInformation) :
+            base(connectionInformation)
         { }
 
         #endregion
