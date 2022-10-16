@@ -12,6 +12,7 @@ namespace Mauve.Net.Smtp
 
         #region Properties
 
+        public NetworkCredential Credential { get; set; }
         public MailMessage Data { get; set; }
         public NetworkRequestMethod Method { get; set; }
         public Dictionary<string, object> Headers { get; set; }
