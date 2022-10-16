@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a collection of different network request method types.
     /// </summary>
-    internal enum NetworkRequestMethod
+    public enum NetworkRequestMethod
     {
         /// <summary>
         /// Represents an unspecified or unsupported <see cref="NetworkRequestMethod"/>.
