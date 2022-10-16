@@ -124,6 +124,15 @@
     <Compile Include="Patterns\IDependencyCollection.cs" />
     <Compile Include="Runtime\Services\IService.cs" />
     <Compile Include="Runtime\Services\IServiceBuilder.cs" />
+    <Compile Include="Runtime\Services\IServiceT9.cs" />
+    <Compile Include="Runtime\Services\IServiceT8.cs" />
+    <Compile Include="Runtime\Services\IServiceT7.cs" />
+    <Compile Include="Runtime\Services\IServiceT6.cs" />
+    <Compile Include="Runtime\Services\IServiceT5.cs" />
+    <Compile Include="Runtime\Services\IServiceT4.cs" />
+    <Compile Include="Runtime\Services\IServiceT3.cs" />
+    <Compile Include="Runtime\Services\IServiceT2.cs" />
+    <Compile Include="Runtime\Services\IServiceT.cs" />
     <Compile Include="Security\CaesarCryptographyProvider.cs" />
     <Compile Include="Security\CryptographyProvider.cs" />
     <Compile Include="Security\HashType.cs" />
