@@ -8,6 +8,10 @@ namespace Mauve.Net
     public interface INetworkRequest<T>
     {
         /// <summary>
+        /// The network credential used for this specific request.
+        /// </summary>
+        NetworkCredential Credential { get; set; }
+        /// <summary>
         /// The method utilized by this request.
         /// </summary>
         NetworkRequestMethod Method { get; set; }
