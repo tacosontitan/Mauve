@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net.Mail;
 
 using Mauve.Net.Smtp;
 
@@ -54,7 +55,7 @@ namespace Mauve.Runtime
 
                     // Send the email.
                     SmtpNetworkRequest request = requestBuilder.Build();
-                    _ = client.Execute(request);
+                    _ = client.Execute<MailMessage>(request);
                 }
             }
         }
