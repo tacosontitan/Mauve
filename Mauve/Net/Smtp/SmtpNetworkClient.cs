@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Net.Mail;
 
+using Mauve.Extensibility;
+
 namespace Mauve.Net.Smtp
 {
     /// <summary>
@@ -32,22 +34,29 @@ namespace Mauve.Net.Smtp
         /// </summary>
         /// <param name="connectionInformation">The <see cref="NetworkConnectionInformation"/> this <see cref="SmtpNetworkClient"/> uses to send messages.</param>
         /// <param name="enableSsl">Whether or not SSL is enabled.</param>
-        public SmtpNetworkClient(NetworkConnectionInformation connectionInformation, bool enableSsl)
+        public SmtpNetworkClient(NetworkConnectionInformation connectionInformation, bool enableSsl) :
+            base(connectionInformation)
         {
-            // Set properties.
-            ConnectionInformation = connectionInformation;
-
-            // Create a new raw client.
-            _client = new SmtpClient(ConnectionInformation.Host)
+            // Verify that the connection information is a basic network credential.
+            if (connectionInformation.Credential is BasicNetworkCredential basicNetworkCredential)
             {
-                EnableSsl = enableSsl,
-                UseDefaultCredentials = ConnectionInformation.UseDefaultCredentials,
-                Credentials = ConnectionInformation.Credential
-            };
+                // Create a new raw client.
+                _client = new SmtpClient(ConnectionInformation.Uri.ToString())
+                {
+                    EnableSsl = enableSsl,
+                    UseDefaultCredentials = ConnectionInformation.UseDefaultCredentials,
+                    Credentials = new System.Net.NetworkCredential
+                    {
+                        UserName = basicNetworkCredential.Username,
+                        Password = basicNetworkCredential.Password
+                    }
+                };
 
-            // Set the port information if it's available.
-            if (ConnectionInformation.Port != null)
-                _client.Port = ConnectionInformation.Port.Value;
+                // Set the port information if it's available.
+                if (ConnectionInformation.Port != null)
+                    _client.Port = ConnectionInformation.Port.Value;
+            } else
+                throw new ArgumentException("The credentials for SMTP interactions require basic network credentials.");
         }
 
         #endregion
@@ -60,10 +69,10 @@ namespace Mauve.Net.Smtp
 
         #region Protected Methods
 
-        protected override MailMessage ExecuteRequest(SmtpNetworkRequest request)
+        protected override TOut ExecuteRequest<TOut>(SmtpNetworkRequest request)
         {
             _client.Send(request.Data);
-            return request.Data;
+            return request.Data.Translate<MailMessage, TOut>();
         }
 
         #endregion
