@@ -11,5 +11,6 @@ namespace Mauve.Net
         public T Data { get; set; }
         public Dictionary<string, object> Headers { get; set; }
         public NetworkRequestMethod Method { get; set; }
+        public NetworkCredential Credential { get; set; }
     }
 }
