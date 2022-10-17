@@ -76,7 +76,7 @@ namespace Mauve.Net.Smtp
         /// </summary>
         /// <param name="file">The file to attach.</param>
         /// <returns>Returns the current <see cref="SmtpNetworkRequestBuilder"/> instance.</returns>
-        public INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> Attach(string file)
+        public SmtpNetworkRequestBuilder Attach(string file)
         {
             _attachments.Add(new Attachment(file));
             return this;
@@ -89,7 +89,7 @@ namespace Mauve.Net.Smtp
         /// <param name="data">The data to attach.</param>
         /// <remarks>This method uses <see cref="SerializationMethod.Json"/> to serialize the incoming data prior to attachment.</remarks>
         /// <returns>Returns the current <see cref="SmtpNetworkRequestBuilder"/> instance.</returns>
-        public INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> Attach<T>(string name, T data) => Attach(name, data, SerializationMethod.Json);
+        public SmtpNetworkRequestBuilder Attach<T>(string name, T data) => Attach(name, data, SerializationMethod.Json);
         /// <summary>
         /// Attaches raw data to the request.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Mauve.Net.Smtp
         /// <param name="data">The data to attach.</param>
         /// <param name="serializationMethod">The serialization method that should be utilized to serialize the incoming data prior to attachment.</param>
         /// <returns>Returns the current <see cref="SmtpNetworkRequestBuilder"/> instance.</returns>
-        public INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> Attach<T>(string name, T data, SerializationMethod serializationMethod)
+        public SmtpNetworkRequestBuilder Attach<T>(string name, T data, SerializationMethod serializationMethod)
         {
             string serializedData = data.Serialize(serializationMethod);
             byte[] buffer = _encoding.GetBytes(serializedData);
@@ -121,7 +121,7 @@ namespace Mauve.Net.Smtp
         /// </summary>
         /// <param name="address">The address of the recipient.</param>
         /// <returns>Returns the current <see cref="SmtpNetworkRequestBuilder"/> instance.</returns>
-        public INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> BlindCarbonCopy(string address)
+        public SmtpNetworkRequestBuilder BlindCarbonCopy(string address)
         {
             _blindCarbonCopyAddresses.Add(new MailAddress(address));
             return this;
@@ -176,7 +176,7 @@ namespace Mauve.Net.Smtp
         /// </summary>
         /// <param name="address">The address of the recipient.</param>
         /// <returns>Returns the current <see cref="SmtpNetworkRequestBuilder"/> instance.</returns>
-        public INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> CarbonCopy(string address)
+        public SmtpNetworkRequestBuilder CarbonCopy(string address)
         {
             _carbonCopyAddresses.Add(new MailAddress(address));
             return this;
@@ -186,7 +186,7 @@ namespace Mauve.Net.Smtp
         /// </summary>
         /// <param name="subject">The subject of the request.</param>
         /// <returns>Returns the current <see cref="SmtpNetworkRequestBuilder"/> instance.</returns>
-        public INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> CreateSubject(string subject)
+        public SmtpNetworkRequestBuilder CreateSubject(string subject)
         {
             _subject = subject;
             return this;
@@ -204,7 +204,7 @@ namespace Mauve.Net.Smtp
         /// </summary>
         /// <param name="address">The address of the recipient.</param>
         /// <returns>Returns the current <see cref="SmtpNetworkRequestBuilder"/> instance.</returns>
-        public INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> ReplyTo(string address)
+        public SmtpNetworkRequestBuilder ReplyTo(string address)
         {
             _replyToAddresses.Add(new MailAddress(address));
             return this;
@@ -214,7 +214,7 @@ namespace Mauve.Net.Smtp
         /// </summary>
         /// <param name="address">The address of the recipient.</param>
         /// <returns>Returns the current <see cref="SmtpNetworkRequestBuilder"/> instance.</returns>
-        public INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> SendTo(string address)
+        public SmtpNetworkRequestBuilder SendTo(string address)
         {
             _toAddresses.Add(new MailAddress(address));
             return this;
@@ -235,7 +235,7 @@ namespace Mauve.Net.Smtp
         /// </summary>
         /// <param name="value">The value to write to the request.</param>
         /// <returns>Returns the current <see cref="SmtpNetworkRequestBuilder"/> instance.</returns>
-        public INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> Write(string value)
+        public SmtpNetworkRequestBuilder Write(string value)
         {
             _ = _bodyBuilder.Append(value);
             return this;
@@ -245,7 +245,7 @@ namespace Mauve.Net.Smtp
         /// </summary>
         /// <param name="value">The value to write to the request.</param>
         /// <returns>Returns the current <see cref="SmtpNetworkRequestBuilder"/> instance.</returns>
-        public INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> WriteLine(string value)
+        public SmtpNetworkRequestBuilder WriteLine(string value)
         {
             _ = _bodyBuilder.AppendLine(value);
             return this;
