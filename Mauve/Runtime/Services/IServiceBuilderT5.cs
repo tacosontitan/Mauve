@@ -2,7 +2,7 @@
 
 using Mauve.Patterns;
 
-namespace Mauve.Runtime
+namespace Mauve.Runtime.Services
 {
     public interface IServiceBuilder<T1, T2, T3, T4, T5>
     {

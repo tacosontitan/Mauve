@@ -1,7 +1,7 @@
 ﻿
 using Mauve.Patterns;
 
-namespace Mauve.Runtime
+namespace Mauve.Runtime.Services
 {
     public interface IService
     {
