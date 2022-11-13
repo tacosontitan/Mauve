@@ -41,6 +41,10 @@ namespace Mauve
         /// </summary>
         Progress = 1L << 6,
         /// <summary>
+        /// Represents an event conveying information related to validation.
+        /// </summary>
+        Validation = 1L << 7,
+        /// <summary>
         /// Represents a diagnostic event.
         /// </summary>
         Diagnostic = 1L << 62,
