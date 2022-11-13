@@ -158,6 +158,8 @@
     <Compile Include="Serialization\YamlSerializationProvider.cs" />
     <Compile Include="Text\Lexicon.cs" />
     <Compile Include="Text\SubstringQueue.cs" />
+    <Compile Include="Threading\ObservableAction.cs" />
+    <Compile Include="Threading\ObservableActionEventArgs.cs" />
     <Compile Include="Ui\ControlType.cs" />
     <Compile Include="Ui\UiEditableAttribute.cs" />
     <Compile Include="Validation\IValidatable.cs" />
