@@ -8,6 +8,7 @@
         /// <summary>
         /// Validates the implementing object.
         /// </summary>
+        /// <exception cref="ValidationException">The validation process failed.</exception>
         void Validate();
         /// <summary>
         /// Attempts to validate the implementing object.
