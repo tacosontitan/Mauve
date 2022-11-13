@@ -7,7 +7,7 @@ namespace Mauve.Threading
     /// <summary>
     /// Represents <see cref="EventArgs"/> for an <see cref="ObservableAction"/>.
     /// </summary>
-    internal class ObservableActionEventArgs : EventArgs
+    public class ObservableActionEventArgs : EventArgs
     {
 
         #region Properties
