@@ -5,6 +5,9 @@
     /// </summary>
     public interface IValidatable
     {
+        /// <summary>
+        /// Validates the implementing object.
+        /// </summary>
         void Validate();
         /// <summary>
         /// Attempts to validate the implementing object.
