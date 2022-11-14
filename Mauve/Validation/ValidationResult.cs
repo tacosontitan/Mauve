@@ -11,10 +11,6 @@ namespace Mauve.Validation
         #region Properties
 
         /// <summary>
-        /// Was the validation process successful.
-        /// </summary>
-        public bool Success { get; private set; }
-        /// <summary>
         /// The input value provided for validation.
         /// </summary>
         public object Input { get; private set; }
@@ -34,12 +30,10 @@ namespace Mauve.Validation
         /// <summary>
         /// Creates a new instance of <see cref="ValidationResult"/> using the specified values.
         /// </summary>
-        /// <param name="success">Was the validation process successful.</param>
         /// <param name="input">The input value provided for validation.</param>
         /// <param name="expectation">The expected result.</param>
-        public ValidationResult(bool success, object input, object expectation)
+        public ValidationResult(object input, object expectation)
         {
-            Success = success;
             Input = input;
             Expectation = expectation;
             AdditionalInformation = new Dictionary<string, object>();

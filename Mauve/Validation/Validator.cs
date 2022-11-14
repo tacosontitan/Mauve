@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace Mauve.Validation
 {
@@ -58,14 +60,17 @@ namespace Mauve.Validation
         /// <summary>
         /// Validates the input for the <see cref="Validator{T}"/> instance.
         /// </summary>
-        public void Validate() =>
-            ValidateInput(_input);
+        public void Validate()
+        {
+
+        }
 
         #endregion
 
         #region Protected Methods
 
-        protected abstract void ValidateInput(T input);
+        protected abstract void CreateRules(IValidationRuleBuilder<T> ruleBuilder);
+        protected IValidationRuleBuilder<TParameter> CreateRule<TParameter>(Expression<Func<T, TParameter>> expression) => null;
 
         #endregion
 
