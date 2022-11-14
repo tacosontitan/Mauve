@@ -57,6 +57,8 @@
     <Compile Include="Core\Extensibility\GenericExtensionTests.cs" />
     <Compile Include="Core\Security\RijndaelCryptographyProviderTests.cs" />
     <Compile Include="Core\Text\SubstringQueueTests.cs" />
+    <Compile Include="Data\SampleModel.cs" />
+    <Compile Include="Data\SampleModelValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +69,9 @@
       <Project>{CEAB28E3-6023-45DE-8CD6-AE8F4FBC9651}</Project>
       <Name>Mauve</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\Validation\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
