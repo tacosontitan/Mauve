@@ -18,15 +18,6 @@ namespace Mauve.Net.Smtp
 
         #endregion
 
-        #region Properties
-
-        /// <summary>
-        /// The <see cref="NetworkConnectionInformation"/> this <see cref="SmtpNetworkClient"/> uses to send messages.
-        /// </summary>
-        public NetworkConnectionInformation ConnectionInformation { get; internal set; }
-
-        #endregion
-
         #region Constructor
 
         /// <summary>
