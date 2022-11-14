@@ -9,7 +9,7 @@ namespace Mauve.Tests.Data
         public SampleModelValidator(SampleModel input) : base(input)
         {
         }
-        protected override void CreateRules(IValidationRuleBuilder<SampleModel> ruleBuilder)
+        protected override void CreateRules()
         {
             _ = CreateRule(model => model.Timestamp)
                 .WhenNull().Throw(new ArgumentNullException("Timestamp is null."))
