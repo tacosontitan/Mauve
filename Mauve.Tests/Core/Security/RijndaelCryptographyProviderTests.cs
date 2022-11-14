@@ -1,6 +1,8 @@
-﻿using Mauve.Security;
+﻿using System;
+
+using Mauve.Security;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace Mauve.Tests.Core.Security
 {
@@ -24,8 +26,7 @@ namespace Mauve.Tests.Core.Security
                     bool result = input.Equals(encryptionResult);
                     Assert.AreEqual(expectedResult, result);
                 }
-            }
-            catch (Exception e)
+            } catch (Exception e)
             {
                 Assert.Fail(e.Message);
             }
@@ -50,8 +51,7 @@ namespace Mauve.Tests.Core.Security
                     bool result = input.Equals(decryptionResult);
                     Assert.AreEqual(expectedResult, result);
                 }
-            }
-            catch (Exception e)
+            } catch (Exception e)
             {
                 Assert.Fail(e.Message);
             }
@@ -87,9 +87,7 @@ namespace Mauve.Tests.Core.Security
                     bool result = input.Equals(decryptionResult);
                     Assert.AreEqual(expectedResult, result);
                 }
-
-            }
-            catch (Exception e)
+            } catch (Exception e)
             {
                 Assert.Fail(e.Message);
             }
