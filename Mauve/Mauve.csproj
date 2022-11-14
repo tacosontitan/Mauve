@@ -165,6 +165,7 @@
     <Compile Include="Ui\ControlType.cs" />
     <Compile Include="Ui\UiEditableAttribute.cs" />
     <Compile Include="Validation\.internal\ValidationRuleBuilder.cs" />
+    <Compile Include="Validation\.internal\ValidationStep.cs" />
     <Compile Include="Validation\IValidatable.cs" />
     <Compile Include="Validation\IValidationRuleBuilder.cs" />
     <Compile Include="Validation\NotAuthorizedException.cs" />
