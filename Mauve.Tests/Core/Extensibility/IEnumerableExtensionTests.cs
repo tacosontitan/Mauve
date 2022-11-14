@@ -93,6 +93,7 @@ namespace Mauve.Tests.Core.Extensibility
             {
                 result = inputCollection.PreviousOrDefault(searchValue);
             } catch { /* Gracefully ignore. */ }
+
             Assert.AreEqual(expectedResult, result);
         }
     }
