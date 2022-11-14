@@ -42,6 +42,7 @@ namespace Mauve.Tests.Core.Extensibility
             {
                 result = inputCollection.Next(searchValue);
             } catch { /* Gracefully ignore. */ }
+
             Assert.AreEqual(expectedResult, result);
         }
         [TestMethod()]
