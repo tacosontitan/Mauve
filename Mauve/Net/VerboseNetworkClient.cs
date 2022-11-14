@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 
 namespace Mauve.Net
@@ -148,6 +147,7 @@ namespace Mauve.Net
         /// <param name="request"></param>
         /// <param name="method"></param>
         /// <returns></returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Shipped as part of the public API.")]
         private async Task<INetworkResponse<TOut>> ExecuteAsync<TOut>(TRequest request, NetworkRequestMethod method) =>
             await Task.Run(() => Execute<TOut>(request, method), CancellationToken.None);
         /// <summary>
