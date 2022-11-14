@@ -14,6 +14,7 @@ namespace Mauve.Validation
         #region Fields
 
         private readonly T _input;
+        private readonly List<ValidationRuleset> _rulesets;
 
         #endregion
 
@@ -35,6 +36,7 @@ namespace Mauve.Validation
         public Validator(T input)
         {
             _input = input;
+            _rulesets = new List<ValidationRuleset>();
             Results = new List<ValidationResult>();
         }
 
@@ -62,15 +64,25 @@ namespace Mauve.Validation
         /// </summary>
         public void Validate()
         {
-
+            CreateRules();
+            foreach (ValidationRuleset ruleset in _rulesets)
+                ruleset.Apply();
         }
 
         #endregion
 
         #region Protected Methods
 
-        protected abstract void CreateRules(IValidationRuleBuilder<T> ruleBuilder);
-        protected IValidationRuleBuilder<TParameter> CreateRule<TParameter>(Expression<Func<T, TParameter>> expression) => null;
+        protected abstract void CreateRules();
+        protected IValidationRuleBuilder<TParameter> CreateRule<TParameter>(Expression<Func<T, TParameter>> expression)
+        {
+            Func<T, TParameter> query = expression.Compile();
+            TParameter parameter = query(_input);
+            var ruleset = new ValidationRuleset();
+            _rulesets.Add(ruleset);
+            var ruleBuilder = new ValidationRuleBuilder<TParameter>(parameter, ruleset);
+            return ruleBuilder;
+        }
 
         #endregion
 
