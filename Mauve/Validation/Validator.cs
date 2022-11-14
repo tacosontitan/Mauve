@@ -61,17 +61,16 @@ namespace Mauve.Validation
         /// Validates the input for the <see cref="Validator{T}"/> instance.
         /// </summary>
         public void Validate()
-            ValidateInput(_input);
+        {
+
+        }
 
         #endregion
 
         #region Protected Methods
 
         protected abstract void CreateRules(IValidationRuleBuilder<T> ruleBuilder);
-        protected IValidationRuleBuilder<TParameter> CreateRule<TParameter>(Expression<Func<T, TParameter>> expression)
-        {
-
-        }
+        protected IValidationRuleBuilder<TParameter> CreateRule<TParameter>(Expression<Func<T, TParameter>> expression) => null;
 
         #endregion
 
