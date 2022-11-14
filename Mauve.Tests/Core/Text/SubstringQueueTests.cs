@@ -49,7 +49,7 @@ namespace Mauve.Tests.Core.Text
                 Assert.AreEqual("test", secondString);
 
                 // Skip the next character, this test doesn't use it.
-                queue.Skip(1);
+                _ = queue.Skip(1);
 
                 // Parse the date using remaining.
                 queue.Remainder(out DateTime date);
