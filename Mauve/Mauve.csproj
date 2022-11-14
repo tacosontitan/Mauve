@@ -73,6 +73,8 @@
     <Compile Include="Net\INetworkRequest.cs" />
     <Compile Include="Net\INetworkRequestBuilder.cs" />
     <Compile Include="Net\INetworkResponse.cs" />
+    <Compile Include="Net\IQuery.cs" />
+    <Compile Include="Net\IQueryHandler.cs" />
     <Compile Include="Net\NetworkClient.cs" />
     <Compile Include="Net\NetworkConnectionInformation.cs" />
     <Compile Include="Net\NetworkCredential.cs" />
@@ -162,11 +164,15 @@
     <Compile Include="Threading\ObservableActionEventArgs.cs" />
     <Compile Include="Ui\ControlType.cs" />
     <Compile Include="Ui\UiEditableAttribute.cs" />
+    <Compile Include="Validation\.internal\ValidationRuleBuilder.cs" />
     <Compile Include="Validation\IValidatable.cs" />
+    <Compile Include="Validation\IValidationRuleBuilder.cs" />
     <Compile Include="Validation\NotAuthorizedException.cs" />
     <Compile Include="Validation\NotFoundException.cs" />
     <Compile Include="Validation\ValidationException.cs" />
     <Compile Include="Validation\ValidationResult.cs" />
+    <Compile Include="Validation\ValidationRule.cs" />
+    <Compile Include="Validation\ValidationRuleset.cs" />
     <Compile Include="Validation\Validator.cs" />
   </ItemGroup>
   <ItemGroup>
