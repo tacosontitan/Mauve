@@ -25,21 +25,12 @@ namespace Mauve.Validation
 
         #endregion
 
-        public ValidationRuleset Build()
-        {
-
-        }
-        public IValidationRuleBuilder<T> Otherwise(Action<T> action)
-        {
-
-        }
+        public ValidationRuleset Build() => null;
+        public IValidationRuleBuilder<T> Otherwise(Action<T> action) => null;
         public IValidationRuleBuilder<T> Then(Action<T> action) => throw new NotImplementedException();
         public IValidationRuleBuilder<T> Throw(Exception e) => throw new NotImplementedException();
         public IValidationRuleBuilder<T> Unless(Predicate<T> predicate) => throw new NotImplementedException();
-        public IValidationRuleBuilder<T> When(Predicate<T> predicate)
-        {
-
-        }
+        public IValidationRuleBuilder<T> When(Predicate<T> predicate) => null;
         public IValidationRuleBuilder<T> WhenEqualTo(T value) => throw new NotImplementedException();
         public IValidationRuleBuilder<T> WhenIn(params T[] values) => throw new NotImplementedException();
         public IValidationRuleBuilder<T> WhenNotEqualTo(T value) => throw new NotImplementedException();
