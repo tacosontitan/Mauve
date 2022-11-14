@@ -4,6 +4,7 @@ namespace Mauve.Validation
 {
     public interface IValidationRuleBuilder<T>
     {
+        ValidationRuleset Build();
         IValidationRuleBuilder<T> Otherwise(Action<T> action);
         IValidationRuleBuilder<T> Then(Action<T> action);
         IValidationRuleBuilder<T> Throw(Exception e);

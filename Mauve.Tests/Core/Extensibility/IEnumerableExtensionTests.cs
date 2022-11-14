@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using Mauve.Extensibility;
 
@@ -42,6 +41,7 @@ namespace Mauve.Tests.Core.Extensibility
             {
                 result = inputCollection.Next(searchValue);
             } catch { /* Gracefully ignore. */ }
+
             Assert.AreEqual(expectedResult, result);
         }
         [TestMethod()]
@@ -58,6 +58,7 @@ namespace Mauve.Tests.Core.Extensibility
             {
                 result = inputCollection.NextOrDefault(searchValue);
             } catch { /* Gracefully ignore. */ }
+
             Assert.AreEqual(expectedResult, result);
         }
         [TestMethod()]
@@ -74,6 +75,7 @@ namespace Mauve.Tests.Core.Extensibility
             {
                 result = inputCollection.Previous(searchValue);
             } catch { /* Gracefully ignore. */ }
+
             Assert.AreEqual(expectedResult, result);
         }
         [TestMethod()]
@@ -90,6 +92,7 @@ namespace Mauve.Tests.Core.Extensibility
             {
                 result = inputCollection.PreviousOrDefault(searchValue);
             } catch { /* Gracefully ignore. */ }
+
             Assert.AreEqual(expectedResult, result);
         }
     }

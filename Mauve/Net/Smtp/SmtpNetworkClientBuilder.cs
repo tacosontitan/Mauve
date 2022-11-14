@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net;
 
 using Mauve.Patterns;
 
@@ -17,7 +16,7 @@ namespace Mauve.Net.Smtp
         private bool _useSsl;
         private bool _useDefaultCredentials;
         private int _port;
-        private Uri _uri;
+        private readonly Uri _uri;
         private string _domain;
         private string _username;
         private string _password;
