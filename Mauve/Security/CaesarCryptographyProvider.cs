@@ -33,14 +33,11 @@ namespace Mauve.Security
         #region Public Methods
 
         /// <inheritdoc/>
-        public override T Decrypt<T>(string input)
-        {
+        public override T Decrypt<T>(string input) =>
             // If no shift is present then simply deserialize.
-            if (_shift == 0)
-                return input.Deserialize<T>(_serializationMethod);
-
-            return default;
-        }
+            _shift == 0
+                ? input.Deserialize<T>(_serializationMethod)
+                : default;
         /// <inheritdoc/>
         public override void Dispose() => throw new NotImplementedException();
         /// <inheritdoc/>
