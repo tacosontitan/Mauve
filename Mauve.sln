@@ -9,13 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mauve.Tests", "Mauve.Tests\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mauve.VisualStudio.Community", "Mauve.VisualStudio.Community\Mauve.VisualStudio.Community.csproj", "{DF71B8C8-FB73-41DF-9AE7-84D953E57133}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mauve.Net.Dapper", "Mauve.Net.Dapper\Mauve.Net.Dapper.csproj", "{3A9CF723-68AC-4B9A-BA38-6A92AF3F9880}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mauve.Net.RestSharp", "Mauve.Net.RestSharp\Mauve.Net.RestSharp.csproj", "{256DB197-1BDD-4ABF-AA27-383C48D74EA6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mauve.Templates", "Mauve.Templates\Mauve.Templates.csproj", "{766A1364-F13D-4864-9315-7AEC6D725D33}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mauve.Ai.Discord", "Mauve.Ai.Discord\Mauve.Ai.Discord.csproj", "{660EF2C5-CF46-48EC-A427-1BB648FEF698}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,36 +43,12 @@ Global
 		{DF71B8C8-FB73-41DF-9AE7-84D953E57133}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DF71B8C8-FB73-41DF-9AE7-84D953E57133}.Release|x86.ActiveCfg = Release|x86
 		{DF71B8C8-FB73-41DF-9AE7-84D953E57133}.Release|x86.Build.0 = Release|x86
-		{3A9CF723-68AC-4B9A-BA38-6A92AF3F9880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A9CF723-68AC-4B9A-BA38-6A92AF3F9880}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A9CF723-68AC-4B9A-BA38-6A92AF3F9880}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{3A9CF723-68AC-4B9A-BA38-6A92AF3F9880}.Debug|x86.Build.0 = Debug|Any CPU
-		{3A9CF723-68AC-4B9A-BA38-6A92AF3F9880}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A9CF723-68AC-4B9A-BA38-6A92AF3F9880}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3A9CF723-68AC-4B9A-BA38-6A92AF3F9880}.Release|x86.ActiveCfg = Release|Any CPU
-		{3A9CF723-68AC-4B9A-BA38-6A92AF3F9880}.Release|x86.Build.0 = Release|Any CPU
-		{256DB197-1BDD-4ABF-AA27-383C48D74EA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{256DB197-1BDD-4ABF-AA27-383C48D74EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{256DB197-1BDD-4ABF-AA27-383C48D74EA6}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{256DB197-1BDD-4ABF-AA27-383C48D74EA6}.Debug|x86.Build.0 = Debug|Any CPU
-		{256DB197-1BDD-4ABF-AA27-383C48D74EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{256DB197-1BDD-4ABF-AA27-383C48D74EA6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{256DB197-1BDD-4ABF-AA27-383C48D74EA6}.Release|x86.ActiveCfg = Release|Any CPU
-		{256DB197-1BDD-4ABF-AA27-383C48D74EA6}.Release|x86.Build.0 = Release|Any CPU
 		{766A1364-F13D-4864-9315-7AEC6D725D33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{766A1364-F13D-4864-9315-7AEC6D725D33}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{766A1364-F13D-4864-9315-7AEC6D725D33}.Debug|x86.Build.0 = Debug|Any CPU
 		{766A1364-F13D-4864-9315-7AEC6D725D33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{766A1364-F13D-4864-9315-7AEC6D725D33}.Release|x86.ActiveCfg = Release|Any CPU
 		{766A1364-F13D-4864-9315-7AEC6D725D33}.Release|x86.Build.0 = Release|Any CPU
-		{660EF2C5-CF46-48EC-A427-1BB648FEF698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{660EF2C5-CF46-48EC-A427-1BB648FEF698}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{660EF2C5-CF46-48EC-A427-1BB648FEF698}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{660EF2C5-CF46-48EC-A427-1BB648FEF698}.Debug|x86.Build.0 = Debug|Any CPU
-		{660EF2C5-CF46-48EC-A427-1BB648FEF698}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{660EF2C5-CF46-48EC-A427-1BB648FEF698}.Release|Any CPU.Build.0 = Release|Any CPU
-		{660EF2C5-CF46-48EC-A427-1BB648FEF698}.Release|x86.ActiveCfg = Release|Any CPU
-		{660EF2C5-CF46-48EC-A427-1BB648FEF698}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
