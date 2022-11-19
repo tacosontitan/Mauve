@@ -11,12 +11,6 @@ namespace Mauve.Runtime.Processing
     public interface IRuleBuilder<T> : IBuilder<Rule<T>>
     {
         /// <summary>
-        /// Defines an action that should be executed when the previous condition fails.
-        /// </summary>
-        /// <param name="action">The action to be executed.</param>
-        /// <returns>The current <see cref="IRuleBuilder{T}"/> instance.</returns>
-        IRuleBuilder<T> Otherwise(Action<T> action);
-        /// <summary>
         /// Defines an action that should be executed when the current condition succeeds.
         /// </summary>
         /// <param name="action">The action to be executed.</param>
