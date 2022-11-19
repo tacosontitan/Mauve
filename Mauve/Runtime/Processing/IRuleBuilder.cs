@@ -1,6 +1,8 @@
-﻿namespace Mauve.Runtime.Processing
+﻿using Mauve.Patterns;
+
+namespace Mauve.Runtime.Processing
 {
-    internal interface IRuleBuilder
+    internal interface IRuleBuilder : IBuilder<Rule>
     {
     }
 }
