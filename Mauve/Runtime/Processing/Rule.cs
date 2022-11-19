@@ -1,8 +1,7 @@
 ﻿namespace Mauve.Runtime.Processing
 {
-    public abstract class Rule
+    public class Rule
     {
-
 
     }
 }
