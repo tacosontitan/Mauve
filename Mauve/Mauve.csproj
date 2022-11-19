@@ -119,7 +119,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runtime\Processing\.internal\Instruction.cs" />
     <Compile Include="Runtime\Processing\.internal\InstructionType.cs" />
-    <Compile Include="Runtime\Processing\.internal\RuleHandler.cs" />
+    <Compile Include="Runtime\Processing\RuleHandler.cs" />
     <Compile Include="Runtime\Processing\Behavior.cs" />
     <Compile Include="Runtime\Processing\IRuleBuilder.cs" />
     <Compile Include="Runtime\Processing\IWorkflowBuilder.cs" />
