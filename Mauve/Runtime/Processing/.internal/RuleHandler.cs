@@ -1,48 +1,38 @@
 ﻿using System;
 
-using Mauve.Patterns;
-
 namespace Mauve.Runtime.Processing
 {
-    internal class RuleHandler<T> : Handler<Func<T, bool>>
+    public class RuleHandler<T>
     {
 
         #region Fields
 
-        private readonly T _input;
-        private readonly Action<T> _action;
+        private RuleHandler<T> _nextHandler;
+        private readonly Func<T, bool> _function;
 
         #endregion
 
-        #region Constructors
+        #region Constructor
 
-        public RuleHandler(T input, Action<T> action, Func<T, bool> request) :
-            base(request)
+        public RuleHandler(Func<T, bool> function) =>
+            _function = function;
+        public RuleHandler(Func<T, bool> function, RuleHandler<T> next)
         {
-            _input = input;
-            _action = action;
-        }
-        public RuleHandler(T input, Action<T> action, Func<T, bool> request, Handler<Func<T, bool>> nextHandler) :
-            base(request, nextHandler)
-        {
-            _input = input;
-            _action = action;
+            _function = function;
+            _nextHandler = next;
         }
 
         #endregion
 
-        #region Protected Methods
+        #region Public Methods
 
-        protected override bool TryHandleRequest(Func<T, bool> request)
+        public void Execute(T input)
         {
-            if (request(_input))
-            {
-                _action(_input);
-                return true;
-            }
-
-            return false;
+            if (!_function(input))
+                _nextHandler?.Execute(input);
         }
+        public void SetNextHandler(RuleHandler<T> next) =>
+            _nextHandler = next;
 
         #endregion
 
