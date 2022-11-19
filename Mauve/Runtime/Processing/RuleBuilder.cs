@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Mauve.Runtime.Processing
 {
@@ -6,6 +7,15 @@ namespace Mauve.Runtime.Processing
     {
 
         #region Fields
+
+        private readonly List<RuleConditionHandler<T>> _handlers;
+
+        #endregion
+
+        #region Constructor
+
+        public RuleBuilder() =>
+            _handlers = new List<RuleConditionHandler<T>>();
 
         #endregion
 
