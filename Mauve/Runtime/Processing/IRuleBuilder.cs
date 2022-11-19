@@ -18,6 +18,11 @@ namespace Mauve.Runtime.Processing
         /// <param name="action">The action to be executed.</param>
         /// <returns>The current <see cref="IRuleBuilder{T}"/> instance.</returns>
         IRuleBuilder<T> Then(Action<T> action);
+        /// <summary>
+        /// Throws an exception when the current condition succeeds.
+        /// </summary>
+        /// <param name="e">The exception to be thrown.</param>
+        /// <returns>The current <see cref="IRuleBuilder{T}"/> instance.</returns>
         IRuleBuilder<T> Throw(Exception e);
         IRuleBuilder<T> Unless(Predicate<T> predicate);
         IRuleBuilder<T> When(Predicate<T> predicate);
