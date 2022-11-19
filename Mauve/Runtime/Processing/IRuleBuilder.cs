@@ -54,6 +54,11 @@ namespace Mauve.Runtime.Processing
         /// <param name="values">The values to compare the input to.</param>
         /// <returns>The current <see cref="IRuleBuilder{T}"/> instance.</returns>
         IRuleBuilder<T> WhenNotIn(params T[] values);
+        /// <summary>
+        /// Specifies that the input value must not be equal to a specified value.
+        /// </summary>
+        /// <param name="value">The value to compare the input to.</param>
+        /// <returns>The current <see cref="IRuleBuilder{T}"/> instance.</returns>
         IRuleBuilder<T> WhenNotEqualTo(T value);
         IRuleBuilder<T> WhenNull();
         IRuleBuilder<T> WithMessage(Func<T, string> messageQuery);
