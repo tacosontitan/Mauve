@@ -8,7 +8,7 @@ namespace Mauve.Runtime.Processing
     /// Represents an <see cref="IBuilder{T}"/> which creates <see cref="Rule"/> instances.
     /// </summary>
     /// <typeparam name="T">Specifies the type of data the rule builder works with.</typeparam>
-    internal interface IRuleBuilder<T> : IBuilder<Rule>
+    internal interface IRuleBuilder<T> : IBuilder<Rule<T>>
     {
         /// <summary>
         /// Defines an action that should be executed when the previous condition fails.
