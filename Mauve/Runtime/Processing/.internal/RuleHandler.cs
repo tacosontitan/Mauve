@@ -4,7 +4,7 @@ using Mauve.Patterns;
 
 namespace Mauve.Runtime.Processing
 {
-    internal class RuleConditionHandler<T> : Handler<Func<T, bool>>
+    internal class RuleHandler<T> : Handler<Func<T, bool>>
     {
 
         #region Fields
@@ -16,13 +16,13 @@ namespace Mauve.Runtime.Processing
 
         #region Constructors
 
-        public RuleConditionHandler(T input, Action<T> action, Func<T, bool> request) :
+        public RuleHandler(T input, Action<T> action, Func<T, bool> request) :
             base(request)
         {
             _input = input;
             _action = action;
         }
-        public RuleConditionHandler(T input, Action<T> action, Func<T, bool> request, Handler<Func<T, bool>> nextHandler) :
+        public RuleHandler(T input, Action<T> action, Func<T, bool> request, Handler<Func<T, bool>> nextHandler) :
             base(request, nextHandler)
         {
             _input = input;
