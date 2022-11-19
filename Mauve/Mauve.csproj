@@ -117,8 +117,6 @@
     <Compile Include="Patterns\IRestorable.cs" />
     <Compile Include="Patterns\MiddlewareDelegate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Runtime\Processing\.internal\Instruction.cs" />
-    <Compile Include="Runtime\Processing\.internal\InstructionType.cs" />
     <Compile Include="Runtime\Processing\RuleHandler.cs" />
     <Compile Include="Runtime\Processing\Behavior.cs" />
     <Compile Include="Runtime\Processing\IRuleBuilder.cs" />
