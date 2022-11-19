@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using Mauve.Extensibility;
 
@@ -9,53 +10,33 @@ namespace Mauve.Runtime.Processing
 
         #region Fields
 
-        private RuleHandler<T> _handler;
-        private Predicate<T> _previousCondition;
+        private readonly List<Func<T, bool>> _functions;
 
         #endregion
 
+        #region Constructor
+
+        public RuleBuilder() =>
+            _functions = new List<Func<T, bool>>();
+
+        #endregion
+
+        #region Public Methods
+
         public Rule<T> Build() =>
-            new Rule<T>(_handler);
-        public IRuleBuilder<T> Otherwise(Action<T> action) => throw new NotSupportedException("The otherwise method is not currently supported.");
+            new Rule<T>(_functions);
         public IRuleBuilder<T> Then(Action<T> action)
         {
-            if (_previousCondition is null)
-                throw new InvalidOperationException("Cannot execute an action without a preceding condition.");
-
-            var handler = new RuleHandler<T>(input =>
+            _functions.Add(input =>
             {
                 action(input);
                 return true;
             });
-            _handler.SetNextHandler(handler);
-            return this;
-        }
-        public IRuleBuilder<T> Throw(Exception e)
-        {
-            if (_previousCondition is null)
-                throw new InvalidOperationException("Cannot execute an action without a preceding condition.");
-
-            _handler.SetNextHandler(new RuleHandler<T>(input => throw e));
-            return this;
-        }
-        public IRuleBuilder<T> Unless(Predicate<T> predicate)
-        {
-            _handler = _previousCondition is null
-                ? throw new InvalidOperationException("Cannot precede an unspecified condition.")
-                : new RuleHandler<T>(input => predicate(input), _handler);
-
-            _previousCondition = predicate;
             return this;
         }
         public IRuleBuilder<T> When(Predicate<T> predicate)
         {
-            var handler = new RuleHandler<T>(input => predicate(input));
-            if (_handler is null)
-                _handler = handler;
-            else
-                _handler.SetNextHandler(handler);
-
-            _previousCondition = predicate;
+            _functions.Add(input => predicate(input));
             return this;
         }
         public IRuleBuilder<T> WhenEqualTo(T value) =>
@@ -68,5 +49,8 @@ namespace Mauve.Runtime.Processing
             When(input => !input.In(values));
         public IRuleBuilder<T> WhenNull() =>
             When(input => input == null);
+
+        #endregion
+
     }
 }
