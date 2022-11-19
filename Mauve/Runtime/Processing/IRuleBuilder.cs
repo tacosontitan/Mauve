@@ -23,12 +23,6 @@ namespace Mauve.Runtime.Processing
         /// <returns>The current <see cref="IRuleBuilder{T}"/> instance.</returns>
         IRuleBuilder<T> Throw(Exception e);
         /// <summary>
-        /// Specifies a condition that overrides the previous condition.
-        /// </summary>
-        /// <param name="predicate">The conditional expression.</param>
-        /// <returns>The current <see cref="IRuleBuilder{T}"/> instance.</returns>
-        IRuleBuilder<T> Unless(Predicate<T> predicate);
-        /// <summary>
         /// Specifies a condition that must be met prior to executing an upcoming action.
         /// </summary>
         /// <param name="predicate">The conditional expression.</param>
