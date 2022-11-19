@@ -65,6 +65,11 @@ namespace Mauve.Runtime.Processing
         /// </summary>
         /// <returns>The current <see cref="IRuleBuilder{T}"/> instance.</returns>
         IRuleBuilder<T> WhenNull();
-        IRuleBuilder<T> WithMessage(Func<T, string> messageQuery);
+        /// <summary>
+        /// Specifies a custom message to be used when the current condition fails.
+        /// </summary>
+        /// <param name="message">The message to be used for the condition failure.</param>
+        /// <returns>The current <see cref="IRuleBuilder{T}"/> instance.</returns>
+        IRuleBuilder<T> WithMessage(string message);
     }
 }
