@@ -30,6 +30,11 @@ namespace Mauve.Runtime.Processing
         /// <param name="predicate">The conditional expression.</param>
         /// <returns>The current <see cref="IRuleBuilder{T}"/> instance.</returns>
         IRuleBuilder<T> Unless(Predicate<T> predicate);
+        /// <summary>
+        /// Specifies a condition that must be met prior to executing an upcoming action.
+        /// </summary>
+        /// <param name="predicate">The conditional expression.</param>
+        /// <returns>The current <see cref="IRuleBuilder{T}"/> instance.</returns>
         IRuleBuilder<T> When(Predicate<T> predicate);
         IRuleBuilder<T> WhenEqualTo(T value);
         IRuleBuilder<T> WhenIn(params T[] values);
