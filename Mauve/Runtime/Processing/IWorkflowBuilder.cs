@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Mauve.Patterns;
 
 namespace Mauve.Runtime.Processing
 {
-    internal interface IWorkflowBuilder
+    internal interface IWorkflowBuilder : IBuilder<Workflow>
     {
     }
 }
