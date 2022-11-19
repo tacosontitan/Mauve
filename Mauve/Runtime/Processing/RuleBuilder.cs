@@ -1,35 +1,72 @@
 ﻿using System;
-using System.Collections.Generic;
+
+using Mauve.Extensibility;
 
 namespace Mauve.Runtime.Processing
 {
-    internal class RuleBuilder<T> : IRuleBuilder<T>
+    public class RuleBuilder<T> : IRuleBuilder<T>
     {
 
         #region Fields
 
-        private readonly List<RuleConditionHandler<T>> _handlers;
+        private RuleHandler<T> _handler;
+        private Predicate<T> _previousCondition;
 
         #endregion
 
-        #region Constructor
+        public Rule<T> Build() =>
+            new Rule<T>(_handler);
+        public IRuleBuilder<T> Otherwise(Action<T> action) => throw new NotSupportedException("The otherwise method is not currently supported.");
+        public IRuleBuilder<T> Then(Action<T> action)
+        {
+            if (_previousCondition is null)
+                throw new InvalidOperationException("Cannot execute an action without a preceding condition.");
 
-        public RuleBuilder() =>
-            _handlers = new List<RuleConditionHandler<T>>();
+            var handler = new RuleHandler<T>(input =>
+            {
+                action(input);
+                return true;
+            });
+            _handler.SetNextHandler(handler);
+            return this;
+        }
+        public IRuleBuilder<T> Throw(Exception e)
+        {
+            if (_previousCondition is null)
+                throw new InvalidOperationException("Cannot execute an action without a preceding condition.");
 
-        #endregion
+            _handler.SetNextHandler(new RuleHandler<T>(input => throw e));
+            return this;
+        }
+        public IRuleBuilder<T> Unless(Predicate<T> predicate)
+        {
+            _handler = _previousCondition is null
+                ? throw new InvalidOperationException("Cannot precede an unspecified condition.")
+                : new RuleHandler<T>(input => predicate(input), _handler);
 
-        public Rule<T> Build() => throw new NotImplementedException();
-        public IRuleBuilder<T> Otherwise(Action<T> action) => throw new NotImplementedException();
-        public IRuleBuilder<T> Then(Action<T> action) => throw new NotImplementedException();
-        public IRuleBuilder<T> Throw(Exception e) => throw new NotImplementedException();
-        public IRuleBuilder<T> Unless(Predicate<T> predicate) => throw new NotImplementedException();
-        public IRuleBuilder<T> When(Predicate<T> predicate) => throw new NotImplementedException();
-        public IRuleBuilder<T> WhenEqualTo(T value) => throw new NotImplementedException();
-        public IRuleBuilder<T> WhenIn(params T[] values) => throw new NotImplementedException();
-        public IRuleBuilder<T> WhenNotEqualTo(T value) => throw new NotImplementedException();
-        public IRuleBuilder<T> WhenNotIn(params T[] values) => throw new NotImplementedException();
-        public IRuleBuilder<T> WhenNull() => throw new NotImplementedException();
-        public IRuleBuilder<T> WithMessage(string message) => throw new NotImplementedException();
+            _previousCondition = predicate;
+            return this;
+        }
+        public IRuleBuilder<T> When(Predicate<T> predicate)
+        {
+            var handler = new RuleHandler<T>(input => predicate(input));
+            if (_handler is null)
+                _handler = handler;
+            else
+                _handler.SetNextHandler(handler);
+
+            _previousCondition = predicate;
+            return this;
+        }
+        public IRuleBuilder<T> WhenEqualTo(T value) =>
+            When(input => input.Equals(value));
+        public IRuleBuilder<T> WhenIn(params T[] values) =>
+            When(input => input.In(values));
+        public IRuleBuilder<T> WhenNotEqualTo(T value) =>
+            When(input => !input.Equals(value));
+        public IRuleBuilder<T> WhenNotIn(params T[] values) =>
+            When(input => !input.In(values));
+        public IRuleBuilder<T> WhenNull() =>
+            When(input => input == null);
     }
 }

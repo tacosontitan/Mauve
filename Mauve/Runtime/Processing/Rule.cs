@@ -1,37 +1,25 @@
-﻿using System.Collections.Generic;
-
-namespace Mauve.Runtime.Processing
+﻿namespace Mauve.Runtime.Processing
 {
     public class Rule<T>
     {
 
-        #region Sub-Types
-
-        private class Instruction
-        {
-
-        }
-
-        #endregion
-
         #region Fields
 
-        private readonly List<Instruction> _instructions;
+        private readonly RuleHandler<T> _ruleHandler;
 
         #endregion
 
         #region Constructor
 
-        public Rule() =>
-            _instructions = new List<Instruction>();
+        public Rule(RuleHandler<T> handler) =>
+            _ruleHandler = handler;
 
         #endregion
 
         #region Public Methods
 
-        #endregion
-
-        #region Internal Methods
+        public void Apply(T input) =>
+            _ruleHandler.Execute(input);
 
         #endregion
 
