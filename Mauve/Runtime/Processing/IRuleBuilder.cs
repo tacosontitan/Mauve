@@ -17,12 +17,6 @@ namespace Mauve.Runtime.Processing
         /// <returns>The current <see cref="IRuleBuilder{T}"/> instance.</returns>
         IRuleBuilder<T> Then(Action<T> action);
         /// <summary>
-        /// Throws an exception when the current condition succeeds.
-        /// </summary>
-        /// <param name="e">The exception to be thrown.</param>
-        /// <returns>The current <see cref="IRuleBuilder{T}"/> instance.</returns>
-        IRuleBuilder<T> Throw(Exception e);
-        /// <summary>
         /// Specifies a condition that must be met prior to executing an upcoming action.
         /// </summary>
         /// <param name="predicate">The conditional expression.</param>
