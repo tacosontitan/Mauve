@@ -6,10 +6,10 @@ namespace Mauve
     /// <summary>
     /// Represents an <see langword="interface"/> that exposes an execute method which returns data.
     /// </summary>
-    public interface IExecutable<TOut, TIn>
+    public interface IExecutable<T, TOut>
     {
-        TOut Execute(TIn input);
-        Task<TOut> ExecuteAsync(TIn input);
-        Task<TOut> ExecuteAsync(TIn input, CancellationToken cancellationToken);
+        TOut Execute(T input);
+        Task<TOut> ExecuteAsync(T input);
+        Task<TOut> ExecuteAsync(T input, CancellationToken cancellationToken);
     }
 }
