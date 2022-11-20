@@ -15,7 +15,6 @@ namespace Mauve
         /// <summary>
         /// Executes the <see cref="IExecutable"/> asynchronously.
         /// </summary>
-        /// <returns></returns>
         Task ExecuteAsync();
         /// <summary>
         /// Executes the <see cref="IExecutable"/> asynchronously.
