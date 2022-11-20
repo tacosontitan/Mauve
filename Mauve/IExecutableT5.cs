@@ -9,7 +9,7 @@ namespace Mauve
     public interface IExecutable<T1, T2, T3, T4, T5, TOut>
     {
         /// <summary>
-        /// 
+        ///  Executes the <see cref="IExecutable"/>.
         /// </summary>
         /// <param name="input1">The first input parameter for this <see cref="IExecutable{T, TOut}"/>.</param>
         /// <param name="input2">The second input parameter for this <see cref="IExecutable{T, TOut}"/>.</param>
