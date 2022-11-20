@@ -8,8 +8,27 @@ namespace Mauve
     /// </summary>
     public interface IExecutable<T1, T2, TOut>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input1"></param>
+        /// <param name="input2"></param>
+        /// <returns></returns>
         TOut Execute(T1 input1, T2 input2);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input1"></param>
+        /// <param name="input2"></param>
+        /// <returns></returns>
         Task<TOut> ExecuteAsync(T1 input1, T2 input2);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input1"></param>
+        /// <param name="input2"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         Task<TOut> ExecuteAsync(T1 input1, T2 input2, CancellationToken cancellationToken);
     }
 }
