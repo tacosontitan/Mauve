@@ -16,14 +16,14 @@ namespace Mauve
         /// <returns></returns>
         TOut Execute(T1 input1, T2 input2);
         /// <summary>
-        /// 
+        /// Executes the <see cref="IExecutable"/> asynchronously.
         /// </summary>
         /// <param name="input1"></param>
         /// <param name="input2"></param>
         /// <returns></returns>
         Task<TOut> ExecuteAsync(T1 input1, T2 input2);
         /// <summary>
-        /// 
+        /// Executes the <see cref="IExecutable"/> asynchronously.
         /// </summary>
         /// <param name="input1"></param>
         /// <param name="input2"></param>
