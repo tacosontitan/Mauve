@@ -12,17 +12,6 @@ body:
         - 🐣 Pre-Release
     validations:
       required: true
-  - type: dropdown
-    id: product
-    attributes:
-      label: 🌠 Product
-      description: Which sub-product of Mauve is this feature for?
-      options:
-        - Ⓜ️ Framework
-        - 📝 Dapper Support Kit
-        - 💻 RestSharp Support Kit
-    validations:
-      required: true
   - type: input
     attributes:
       label: 🦖 What type is this extension method for?
