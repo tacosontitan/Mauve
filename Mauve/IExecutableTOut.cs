@@ -4,22 +4,25 @@ using System.Threading.Tasks;
 namespace Mauve
 {
     /// <summary>
-    /// Represents an <see langword="interface"/> that exposes an execute method.
+    /// Represents an <see langword="interface"/> that exposes an execute method which returns data.
     /// </summary>
-    public interface IExecutable
+    public interface IExecutable<T>
     {
         /// <summary>
         /// Executes the <see cref="IExecutable"/>.
         /// </summary>
-        void Execute();
+        /// <returns></returns>
+        T Execute();
         /// <summary>
         /// Executes the <see cref="IExecutable"/> asynchronously.
         /// </summary>
-        Task ExecuteAsync();
+        /// <returns></returns>
+        Task<T> ExecuteAsync();
         /// <summary>
         /// Executes the <see cref="IExecutable"/> asynchronously.
         /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to cancel execution.</param>
-        Task ExecuteAsync(CancellationToken cancellationToken);
+        /// <returns></returns>
+        Task<T> ExecuteAsync(CancellationToken cancellationToken);
     }
 }
