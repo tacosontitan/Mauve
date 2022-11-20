@@ -70,6 +70,7 @@
     <Compile Include="IExecutableT2.cs" />
     <Compile Include="IExecutableT.cs" />
     <Compile Include="IExecutable.cs" />
+    <Compile Include="IExecutableTOut.cs" />
     <Compile Include="Math\NumericBaseConverter.cs" />
     <Compile Include="Net\BasicNetworkCredential.cs" />
     <Compile Include="Net\Http\HttpNetworkClient.cs" />
