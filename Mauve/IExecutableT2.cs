@@ -27,7 +27,7 @@ namespace Mauve
         /// </summary>
         /// <param name="input1"></param>
         /// <param name="input2"></param>
-        /// <param name="cancellationToken"></param>
+        /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to cancel execution.</param>
         /// <returns></returns>
         Task<TOut> ExecuteAsync(T1 input1, T2 input2, CancellationToken cancellationToken);
     }
