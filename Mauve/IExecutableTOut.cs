@@ -8,8 +8,21 @@ namespace Mauve
     /// </summary>
     public interface IExecutable<T>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         T Execute();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         Task<T> ExecuteAsync();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         Task<T> ExecuteAsync(CancellationToken cancellationToken);
     }
 }
