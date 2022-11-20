@@ -65,7 +65,7 @@
     <Compile Include="Extensibility\StringExtensions.cs" />
     <Compile Include="IExecutableT6.cs" />
     <Compile Include="IExecutableT5.cs" />
-    <Compile Include="IExecutableT4.cs" />
+    <Compile Include="IExecutableT3.cs" />
     <Compile Include="IExecutableT2.cs" />
     <Compile Include="IExecutableT.cs" />
     <Compile Include="IExecutable.cs" />
