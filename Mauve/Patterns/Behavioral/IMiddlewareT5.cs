@@ -21,7 +21,7 @@ namespace Mauve.Patterns
         /// <param name="t4">The fourth input for the middleware.</param>
         /// <param name="t5">The fifth input for the middleware.</param>
         /// <param name="next">The next middleware to utilize.</param>
-        void Invoke(T1 t1, T2 t2, T3 t3, T4 t4,T5 t5, MiddlewareDelegate<T1, T2, T3, T4, T5> next);
+        void Invoke(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, MiddlewareDelegate<T1, T2, T3, T4, T5> next);
         /// <summary>
         /// Invokes the middleware.
         /// </summary>
@@ -31,6 +31,7 @@ namespace Mauve.Patterns
         /// <param name="t4">The fourth input for the middleware.</param>
         /// <param name="t5">The fifth input for the middleware.</param>
         /// <param name="next">The next middleware to utilize.</param>
+        /// <returns>A <see cref="Task"/> describing the result of the invocation.</returns>
         Task InvokeAsync(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, MiddlewareDelegate<T1, T2, T3, T4, T5> next);
     }
 }
