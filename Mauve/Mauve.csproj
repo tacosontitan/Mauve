@@ -101,7 +101,7 @@
     <Compile Include="Patterns\Handler.cs" />
     <Compile Include="Patterns\HandlerChainBuilder.cs" />
     <Compile Include="Patterns\IAdapter.cs" />
-    <Compile Include="Patterns\Structural\IBuilder.cs" />
+    <Compile Include="Patterns\Creational\IBuilder.cs" />
     <Compile Include="Patterns\ICommand.cs" />
     <Compile Include="Patterns\IFactory.cs" />
     <Compile Include="Patterns\IHandlerChainBuilder.cs" />
@@ -196,7 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Patterns\Behavioral\" />
-    <Folder Include="Patterns\Creational\" />
+    <Folder Include="Patterns\Structural\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
