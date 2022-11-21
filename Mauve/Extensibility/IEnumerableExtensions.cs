@@ -120,7 +120,9 @@ namespace Mauve.Extensibility
         {
             try
             {
-                return collection.Previous(item);
+                return collection is null
+                    ? default
+                    : collection.Previous(item);
             } catch
             {
                 return default;
