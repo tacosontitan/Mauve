@@ -9,7 +9,7 @@ namespace Mauve.Runtime.Processing
     internal interface IRule<T>
     {
         /// <summary>
-        /// Applies the rule.
+        /// Applies the rule to the specified input.
         /// </summary>
         /// <param name="input">The input to which the rule should be applied.</param>
         void Apply(T input);

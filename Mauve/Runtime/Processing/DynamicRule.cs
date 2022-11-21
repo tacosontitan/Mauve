@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 using Mauve.Extensibility;
 
@@ -10,7 +12,7 @@ namespace Mauve.Runtime.Processing
     /// Represents a rule which can be applied to a specific type.
     /// </summary>
     /// <typeparam name="T">Specifies the type which the rule applies to.</typeparam>
-    public class DynamicRule<T>
+    public class DynamicRule<T> : IRule<T>
     {
 
         #region Fields
@@ -48,6 +50,21 @@ namespace Mauve.Runtime.Processing
             Func<T, bool> secondFunction = _functions.NextOrDefault(firstFunction);
             ApplyRecursive(input, firstFunction, secondFunction);
         }
+        /// <summary>
+        /// Applies the rule asynchronously.
+        /// </summary>
+        /// <param name="input">The input to which the rule should be applied.</param>
+        /// <returns>A <see cref="Task"/> that describes the state of the application.</returns>
+        public async Task ApplyAsync(T input) =>
+            await ApplyAsync(input, CancellationToken.None);
+        /// <summary>
+        /// Applies the rule asynchronously.
+        /// </summary>
+        /// <param name="input">The input to which the rule should be applied.</param>
+        /// <param name="cancellationToken">The <see cref="CancellationToken"/> through which the application can be cancelled.</param>
+        /// <returns>A <see cref="Task"/> that describes the state of the application.</returns>
+        public async Task ApplyAsync(T input, CancellationToken cancellationToken) =>
+            await Task.Run(() => Apply(input), cancellationToken);
 
         #endregion
 
