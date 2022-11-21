@@ -17,9 +17,9 @@ namespace Mauve.Extensibility
         /// <returns>Returns the input if it falls on or between the lower and upper bounds, otherwise the exceeded bound is returned in its place.</returns>
         public static T Constrain<T>(this T input, T lowerBound, T upperBound) where T : IComparable
         {
-            if (input.CompareTo(lowerBound) < 0)
+            if (input?.CompareTo(lowerBound) < 0)
                 input = lowerBound;
-            else if (input.CompareTo(upperBound) > 0)
+            else if (input?.CompareTo(upperBound) > 0)
                 input = upperBound;
 
             return input;
