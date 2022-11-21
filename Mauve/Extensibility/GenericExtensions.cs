@@ -120,7 +120,7 @@ namespace Mauve.Extensibility
         /// <param name="collection">The collection to look through.</param>
         /// <returns><see langword="true"/> if the specified collection contains the specified input, otherwise <see langword="false"/>.</returns>
         public static bool In<T>(this T input, params T[] collection) =>
-            collection.Any(a => a.Equals(input));
+            collection?.Any(a => a.Equals(input)) == true;
         /// <summary>
         /// Determines if a specified value is present in a specified collection using a specified equality comparer.
         /// </summary>
@@ -130,7 +130,7 @@ namespace Mauve.Extensibility
         /// <param name="collection">The collection to look through.</param>
         /// <returns><see langword="true"/> if the specified collection contains the specified input, otherwise <see langword="false"/>.</returns>
         public static bool In<T>(this T input, IEqualityComparer<T> equalityComparer, params T[] collection) =>
-            collection.Any(a => equalityComparer.Equals(a, input));
+            collection?.Any(a => equalityComparer.Equals(a, input)) == true;
 
         #endregion
 

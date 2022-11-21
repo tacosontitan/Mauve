@@ -5,7 +5,7 @@ namespace Mauve.Patterns
     /// <summary>
     /// Represents an <see cref="IHandlerChainBuilder{T}"/> instance capable of building a chain of <see cref="Handler{T}"/> instances.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Specifies the type the handler chain builder works with.</typeparam>
     public class HandlerChainBuilder<T> : IHandlerChainBuilder<T>
     {
 

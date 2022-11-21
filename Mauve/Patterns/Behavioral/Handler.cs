@@ -46,6 +46,7 @@ namespace Mauve.Patterns
         /// <summary>
         /// Handles the request or attempts to pass the request along to the next <see cref="Handler{T}"/> in the chain.
         /// </summary>
+        /// <returns>A task describing the state of the execution.</returns>
         public async Task ExecuteAsync()
         {
             if (!TryHandleRequest(_request))
@@ -54,6 +55,11 @@ namespace Mauve.Patterns
 
             await Task.CompletedTask;
         }
+        /// <summary>
+        /// Handles the request or attempts to pass the request along to the next <see cref="Handler{T}"/> in the chain.
+        /// </summary>
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> for cancelling the asynchronous operation.</param>
+        /// <returns>A task describing the state of the execution.</returns>
         public async Task ExecuteAsync(CancellationToken cancellationToken)
         {
             if (!TryHandleRequest(_request))

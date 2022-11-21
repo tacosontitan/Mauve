@@ -17,9 +17,9 @@ namespace Mauve.Extensibility
         /// <returns>Returns the input if it falls on or between the lower and upper bounds, otherwise the exceeded bound is returned in its place.</returns>
         public static T Constrain<T>(this T input, T lowerBound, T upperBound) where T : IComparable
         {
-            if (input.CompareTo(lowerBound) < 0)
+            if (input?.CompareTo(lowerBound) < 0)
                 input = lowerBound;
-            else if (input.CompareTo(upperBound) > 0)
+            else if (input?.CompareTo(upperBound) > 0)
                 input = upperBound;
 
             return input;
@@ -32,6 +32,6 @@ namespace Mauve.Extensibility
         /// <param name="max">The maximum allowed value.</param>
         /// <returns>Returns true if the calling object's value is equal to or greater than the specified minimum value, while remaining less than or equal to the specified maximum value, otherwise false.</returns>
         public static bool WithinRange(this IComparable value, IComparable min, IComparable max) =>
-            value.CompareTo(min) >= 0 && value.CompareTo(max) <= 0;
+            value?.CompareTo(min) >= 0 && value?.CompareTo(max) <= 0;
     }
 }

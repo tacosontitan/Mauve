@@ -59,7 +59,6 @@
     <Compile Include="Core\Security\RijndaelCryptographyProviderTests.cs" />
     <Compile Include="Core\Text\SubstringQueueTests.cs" />
     <Compile Include="Data\SampleModel.cs" />
-    <Compile Include="Data\SampleModelValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

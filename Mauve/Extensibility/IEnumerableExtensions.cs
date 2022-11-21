@@ -19,6 +19,9 @@ namespace Mauve.Extensibility
         /// <param name="action">The action to be invoked for each object in the <see cref="IEnumerable{T}"/> instance.</param>
         public static void ForEach<T>(this IEnumerable<T> collection, Action<T> action)
         {
+            if (collection is null)
+                return;
+
             foreach (T item in collection)
                 action(item);
         }
@@ -29,16 +32,15 @@ namespace Mauve.Extensibility
         /// <param name="collection">The collection of objects to work with.</param>
         /// <param name="searchValue">The element to search for.</param>
         /// <returns>The index of a specified <see cref="T"/>, otherwise <c>-1</c>.</returns>
-        /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is null.</exception>
         public static int IndexOf<T>(this IEnumerable<T> collection, T searchValue)
         {
             if (collection == null)
-                throw new ArgumentNullException(nameof(collection));
+                return -1;
 
             int index = 0;
             foreach (T item in collection)
             {
-                if (item.Equals(searchValue))
+                if (item?.Equals(searchValue) == true)
                     return index;
 
                 index++;
@@ -55,9 +57,11 @@ namespace Mauve.Extensibility
         /// <returns>Returns the next element in the <see cref="IEnumerable{T}"/> if one is available.</returns>
         /// <exception cref="NotFoundException">The specified <paramref name="item"/> is not found in the collection.</exception>
         /// <exception cref="IndexOutOfRangeException">There is no element after the specified <paramref name="item"/>.</exception>
-        /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is null.</exception>
         public static T Next<T>(this IEnumerable<T> collection, T item)
         {
+            if (collection is null)
+                return default;
+
             int index = collection.IndexOf(item);
             return index == -1
                 ? throw new NotFoundException()
@@ -76,7 +80,9 @@ namespace Mauve.Extensibility
         {
             try
             {
-                return collection.Next(item);
+                return collection is null
+                    ? default
+                    : collection.Next(item);
             } catch
             {
                 return default;
@@ -91,9 +97,11 @@ namespace Mauve.Extensibility
         /// <returns>Returns the previous element in the <see cref="IEnumerable{T}"/> if one is available.</returns>
         /// <exception cref="NotFoundException">The specified <paramref name="item"/> is not found in the collection.</exception>
         /// <exception cref="IndexOutOfRangeException">There is no element before the specified <paramref name="item"/>.</exception>
-        /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is null.</exception>
         public static T Previous<T>(this IEnumerable<T> collection, T item)
         {
+            if (collection is null)
+                return default;
+
             int index = collection.IndexOf(item);
             return index == -1
                 ? throw new NotFoundException()
@@ -112,7 +120,9 @@ namespace Mauve.Extensibility
         {
             try
             {
-                return collection.Previous(item);
+                return collection is null
+                    ? default
+                    : collection.Previous(item);
             } catch
             {
                 return default;
