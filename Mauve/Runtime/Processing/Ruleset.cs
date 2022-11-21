@@ -28,9 +28,12 @@ namespace Mauve.Runtime.Processing
         #region Public Methods
 
         public void Add(IRule<T> rule) => _rules.Add(rule);
-        public void Apply(T input) => throw new System.NotImplementedException();
-        public Task ApplyAsync(T input) => throw new System.NotImplementedException();
-        public Task ApplyAsync(T input, CancellationToken cancellationToken) => throw new System.NotImplementedException();
+        public void Apply(T input) =>
+            _rules?.ForEach(rule => rule.Apply(input));
+        public async Task ApplyAsync(T input) =>
+            await ApplyAsync(input, CancellationToken.None);
+        public async Task ApplyAsync(T input, CancellationToken cancellationToken) =>
+            await Task.Run(() => Apply(input), cancellationToken);
         public void Clear() => _rules.Clear();
         public void Remove(IRule<T> rule) => _rules.Remove(rule);
 
