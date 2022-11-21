@@ -57,7 +57,6 @@ namespace Mauve.Extensibility
         /// <returns>Returns the next element in the <see cref="IEnumerable{T}"/> if one is available.</returns>
         /// <exception cref="NotFoundException">The specified <paramref name="item"/> is not found in the collection.</exception>
         /// <exception cref="IndexOutOfRangeException">There is no element after the specified <paramref name="item"/>.</exception>
-        /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is null.</exception>
         public static T Next<T>(this IEnumerable<T> collection, T item)
         {
             if (collection is null)
