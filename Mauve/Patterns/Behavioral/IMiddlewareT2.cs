@@ -22,6 +22,7 @@ namespace Mauve.Patterns
         /// <param name="t">The first input for the middleware.</param>
         /// <param name="t">The second input for the middleware.</param>
         /// <param name="next">The next middleware to utilize.</param>
+        /// <returns>A <see cref="Task"/> describing the result of the invocation.</returns>
         Task InvokeAsync(T t, U u, MiddlewareDelegate<T, U> next);
     }
 }
