@@ -11,13 +11,13 @@
         /// Converts from the first type to the second.
         /// </summary>
         /// <param name="input"></param>
-        /// <returns></returns>
+        /// <returns><see cref="T1"/> converted to <see cref="T2"/>.</returns>
         T2 Convert(T1 input);
         /// <summary>
         /// Converts from the second type to the first.
         /// </summary>
         /// <param name="input"></param>
-        /// <returns></returns>
+        /// <returns><see cref="T2"/> converted to <see cref="T1"/>.</returns>
         T1 Convert(T2 input);
     }
 }
