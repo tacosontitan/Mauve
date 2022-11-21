@@ -5,7 +5,7 @@ using Mauve.Extensibility;
 
 namespace Mauve.Runtime.Processing
 {
-    public class RuleBuilder<T> : IRuleBuilder<T>
+    public class RuleBuilder<T> : IDynamicRuleBuilder<T>
     {
 
         #region Fields
@@ -25,7 +25,7 @@ namespace Mauve.Runtime.Processing
 
         public DynamicRule<T> Build() =>
             new DynamicRule<T>(_functions);
-        public IRuleBuilder<T> Then(Action<T> action)
+        public IDynamicRuleBuilder<T> Then(Action<T> action)
         {
             _functions.Add(input =>
             {
@@ -34,20 +34,20 @@ namespace Mauve.Runtime.Processing
             });
             return this;
         }
-        public IRuleBuilder<T> When(Predicate<T> predicate)
+        public IDynamicRuleBuilder<T> When(Predicate<T> predicate)
         {
             _functions.Add(input => predicate(input));
             return this;
         }
-        public IRuleBuilder<T> WhenEqualTo(T value) =>
+        public IDynamicRuleBuilder<T> WhenEqualTo(T value) =>
             When(input => input.Equals(value));
-        public IRuleBuilder<T> WhenIn(params T[] values) =>
+        public IDynamicRuleBuilder<T> WhenIn(params T[] values) =>
             When(input => input.In(values));
-        public IRuleBuilder<T> WhenNotEqualTo(T value) =>
+        public IDynamicRuleBuilder<T> WhenNotEqualTo(T value) =>
             When(input => !input.Equals(value));
-        public IRuleBuilder<T> WhenNotIn(params T[] values) =>
+        public IDynamicRuleBuilder<T> WhenNotIn(params T[] values) =>
             When(input => !input.In(values));
-        public IRuleBuilder<T> WhenNull() =>
+        public IDynamicRuleBuilder<T> WhenNull() =>
             When(input => input == null);
 
         #endregion
