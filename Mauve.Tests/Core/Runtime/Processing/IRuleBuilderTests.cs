@@ -17,7 +17,7 @@ namespace Mauve.Tests.Core.Runtime.Processing
         {
             bool thenInvoked = false;
             var ruleBuilder = new RuleBuilder<int>();
-            Rule<int> testRule = ruleBuilder
+            DynamicRule<int> testRule = ruleBuilder
                 .When(i => i > 10)
                 .Then(i => thenInvoked = true)
                 .Build();

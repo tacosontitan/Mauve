@@ -10,7 +10,7 @@ namespace Mauve.Runtime.Processing
     /// Represents a rule which can be applied to a specific type.
     /// </summary>
     /// <typeparam name="T">Specifies the type which the rule applies to.</typeparam>
-    public class Rule<T>
+    public class DynamicRule<T>
     {
 
         #region Fields
@@ -22,16 +22,16 @@ namespace Mauve.Runtime.Processing
         #region Constructor
 
         /// <summary>
-        /// Creates a new <see cref="Rule{T}"/> instance.
+        /// Creates a new <see cref="DynamicRule{T}"/> instance.
         /// </summary>
         /// <param name="functions">The functions the rule should apply.</param>
-        public Rule(IEnumerable<Func<T, bool>> functions) =>
+        public DynamicRule(IEnumerable<Func<T, bool>> functions) =>
              _functions = new List<Func<T, bool>>(functions);
         /// <summary>
-        /// Creates a new <see cref="Rule{T}"/> instance.
+        /// Creates a new <see cref="DynamicRule{T}"/> instance.
         /// </summary>
         /// <param name="functions">The functions the rule should apply.</param>
-        public Rule(params Func<T, bool>[] functions) =>
+        public DynamicRule(params Func<T, bool>[] functions) =>
             _functions = new List<Func<T, bool>>(functions);
 
         #endregion

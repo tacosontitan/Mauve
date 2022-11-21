@@ -23,8 +23,8 @@ namespace Mauve.Runtime.Processing
 
         #region Public Methods
 
-        public Rule<T> Build() =>
-            new Rule<T>(_functions);
+        public DynamicRule<T> Build() =>
+            new DynamicRule<T>(_functions);
         public IRuleBuilder<T> Then(Action<T> action)
         {
             _functions.Add(input =>
