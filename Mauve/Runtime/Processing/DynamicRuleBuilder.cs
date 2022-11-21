@@ -5,7 +5,7 @@ using Mauve.Extensibility;
 
 namespace Mauve.Runtime.Processing
 {
-    public class RuleBuilder<T> : IDynamicRuleBuilder<T>
+    public class DynamicRuleBuilder<T> : IDynamicRuleBuilder<T>
     {
 
         #region Fields
@@ -16,7 +16,7 @@ namespace Mauve.Runtime.Processing
 
         #region Constructor
 
-        public RuleBuilder() =>
+        public DynamicRuleBuilder() =>
             _functions = new List<Func<T, bool>>();
 
         #endregion
