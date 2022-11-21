@@ -34,7 +34,9 @@ namespace Mauve.Extensibility
         /// <param name="universal">Specifies whether or not <see cref="DateTime.ToUniversalTime()"/> is invoked prior to formatting.</param>
         /// <returns>Returns the specified <see cref="DateTime"/> instance translated to a <see cref="string"/> using the specified <see cref="DateFormat"/>.</returns>
         public static string ToString(this DateTime input, DateFormat format, bool universal) =>
-            universal ? input.ToUniversalTime().ToString(format) : input.ToString(format);
+            universal
+                ? input.ToUniversalTime().ToString(format)
+                : input.ToString(format);
 
         #endregion
 
