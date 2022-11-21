@@ -96,29 +96,29 @@
     <Compile Include="Net\Sql\SqlNetworkRequestBuilder.cs" />
     <Compile Include="Math\NumericBase.cs" />
     <Compile Include="Net\VerboseNetworkClient.cs" />
-    <Compile Include="Patterns\BasicAdapter.cs" />
+    <Compile Include="Patterns\Structural\BasicAdapter.cs" />
     <Compile Include="Patterns\DependencyDescriptor.cs" />
-    <Compile Include="Patterns\Handler.cs" />
-    <Compile Include="Patterns\HandlerChainBuilder.cs" />
-    <Compile Include="Patterns\IAdapter.cs" />
+    <Compile Include="Patterns\Behavioral\Handler.cs" />
+    <Compile Include="Patterns\Behavioral\HandlerChainBuilder.cs" />
+    <Compile Include="Patterns\Structural\IAdapter.cs" />
     <Compile Include="Patterns\Creational\IBuilder.cs" />
-    <Compile Include="Patterns\ICommand.cs" />
-    <Compile Include="Patterns\IFactory.cs" />
-    <Compile Include="Patterns\IHandlerChainBuilder.cs" />
-    <Compile Include="Patterns\IInterpretationContext.cs" />
-    <Compile Include="Patterns\IInterpreter.cs" />
-    <Compile Include="Patterns\IMiddleware.cs" />
-    <Compile Include="Patterns\IMiddlewareT.cs" />
-    <Compile Include="Patterns\IMiddlewareT2.cs" />
-    <Compile Include="Patterns\IMiddlewareT3.cs" />
-    <Compile Include="Patterns\IMiddlewareT4.cs" />
-    <Compile Include="Patterns\IMiddlewareT5.cs" />
-    <Compile Include="Patterns\IMiddlewareT6.cs" />
-    <Compile Include="Patterns\IMiddlewareT7.cs" />
-    <Compile Include="Patterns\IMiddlewareT8.cs" />
-    <Compile Include="Patterns\IMiddlewareT9.cs" />
-    <Compile Include="Patterns\IRestorable.cs" />
-    <Compile Include="Patterns\MiddlewareDelegate.cs" />
+    <Compile Include="Patterns\Behavioral\ICommand.cs" />
+    <Compile Include="Patterns\Creational\IFactory.cs" />
+    <Compile Include="Patterns\Behavioral\IHandlerChainBuilder.cs" />
+    <Compile Include="Patterns\Behavioral\IInterpretationContext.cs" />
+    <Compile Include="Patterns\Behavioral\IInterpreter.cs" />
+    <Compile Include="Patterns\Behavioral\IMiddleware.cs" />
+    <Compile Include="Patterns\Behavioral\IMiddlewareT.cs" />
+    <Compile Include="Patterns\Behavioral\IMiddlewareT2.cs" />
+    <Compile Include="Patterns\Behavioral\IMiddlewareT3.cs" />
+    <Compile Include="Patterns\Behavioral\IMiddlewareT4.cs" />
+    <Compile Include="Patterns\Behavioral\IMiddlewareT5.cs" />
+    <Compile Include="Patterns\Behavioral\IMiddlewareT6.cs" />
+    <Compile Include="Patterns\Behavioral\IMiddlewareT7.cs" />
+    <Compile Include="Patterns\Behavioral\IMiddlewareT8.cs" />
+    <Compile Include="Patterns\Behavioral\IMiddlewareT9.cs" />
+    <Compile Include="Patterns\Behavioral\IRestorable.cs" />
+    <Compile Include="Patterns\Behavioral\MiddlewareDelegate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runtime\Processing\RuleHandler.cs" />
     <Compile Include="Runtime\Processing\Behavior.cs" />
@@ -194,9 +194,6 @@
   <ItemGroup>
     <Content Include="mauve-m.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Patterns\Behavioral\" />
-    <Folder Include="Patterns\Structural\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
