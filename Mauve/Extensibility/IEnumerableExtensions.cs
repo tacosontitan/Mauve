@@ -98,9 +98,11 @@ namespace Mauve.Extensibility
         /// <returns>Returns the previous element in the <see cref="IEnumerable{T}"/> if one is available.</returns>
         /// <exception cref="NotFoundException">The specified <paramref name="item"/> is not found in the collection.</exception>
         /// <exception cref="IndexOutOfRangeException">There is no element before the specified <paramref name="item"/>.</exception>
-        /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is null.</exception>
         public static T Previous<T>(this IEnumerable<T> collection, T item)
         {
+            if (collection is null)
+                return default;
+
             int index = collection.IndexOf(item);
             return index == -1
                 ? throw new NotFoundException()
