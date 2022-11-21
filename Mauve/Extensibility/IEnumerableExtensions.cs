@@ -19,6 +19,9 @@ namespace Mauve.Extensibility
         /// <param name="action">The action to be invoked for each object in the <see cref="IEnumerable{T}"/> instance.</param>
         public static void ForEach<T>(this IEnumerable<T> collection, Action<T> action)
         {
+            if (collection is null)
+                return;
+
             foreach (T item in collection)
                 action(item);
         }
