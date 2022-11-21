@@ -130,6 +130,7 @@
     <Compile Include="Runtime\EventMessageSmtpLogger.cs" />
     <Compile Include="Patterns\IDependencyCollection.cs" />
     <Compile Include="Runtime\Processing\DynamicRule.cs" />
+    <Compile Include="Runtime\Processing\IRuleT.cs" />
     <Compile Include="Runtime\Processing\IRule.cs" />
     <Compile Include="Runtime\Services\IService.cs" />
     <Compile Include="Runtime\Services\IServiceBuilderT9.cs" />
