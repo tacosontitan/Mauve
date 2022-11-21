@@ -32,16 +32,15 @@ namespace Mauve.Extensibility
         /// <param name="collection">The collection of objects to work with.</param>
         /// <param name="searchValue">The element to search for.</param>
         /// <returns>The index of a specified <see cref="T"/>, otherwise <c>-1</c>.</returns>
-        /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is null.</exception>
         public static int IndexOf<T>(this IEnumerable<T> collection, T searchValue)
         {
             if (collection == null)
-                throw new ArgumentNullException(nameof(collection));
+                return -1;
 
             int index = 0;
             foreach (T item in collection)
             {
-                if (item.Equals(searchValue))
+                if (item?.Equals(searchValue) == true)
                     return index;
 
                 index++;
