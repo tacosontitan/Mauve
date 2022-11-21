@@ -18,6 +18,9 @@ namespace Mauve.Extensibility
         /// <exception cref="ArgumentOutOfRangeException">The requested number of elements exceeds the number of remaining elements in the queue.</exception>
         public static IEnumerable<T> Dequeue<T>(this Queue<T> queue, int count)
         {
+            if (queue is null)
+                return null;
+
             // Validate the requested count.
             if (count > queue.Count)
                 throw new ArgumentOutOfRangeException("The requested number of elements exceeds the number of remaining elements in the queue.");
