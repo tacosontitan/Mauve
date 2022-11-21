@@ -6,7 +6,7 @@ namespace Mauve.Runtime.Processing
     /// <summary>
     /// Represents an <see langword="interface"/> for applying a rule.
     /// </summary>
-    internal interface IRule<T>
+    public interface IRule<T>
     {
         /// <summary>
         /// Applies the rule to the specified input.
