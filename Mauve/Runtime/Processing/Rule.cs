@@ -6,6 +6,10 @@ using Mauve.Extensibility;
 
 namespace Mauve.Runtime.Processing
 {
+    /// <summary>
+    /// Represents a rule which can be applied to a specific type.
+    /// </summary>
+    /// <typeparam name="T">Specifies the type which the rule applies to.</typeparam>
     public class Rule<T>
     {
 
@@ -17,8 +21,16 @@ namespace Mauve.Runtime.Processing
 
         #region Constructor
 
+        /// <summary>
+        /// Creates a new <see cref="Rule{T}"/> instance.
+        /// </summary>
+        /// <param name="functions">The functions the rule should apply.</param>
         public Rule(IEnumerable<Func<T, bool>> functions) =>
              _functions = new List<Func<T, bool>>(functions);
+        /// <summary>
+        /// Creates a new <see cref="Rule{T}"/> instance.
+        /// </summary>
+        /// <param name="functions">The functions the rule should apply.</param>
         public Rule(params Func<T, bool>[] functions) =>
             _functions = new List<Func<T, bool>>(functions);
 
@@ -26,6 +38,10 @@ namespace Mauve.Runtime.Processing
 
         #region Public Methods
 
+        /// <summary>
+        /// Applies the rule to the specified input.
+        /// </summary>
+        /// <param name="input">The input to apply the rule to.</param>
         public void Apply(T input)
         {
             Func<T, bool> firstFunction = _functions.FirstOrDefault();
