@@ -58,14 +58,7 @@ namespace Mauve.Validation
         /// <summary>
         /// Validates the input for the <see cref="Validator{T}"/> instance.
         /// </summary>
-        public void Validate() =>
-            ValidateInput(_input);
-
-        #endregion
-
-        #region Protected Methods
-
-        protected abstract void ValidateInput(T input);
+        public abstract void Validate();
 
         #endregion
 
