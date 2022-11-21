@@ -120,6 +120,7 @@
     <Compile Include="Patterns\Behavioral\IRestorable.cs" />
     <Compile Include="Patterns\Behavioral\MiddlewareDelegate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Runtime\IFilterStrategy.cs" />
     <Compile Include="Runtime\Processing\IDynamicRuleBuilder.cs" />
     <Compile Include="Runtime\Processing\DynamicRuleBuilder.cs" />
     <Compile Include="Runtime\EventMessageConsoleLogger.cs" />
