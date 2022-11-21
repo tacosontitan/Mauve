@@ -60,6 +60,9 @@ namespace Mauve.Extensibility
         /// <exception cref="ArgumentNullException">The <paramref name="collection"/> is null.</exception>
         public static T Next<T>(this IEnumerable<T> collection, T item)
         {
+            if (collection is null)
+                return default;
+
             int index = collection.IndexOf(item);
             return index == -1
                 ? throw new NotFoundException()
