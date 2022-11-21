@@ -179,13 +179,10 @@
     <Compile Include="Validation\.internal\ValidationRuleBuilder.cs" />
     <Compile Include="Validation\.internal\ValidationStep.cs" />
     <Compile Include="Validation\IValidatable.cs" />
-    <Compile Include="Validation\IValidationRuleBuilder.cs" />
     <Compile Include="Validation\NotAuthorizedException.cs" />
     <Compile Include="Validation\NotFoundException.cs" />
     <Compile Include="Validation\ValidationException.cs" />
     <Compile Include="Validation\ValidationResult.cs" />
-    <Compile Include="Validation\ValidationRule.cs" />
-    <Compile Include="Validation\ValidationRuleset.cs" />
     <Compile Include="Validation\Validator.cs" />
   </ItemGroup>
   <ItemGroup>
