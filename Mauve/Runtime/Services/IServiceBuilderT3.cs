@@ -1,6 +1,4 @@
-﻿using System;
-
-using Mauve.Patterns;
+﻿using Mauve.Patterns;
 
 namespace Mauve.Runtime.Services
 {
@@ -27,8 +25,6 @@ namespace Mauve.Runtime.Services
         /// <param name="instance">The instance to register.</param>
         /// <returns>Returns the current <see cref="IServiceBuilder{T1, T2, T3}"/> instance.</returns>
         IServiceBuilder<T1, T2, T3> AddSingleton<T>(T instance);
-        IServiceBuilder<T1, T2, T3> AddSingleton(string alias, Type type, object instance);
-        IServiceBuilder<T1, T2, T3> AddSingleton(Type type, object instance);
         void Run(IMiddleware<T1, T2, T3> middleware);
         IServiceBuilder<T1, T2, T3> Use(IMiddleware<T1, T2, T3> middleware);
     }
