@@ -44,7 +44,7 @@ namespace Mauve.Net
         /// <param name="uri">The host of the connection (e.g. the IP Address, Server Name, Base URL, etc).</param>
         /// <param name="port">The port this connection uses.</param>
         /// <returns>Returns the current builder instance.</returns>
-        INetworkRequestBuilder<TRequest, TData> To(Uri uri, int? port = null);
+        INetworkRequestBuilder<TRequest, TData> Using(Uri uri, int? port = null);
         /// <summary>
         /// Adds the specified header to the <see cref="INetworkRequest{T}"/>.
         /// </summary>
