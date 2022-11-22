@@ -1,6 +1,6 @@
 ﻿namespace Mauve.Patterns.Behavioral
 {
-    public interface IMediatorRequestHandler<T>
+    public interface IMediatorRequestHandler<TIn, TOut>
     {
     }
 }
