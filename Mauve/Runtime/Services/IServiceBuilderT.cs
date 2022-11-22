@@ -1,10 +1,16 @@
-﻿using Mauve.Patterns;
+﻿using System;
+
+using Mauve.Patterns;
 
 namespace Mauve.Runtime.Services
 {
-    public interface IServiceBuilder<T> : IServiceBuilder
+    public interface IServiceBuilder<T>
     {
-        IServiceBuilder Run(IMiddleware<T> middleware);
-        IServiceBuilder Use(IMiddleware<T> middleware);
+        IServiceBuilder<T> AddSingleton<TIn>(string alias, TIn instance);
+        IServiceBuilder<T> AddSingleton<TIn>(TIn instance);
+        IServiceBuilder<T> AddSingleton(string alias, Type type, object instance);
+        IServiceBuilder<T> AddSingleton(Type type, object instance);
+        IServiceBuilder<T> Run(IMiddleware<T> middleware);
+        IServiceBuilder<T> Use(IMiddleware<T> middleware);
     }
 }
