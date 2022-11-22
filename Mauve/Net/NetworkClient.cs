@@ -48,7 +48,7 @@ namespace Mauve.Net
             {
                 using (INetworkConnection connection = _connectionBuilder.Create(connectionInformation))
                 {
-                    response = ExecuteRequest<TOut>(request);
+                    response = ExecuteRequest<TOut>(connection, request);
                     statusCode = HttpStatusCode.OK;
                     responseMessage = "Success.";
                 }
@@ -81,7 +81,7 @@ namespace Mauve.Net
         /// </summary>
         /// <param name="request">The request to execute.</param>
         /// <returns>Returns the appropriate <see cref="TOut"/> instance representing the result of executing the specified <see cref="TRequest"/>.</returns>
-        protected abstract TOut ExecuteRequest<TOut>(TRequest request);
+        protected abstract TOut ExecuteRequest<TOut>(INetworkConnection connection, TRequest request);
 
         #endregion
 
