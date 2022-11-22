@@ -4,6 +4,11 @@ using Mauve.Patterns;
 
 namespace Mauve.Runtime.Services
 {
+    /// <summary>
+    /// An <see cref="interface"/> capable of building an <see cref="IService{T1, T2}"/>.
+    /// </summary>
+    /// <typeparam name="T1">Specifies the first type of the service.</typeparam>
+    /// <typeparam name="T2">Specifies the second type of the service.</typeparam>
     public interface IServiceBuilder<T1, T2> : IBuilder<IService<T1, T2>>
     {
         IServiceBuilder<T1, T2> AddSingleton<T>(string alias, T instance);
