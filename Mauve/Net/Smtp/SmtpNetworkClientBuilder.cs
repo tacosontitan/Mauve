@@ -73,7 +73,7 @@ namespace Mauve.Net.Smtp
             networkConnectionInfo.Credential = networkCredential;
 
             // Create the network client.
-            return new SmtpNetworkClient(networkConnectionInfo, _useSsl);
+            return new SmtpNetworkClient(_useSsl);
         }
         /// <summary>
         /// Specifies the port that should be utilized by the <see cref="SmtpNetworkClient"/>.

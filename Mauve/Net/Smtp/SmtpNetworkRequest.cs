@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Mail;
 
 namespace Mauve.Net.Smtp
@@ -12,10 +13,12 @@ namespace Mauve.Net.Smtp
 
         #region Properties
 
-        public NetworkCredential Credential { get; set; }
+        public NetworkCredential Credentials { get; set; }
         public MailMessage Data { get; set; }
         public NetworkRequestMethod Method { get; set; }
         public Dictionary<string, object> Headers { get; set; }
+        public int? Port { get; set; }
+        public Uri Uri { get; set; }
 
         #endregion
 

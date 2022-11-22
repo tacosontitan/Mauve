@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Mauve.Net
 {
@@ -8,13 +9,9 @@ namespace Mauve.Net
     public interface INetworkRequest<T>
     {
         /// <summary>
-        /// The network credential used for this specific request.
+        /// The credential to be utilized for connection.
         /// </summary>
-        NetworkCredential Credential { get; set; }
-        /// <summary>
-        /// The method utilized by this request.
-        /// </summary>
-        NetworkRequestMethod Method { get; set; }
+        NetworkCredential Credentials { get; set; }
         /// <summary>
         /// The data for this specific request.
         /// </summary>
@@ -23,5 +20,17 @@ namespace Mauve.Net
         /// The headers utilized in the request.
         /// </summary>
         Dictionary<string, object> Headers { get; set; }
+        /// <summary>
+        /// The method utilized by this request.
+        /// </summary>
+        NetworkRequestMethod Method { get; set; }
+        /// <summary>
+        /// The port this connection uses.
+        /// </summary>
+        int? Port { get; set; }
+        /// <summary>
+        /// The host of the connection (e.g. the IP Address, Server Name, Base URL, etc).
+        /// </summary>
+        Uri Uri { get; set; }
     }
 }

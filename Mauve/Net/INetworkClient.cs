@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 
 namespace Mauve.Net
@@ -10,15 +9,6 @@ namespace Mauve.Net
     public interface INetworkClient<TRequest, TIn>
         where TRequest : INetworkRequest<TIn>
     {
-
-        #region Properties
-
-        /// <summary>
-        /// The connection information for the client.
-        /// </summary>
-        NetworkConnectionInformation ConnectionInformation { get; set; }
-
-        #endregion
 
         #region Methods
 
