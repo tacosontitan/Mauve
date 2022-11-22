@@ -18,6 +18,12 @@ namespace Mauve.Runtime.Services
         /// <param name="instance">The instance to register.</param>
         /// <returns>Returns the current <see cref="IServiceBuilder{T}"/> instance.</returns>
         IServiceBuilder<T> AddSingleton<TIn>(string alias, TIn instance);
+        /// <summary>
+        /// Adds a singleton instance to the service.
+        /// </summary>
+        /// <typeparam name="T">Specifies the type of the singleton.</typeparam>
+        /// <param name="instance">The instance to register.</param>
+        /// <returns>Returns the current <see cref="IServiceBuilder{T}"/> instance.</returns>
         IServiceBuilder<T> AddSingleton<TIn>(TIn instance);
         IServiceBuilder<T> AddSingleton(string alias, Type type, object instance);
         IServiceBuilder<T> AddSingleton(Type type, object instance);
