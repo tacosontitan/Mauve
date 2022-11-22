@@ -7,15 +7,11 @@ namespace Mauve.Runtime.Services
     /// An <see langword="interface"/> which represents a basic service.
     /// </summary>
     /// <typeparam name="T">Specifies the type of data utilized in requests to this service.</typeparam>
-    public interface IService<T>
+    public interface IService<T> : IService
     {
-        /// <summary>
-        /// A collection of dependencies for the service.
-        /// </summary>
-        IDependencyCollection Dependencies { get; set; }
         /// <summary>
         /// The middleware delegate the service runs requests through.
         /// </summary>
-        MiddlewareDelegate<T> MiddlewareDelegate { get; set; }
+        new MiddlewareDelegate<T> MiddlewareDelegate { get; set; }
     }
 }
