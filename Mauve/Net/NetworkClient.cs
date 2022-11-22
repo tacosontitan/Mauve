@@ -17,27 +17,41 @@ namespace Mauve.Net
         where TRequest : INetworkRequest<TIn>
     {
 
-        #region Properties
+        #region Fields
 
-        public NetworkConnectionInformation ConnectionInformation { get; set; }
+        private readonly INetworkConnectionBuilder _connectionBuilder;
+        private readonly NetworkConnectionInformation _connectionInformation;
 
         #endregion
 
+        public NetworkClient(INetworkConnectionBuilder connectionBuilder) =>
+            _connectionBuilder = connectionBuilder;
         public NetworkClient(NetworkConnectionInformation connectionInformation) =>
-            ConnectionInformation = connectionInformation;
+            _connectionInformation = connectionInformation;
 
         #region Public Methods
 
         public virtual INetworkResponse<TOut> Execute<TOut>(TRequest request)
         {
             TOut response = default;
+            NetworkConnectionInformation connectionInformation = _connectionInformation
+                ?? new NetworkConnectionInformation
+                {
+                    Credential = request.Credentials,
+                    Uri = request.Uri,
+                    Port = request.Port
+                };
+
             HttpStatusCode statusCode = HttpStatusCode.InternalServerError;
             string responseMessage = string.Empty;
             try
             {
-                response = ExecuteRequest<TOut>(request);
-                statusCode = HttpStatusCode.OK;
-                responseMessage = "Success.";
+                using (INetworkConnection connection = _connectionBuilder.Create(connectionInformation))
+                {
+                    response = ExecuteRequest<TOut>(request);
+                    statusCode = HttpStatusCode.OK;
+                    responseMessage = "Success.";
+                }
             } catch (Exception e)
             {
                 IEnumerable<Exception> flattenedExceptionTree = e.Flatten();
