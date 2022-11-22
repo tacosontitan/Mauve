@@ -4,13 +4,15 @@ From basic extension methods to complete implementations of design patterns, Mau
 
 <sub>***Note**: Our chosen shade of mauve has a hexadecimal color code of `0xe0b0ff`.*</sub>
 
-## Extensions
+## Extension Methods
 Mauve offers a variety of useful extension methods for the most common data types in the `C#` language:
 
+ - `int`
  - `string`
+ - `DateTime`
+ - `Exception`
  - `IComparable`
  - `IEnumerable<T>`
- - `DateTime`
 
  Additionally, there are a few extension methods using generics for type safety that apply to all types.
 
