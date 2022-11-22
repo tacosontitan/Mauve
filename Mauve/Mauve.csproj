@@ -79,8 +79,6 @@
     <Compile Include="Net\INetworkRequest.cs" />
     <Compile Include="Net\INetworkRequestBuilder.cs" />
     <Compile Include="Net\INetworkResponse.cs" />
-    <Compile Include="Net\IQuery.cs" />
-    <Compile Include="Net\IQueryHandler.cs" />
     <Compile Include="Net\NetworkClient.cs" />
     <Compile Include="Net\NetworkConnectionInformation.cs" />
     <Compile Include="Net\NetworkCredential.cs" />
