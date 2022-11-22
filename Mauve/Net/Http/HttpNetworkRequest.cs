@@ -12,6 +12,6 @@ namespace Mauve.Net
         public Stream Data { get; set; }
         public Dictionary<string, object> Headers { get; set; }
         public NetworkRequestMethod Method { get; set; }
-        public NetworkCredential Credential { get; set; }
+        public NetworkCredential Credentials { get; set; }
     }
 }
