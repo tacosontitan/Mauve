@@ -19,7 +19,11 @@ namespace Mauve.Net.Smtp
 
         #region Fields
 
+        private Uri _uri;
+        private int? _port;
         private string _subject;
+        private MailMessage _message;
+        private NetworkRequestMethod _method;
         private NetworkCredential _credential;
         private readonly StringBuilder _bodyBuilder;
         private readonly Encoding _encoding;
@@ -164,9 +168,13 @@ namespace Mauve.Net.Smtp
                 message.Attachments.Add(attachment);
 
             // Create a new network request.
-            var request = new SmtpNetworkRequest(message);
-            if (!(_credential is null))
-                request.Credential = _credential;
+            var request = new SmtpNetworkRequest(message)
+            {
+                Credentials = _credential,
+                Method = _method,
+                Port = _port,
+                Uri = _uri
+            };
 
             // Return the newly built request.
             return request;
@@ -248,6 +256,27 @@ namespace Mauve.Net.Smtp
         public SmtpNetworkRequestBuilder WriteLine(string value)
         {
             _ = _bodyBuilder.AppendLine(value);
+            return this;
+        }
+
+        public virtual INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> Delete() => throw new NotSupportedException();
+        public INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> Get() => throw new NotSupportedException();
+        public INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> Patch() => throw new NotSupportedException();
+        public INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> Post()
+        {
+            _method = NetworkRequestMethod.Post;
+            return this;
+        }
+        public INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> Put() => throw new NotSupportedException();
+        public INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> To(Uri uri, int? port = null)
+        {
+            _uri = uri;
+            _port = port;
+            return this;
+        }
+        public INetworkRequestBuilder<SmtpNetworkRequest, MailMessage> Write(MailMessage data)
+        {
+            _message = data;
             return this;
         }
 
