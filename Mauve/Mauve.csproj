@@ -88,6 +88,8 @@
     <Compile Include="Net\NetworkResponse.cs" />
     <Compile Include="Net\Smtp\SmtpNetworkClient.cs" />
     <Compile Include="Net\Smtp\SmtpNetworkClientBuilder.cs" />
+    <Compile Include="Net\Smtp\SmtpNetworkConnection.cs" />
+    <Compile Include="Net\Smtp\SmtpNetworkConnectionBuilder.cs" />
     <Compile Include="Net\Smtp\SmtpNetworkRequest.cs" />
     <Compile Include="Net\Smtp\SmtpNetworkRequestBuilder.cs" />
     <Compile Include="Net\Sql\SqlNetworkClient.cs" />
