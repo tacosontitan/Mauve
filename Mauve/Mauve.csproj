@@ -98,6 +98,9 @@
     <Compile Include="Net\Sql\SqlNetworkRequestBuilder.cs" />
     <Compile Include="Math\NumericBase.cs" />
     <Compile Include="Net\VerboseNetworkClient.cs" />
+    <Compile Include="Patterns\Behavioral\IMediator.cs" />
+    <Compile Include="Patterns\Behavioral\IMediatorRequest.cs" />
+    <Compile Include="Patterns\Behavioral\IMediatorRequestHandler.cs" />
     <Compile Include="Patterns\Structural\BasicAdapter.cs" />
     <Compile Include="Patterns\DependencyDescriptor.cs" />
     <Compile Include="Patterns\Behavioral\Handler.cs" />
@@ -136,6 +139,7 @@
     <Compile Include="Runtime\Processing\IRuleT.cs" />
     <Compile Include="Runtime\Processing\Rule.cs" />
     <Compile Include="Runtime\Processing\Ruleset.cs" />
+    <Compile Include="Runtime\Services\AbstractServiceT.cs" />
     <Compile Include="Runtime\Services\IService.cs" />
     <Compile Include="Runtime\Services\IServiceBuilderT9.cs" />
     <Compile Include="Runtime\Services\IServiceBuilderT8.cs" />
