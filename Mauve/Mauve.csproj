@@ -75,6 +75,7 @@
     <Compile Include="Net\Http\HttpNetworkClient.cs" />
     <Compile Include="Net\Http\HttpNetworkRequest.cs" />
     <Compile Include="Net\INetworkClient.cs" />
+    <Compile Include="Net\INetworkConnection.cs" />
     <Compile Include="Net\INetworkRequest.cs" />
     <Compile Include="Net\INetworkRequestBuilder.cs" />
     <Compile Include="Net\INetworkResponse.cs" />
