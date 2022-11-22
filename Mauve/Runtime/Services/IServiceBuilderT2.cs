@@ -10,7 +10,7 @@ namespace Mauve.Runtime.Services
         IServiceBuilder<T1, T2> AddSingleton<T>(T instance);
         IServiceBuilder<T1, T2> AddSingleton(string alias, Type type, object instance);
         IServiceBuilder<T1, T2> AddSingleton(Type type, object instance);
-        IServiceBuilder<T1, T2> Run(IMiddleware<T1, T2> middleware);
+        void Run(IMiddleware<T1, T2> middleware);
         IServiceBuilder<T1, T2> Use(IMiddleware<T1, T2> middleware);
     }
 }
