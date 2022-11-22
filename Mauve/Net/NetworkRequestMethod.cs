@@ -18,12 +18,16 @@
         /// </summary>
         Post = 2,
         /// <summary>
-        /// Represents a network request that mutates data with the client.
+        /// Represents a network request that completely mutates data with the client.
         /// </summary>
         Put = 3,
         /// <summary>
         /// Represents a network request that deletes data with the client.
         /// </summary>
         Delete = 4,
+        /// <summary>
+        /// Represents a network request that partially mutates data with the client.
+        /// </summary>
+        Patch = 5
     }
 }
