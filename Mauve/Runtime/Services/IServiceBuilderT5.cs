@@ -14,6 +14,13 @@ namespace Mauve.Runtime.Services
     /// <typeparam name="T5">Specifies the fifth type of the service.</typeparam>
     public interface IServiceBuilder<T1, T2, T3, T4, T5> : IBuilder<IService<T1, T2, T3, T4, T5>>
     {
+        /// <summary>
+        /// Adds a singleton instance to the service using the specified alias.
+        /// </summary>
+        /// <typeparam name="T">Specifies the type of the singleton.</typeparam>
+        /// <param name="alias">The alias used to identify the specified instance.</param>
+        /// <param name="instance">The instance to register.</param>
+        /// <returns>Returns the current <see cref="IServiceBuilder{T1, T2, T3, T4, T5}"/> instance.</returns>
         IServiceBuilder<T1, T2, T3, T4, T5> AddSingleton<T>(string alias, T instance);
         IServiceBuilder<T1, T2, T3, T4, T5> AddSingleton<T>(T instance);
         IServiceBuilder<T1, T2, T3, T4, T5> AddSingleton(string alias, Type type, object instance);
