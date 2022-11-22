@@ -21,6 +21,10 @@ namespace Mauve.Net
         /// </summary>
         Dictionary<string, object> Headers { get; set; }
         /// <summary>
+        /// The parameters for the request.
+        /// </summary>
+        Dictionary<string, object> Parameters { get; set; }
+        /// <summary>
         /// The method utilized by this request.
         /// </summary>
         NetworkRequestMethod Method { get; set; }
