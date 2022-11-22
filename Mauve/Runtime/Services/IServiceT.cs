@@ -3,9 +3,15 @@ using Mauve.Patterns;
 
 namespace Mauve.Runtime.Services
 {
-    public interface IService<T>
+    /// <summary>
+    /// An <see langword="interface"/> which represents a basic service.
+    /// </summary>
+    /// <typeparam name="T">Specifies the type of data utilized in requests to this service.</typeparam>
+    public interface IService<T> : IService
     {
-        IDependencyCollection Dependencies { get; set; }
-        MiddlewareDelegate<T> MiddlewareDelegate { get; set; }
+        /// <summary>
+        /// The middleware delegate the service runs requests through.
+        /// </summary>
+        new MiddlewareDelegate<T> MiddlewareDelegate { get; set; }
     }
 }
