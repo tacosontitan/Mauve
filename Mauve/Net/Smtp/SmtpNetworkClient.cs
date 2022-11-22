@@ -14,28 +14,39 @@ namespace Mauve.Net.Smtp
 
         #region Fields
 
-        private readonly SmtpClient _client;
+        private readonly bool _enableSsl;
 
         #endregion
 
         #region Constructor
 
         /// <summary>
-        /// Creates a new <see cref="SmtpNetworkClient"/> instance with the specified connection information.
+        /// Creates a new <see cref="SmtpNetworkClient"/> instance.
         /// </summary>
-        /// <param name="connectionInformation">The <see cref="NetworkConnectionInformation"/> this <see cref="SmtpNetworkClient"/> uses to send messages.</param>
         /// <param name="enableSsl">Whether or not SSL is enabled.</param>
-        public SmtpNetworkClient(NetworkConnectionInformation connectionInformation, bool enableSsl) :
-            base(connectionInformation)
+        public SmtpNetworkClient(bool enableSsl) :
+            base(new SmtpNetworkConnectionBuilder()) => _enableSsl = enableSsl;
+
+        #endregion
+
+        #region Public Methods
+
+        public void Dispose() { }
+
+        #endregion
+
+        #region Protected Methods
+
+        protected override TOut ExecuteRequest<TOut>(INetworkConnection connection, SmtpNetworkRequest request)
         {
             // Verify that the connection information is a basic network credential.
-            if (connectionInformation.Credential is BasicNetworkCredential basicNetworkCredential)
+            if (connection.ConnectionInformation.Credential is BasicNetworkCredential basicNetworkCredential)
             {
                 // Create a new raw client.
-                _client = new SmtpClient(ConnectionInformation.Uri.ToString())
+                var client = new SmtpClient(connection.ConnectionInformation.Uri.ToString())
                 {
-                    EnableSsl = enableSsl,
-                    UseDefaultCredentials = ConnectionInformation.UseDefaultCredentials,
+                    EnableSsl = _enableSsl,
+                    UseDefaultCredentials = connection.ConnectionInformation.UseDefaultCredentials,
                     Credentials = new System.Net.NetworkCredential
                     {
                         UserName = basicNetworkCredential.Username,
@@ -44,26 +55,19 @@ namespace Mauve.Net.Smtp
                 };
 
                 // Set the port information if it's available.
-                if (ConnectionInformation.Port != null)
-                    _client.Port = ConnectionInformation.Port.Value;
+                if (connection.ConnectionInformation.Port != null)
+                    client.Port = connection.ConnectionInformation.Port.Value;
+
+                try
+                {
+                    client.Send(request.Data);
+                    return request.Data.Translate<MailMessage, TOut>();
+                } finally
+                {
+                    client.Dispose();
+                }
             } else
-                throw new ArgumentException("The credentials for SMTP interactions require basic network credentials.");
-        }
-
-        #endregion
-
-        #region Public Methods
-
-        public void Dispose() => _client?.Dispose();
-
-        #endregion
-
-        #region Protected Methods
-
-        protected override TOut ExecuteRequest<TOut>(SmtpNetworkRequest request)
-        {
-            _client.Send(request.Data);
-            return request.Data.Translate<MailMessage, TOut>();
+                return default;
         }
 
         #endregion
