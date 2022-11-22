@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 
 namespace Mauve.Runtime
@@ -13,24 +10,33 @@ namespace Mauve.Runtime
     public abstract class EventMessageLogger : ILogger<EventMessage>
     {
 
+        #region Fields
+
+        private readonly IFilterStrategy<EventMessage> _filterStrategy;
+
+        #endregion
+
         #region Properties
 
-        public IEnumerable<EventType> PermittedEventTypes { get; set; }
+        /// <summary>
+        /// The highest flag permitted to be logged by the <see cref="ILogger{T}"/> instance.
+        /// </summary>
+        public EventType Threshold { get; set; }
 
         #endregion
 
         #region Constructor
 
         /// <summary>
-        /// Creates a new <see cref="EventMessageLogger"/> instance with all <see cref="EventType"/> values permitted.
+        /// Creates a new <see cref="EventMessageLogger"/> instance.
         /// </summary>
-        public EventMessageLogger()
-        {
-            PermittedEventTypes = new List<EventType>();
-            foreach (EventType eventType in Enum.GetValues(typeof(EventType)))
-                if (eventType != EventType.None)
-                    PermittedEventTypes = PermittedEventTypes.Append(eventType);
-        }
+        public EventMessageLogger() { }
+        /// <summary>
+        /// Creates a new <see cref="EventMessageLogger"/> instance.
+        /// </summary>
+        /// <param name="filterStrategy">The filter strategy that should be applied to incoming messages.</param>
+        public EventMessageLogger(IFilterStrategy<EventMessage> filterStrategy) =>
+            _filterStrategy = filterStrategy;
 
         #endregion
 
@@ -55,17 +61,15 @@ namespace Mauve.Runtime
         /// <param name="cancellationToken">The cancellation token used to cancel asynchronous processing.</param>
         public async Task LogAsync(EventMessage input, CancellationToken cancellationToken) =>
             await Task.Run(() => FilterAndWrite(input), cancellationToken);
-        /// <summary>
-        /// Restricts the <see cref="PermittedEventTypes"/> to only those specified in the <paramref name="permittedEventTypeFlags"/> parameter.
-        /// </summary>
-        /// <param name="permittedEventTypeFlags">The <see cref="EventType"/> flags to permit.</param>
-        public void RestrictEventTypes(params EventType[] permittedEventTypeFlags) =>
-            PermittedEventTypes = new List<EventType>(permittedEventTypeFlags);
 
         #endregion
 
         #region Protected Methods
 
+        /// <summary>
+        /// Writes the <see cref="EventMessage"/>.
+        /// </summary>
+        /// <param name="message">The message to write.</param>
         protected abstract void WriteMessage(EventMessage message);
 
         #endregion
@@ -74,8 +78,16 @@ namespace Mauve.Runtime
 
         private void FilterAndWrite(EventMessage message)
         {
-            if (PermittedEventTypes.Any(type => message.Type.HasFlag(type)))
+            if (_filterStrategy is null)
                 WriteMessage(message);
+            else
+            {
+                EventMessage filterResult = _filterStrategy.Filter(message);
+                if (filterResult is null)
+                    return;
+
+                WriteMessage(message);
+            }
         }
 
         #endregion
