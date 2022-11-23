@@ -120,7 +120,6 @@
     <Compile Include="Patterns\IDependencyCollection.cs" />
     <Compile Include="Runtime\Processing\DynamicRule.cs" />
     <Compile Include="Runtime\Processing\IRuleT.cs" />
-    <Compile Include="Runtime\Processing\Rule.cs" />
     <Compile Include="Runtime\Processing\Ruleset.cs" />
     <Compile Include="Runtime\Services\AbstractServiceT.cs" />
     <Compile Include="Runtime\Services\IService.cs" />
