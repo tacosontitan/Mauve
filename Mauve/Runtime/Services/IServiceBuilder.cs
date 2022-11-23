@@ -36,7 +36,5 @@ namespace Mauve.Runtime.Services
         IServiceBuilder AddTransient<T>(string alias, IFactory<T> factory);
         IServiceBuilder AddTransient<T>(Func<T> factory);
         IServiceBuilder AddTransient<T>(string alias, Func<T> factory);
-        void Run(IMiddleware middleware);
-        IServiceBuilder Use(IMiddleware middleware);
     }
 }
