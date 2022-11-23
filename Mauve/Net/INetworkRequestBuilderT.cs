@@ -3,9 +3,9 @@
 namespace Mauve.Net
 {
     /// <summary>
-    /// 
+    /// An <see langword="interface"/> for building <see cref="INetworkRequest{T}"/> instances.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Specifies the type of data utilized by the request.</typeparam>
     public interface INetworkRequestBuilder<T> : IBuilder<INetworkRequest<T>>
     {
         INetworkRequestBuilder<T> Authorize(NetworkTokenType tokenType, string token);
