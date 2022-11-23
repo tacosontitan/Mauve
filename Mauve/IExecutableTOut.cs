@@ -6,6 +6,7 @@ namespace Mauve
     /// <summary>
     /// Represents an <see langword="interface"/> that exposes an execute method which returns data.
     /// </summary>
+    /// <typeparam name="T">Specifies the expected result type for the operation.</typeparam>
     public interface IExecutable<T>
     {
         /// <summary>
