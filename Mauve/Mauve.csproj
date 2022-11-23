@@ -89,13 +89,10 @@
     <Compile Include="Patterns\Creational\IFactory.cs" />
     <Compile Include="Patterns\Structural\BasicAdapter.cs" />
     <Compile Include="Patterns\DependencyDescriptor.cs" />
-    <Compile Include="Patterns\Behavioral\Handler.cs" />
-    <Compile Include="Patterns\Behavioral\HandlerChainBuilder.cs" />
     <Compile Include="Patterns\Structural\IAdapter.cs" />
     <Compile Include="Patterns\Creational\IBuilder.cs" />
     <Compile Include="Patterns\Behavioral\ICommand.cs" />
     <Compile Include="Patterns\Creational\IFactoryT.cs" />
-    <Compile Include="Patterns\Behavioral\IHandlerChainBuilder.cs" />
     <Compile Include="Patterns\Behavioral\IInterpretationContext.cs" />
     <Compile Include="Patterns\Behavioral\IInterpreter.cs" />
     <Compile Include="Patterns\Behavioral\IMiddleware.cs" />
