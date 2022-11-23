@@ -84,7 +84,7 @@
     <Compile Include="Patterns\Behavioral\IMediator.cs" />
     <Compile Include="Patterns\Behavioral\IMediatorRequest.cs" />
     <Compile Include="Patterns\Behavioral\IMediatorRequestHandler.cs" />
-    <Compile Include="Patterns\Behavioral\Mediator.cs" />
+    <Compile Include="Patterns\Creational\IFactory.cs" />
     <Compile Include="Patterns\Structural\BasicAdapter.cs" />
     <Compile Include="Patterns\DependencyDescriptor.cs" />
     <Compile Include="Patterns\Behavioral\Handler.cs" />
