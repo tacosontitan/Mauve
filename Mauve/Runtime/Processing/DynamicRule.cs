@@ -54,16 +54,9 @@ namespace Mauve.Runtime.Processing
         /// Applies the rule asynchronously.
         /// </summary>
         /// <param name="input">The input to which the rule should be applied.</param>
-        /// <returns>A <see cref="Task"/> that describes the state of the application.</returns>
-        public async Task ApplyAsync(T input) =>
-            await ApplyAsync(input, CancellationToken.None);
-        /// <summary>
-        /// Applies the rule asynchronously.
-        /// </summary>
-        /// <param name="input">The input to which the rule should be applied.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> through which the application can be cancelled.</param>
         /// <returns>A <see cref="Task"/> that describes the state of the application.</returns>
-        public async Task ApplyAsync(T input, CancellationToken cancellationToken) =>
+        public async Task Apply(T input, CancellationToken cancellationToken) =>
             await Task.Run(() => Apply(input), cancellationToken);
 
         #endregion
