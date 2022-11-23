@@ -7,7 +7,7 @@ namespace Mauve.Runtime.Services
     /// <summary>
     /// An <see cref="interface"/> capable of building an <see cref="IService"/>.
     /// </summary>
-    public interface IServiceBuilder : IBuilder<IService>
+    public interface IServiceBuilder
     {
         /// <summary>
         /// Adds a singleton instance to the service.
