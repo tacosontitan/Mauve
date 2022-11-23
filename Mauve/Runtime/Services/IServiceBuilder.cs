@@ -9,6 +9,12 @@ namespace Mauve.Runtime.Services
     /// </summary>
     public interface IServiceBuilder
     {
+        IServiceBuilder AddScoped<T>();
+        IServiceBuilder AddScoped<T>(string alias);
+        IServiceBuilder AddScoped<T>(IFactory<T> factory);
+        IServiceBuilder AddScoped<T>(string alias, IFactory<T> factory);
+        IServiceBuilder AddScoped<T>(Func<T> factory);
+        IServiceBuilder AddScoped<T>(string alias, Func<T> factory);
         /// <summary>
         /// Adds a singleton instance to the service.
         /// </summary>
@@ -24,12 +30,6 @@ namespace Mauve.Runtime.Services
         /// <param name="instance">The instance to register.</param>
         /// <returns>Returns the current <see cref="IServiceBuilder"/> instance.</returns>
         IServiceBuilder AddSingleton<T>(string alias, T instance);
-        IServiceBuilder AddScoped<T>();
-        IServiceBuilder AddScoped<T>(string alias);
-        IServiceBuilder AddScoped<T>(IFactory<T> factory);
-        IServiceBuilder AddScoped<T>(string alias, IFactory<T> factory);
-        IServiceBuilder AddScoped<T>(Func<T> factory);
-        IServiceBuilder AddScoped<T>(string alias, Func<T> factory);
         IServiceBuilder AddTransient<T>();
         IServiceBuilder AddTransient<T>(string alias);
         IServiceBuilder AddTransient<T>(IFactory<T> factory);
