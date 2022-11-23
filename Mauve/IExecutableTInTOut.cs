@@ -6,18 +6,18 @@ namespace Mauve
     /// <summary>
     /// Represents an <see langword="interface"/> that exposes an execute method which returns data.
     /// </summary>
-    public interface IExecutable<T, TOut>
+    public interface IExecutable<TIn, TOut>
     {
         /// <summary>
-        /// Executes the <see cref="IExecutable"/>.
+        /// Executes the <see cref="IExecutable{TIn, TOut}"/>.
         /// </summary>
-        /// <param name="input">The input parameter for this <see cref="IExecutable{T, TOut}"/>.</param>
-        TOut Execute(T input);
+        /// <param name="input">The input parameter for this <see cref="IExecutable{TIn, TOut}"/>.</param>
+        TOut Execute(TIn input);
         /// <summary>
-        /// Executes the <see cref="IExecutable{T, TOut}"/> asynchronously.
+        /// Executes the <see cref="IExecutable{TIn, TOut}"/>.
         /// </summary>
-        /// <param name="input">The input parameter for this <see cref="IExecutable{T, TOut}"/>.</param>
+        /// <param name="input">The input parameter for this <see cref="IExecutable{TIn, TOut}"/>.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to cancel execution.</param>
-        Task<TOut> Execute(T input, CancellationToken cancellationToken);
+        Task<TOut> Execute(TIn input, CancellationToken cancellationToken);
     }
 }
