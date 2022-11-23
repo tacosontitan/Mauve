@@ -70,6 +70,7 @@
     <Compile Include="IExecutableT.cs" />
     <Compile Include="IExecutable.cs" />
     <Compile Include="IExecutableTOut.cs" />
+    <Compile Include="IHandlerT.cs" />
     <Compile Include="Math\NumericBaseConverter.cs" />
     <Compile Include="Net\Clients\HttpNetworkClient.cs" />
     <Compile Include="Net\Clients\SmtpNetworkClient.cs" />
