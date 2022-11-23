@@ -18,6 +18,19 @@ Mauve offers a variety of useful extension methods for the most common data type
 
 *See our [wiki](https://github.com/tacosontitan/Mauve/wiki/Mauve.Extensibility) for more details.*
 
+## Design Patterns
+Mauve offers comprehensive implementations of the following design patterns:
+
+ - *Dependency Injection* using `IDependencyCollection` and `IInjector`.
+ - *Chain of Responsibility* using `IMiddleware`.
+ - *Mediator* using `IMediator`, `IRequest`, and `IHandler`.
+ - *Factory* using `IFactory`.
+ - *Builder* using `IBuilder<T>`.
+ - *Interpreter* using `IInterpreter` and `IInterpretationContext`.
+ - *Command* using `ICommand` and `IExecutable`.
+ - *Memento* using `IRestorable`.
+ - *Adapter* using `IAdapter<T1, T2>`.
+
 ## Release Notes
 Here you can find the most recent release notes for each Mauve product.
 
