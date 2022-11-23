@@ -1,81 +1,84 @@
-﻿using System;
-
-using Mauve.Patterns;
+﻿using Mauve.Patterns;
 
 namespace Mauve.Net
 {
     /// <summary>
-    /// 
+    /// An <see langword="interface"/> for building <see cref="INetworkRequest{T}"/> instances.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Specifies the type of data utilized by the request.</typeparam>
     public interface INetworkRequestBuilder<T> : IBuilder<INetworkRequest<T>>
     {
         /// <summary>
-        /// 
+        /// Adds basic authorization to the request.
         /// </summary>
-        /// <param name="tokenType"></param>
-        /// <param name="token"></param>
-        /// <returns></returns>
+        /// <param name="username">The authorized user's username.</param>
+        /// <param name="password">The authorized user's password.</param>
+        /// <returns>The current <see cref="INetworkRequestBuilder{T}"/> instance.</returns>
         INetworkRequestBuilder<T> Authorize(NetworkTokenType tokenType, string token);
         /// <summary>
-        /// 
+        /// Adds a token based authorization header to the request.
         /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        /// <returns></returns>
+        /// <param name="tokenType">The type of token being utilized.</param>
+        /// <param name="token">The token to utilize.</param>
+        /// <returns>The current <see cref="INetworkRequestBuilder{T}"/> instance.</returns>
         INetworkRequestBuilder<T> Authorize(string username, string password);
         /// <summary>
-        /// Sets the method of the request to <see cref="NetworkRequestMethod.Delete"/>.
+        /// Specifies that <see cref="HttpMethod.Delete"/> should be used for the request to the specified resource.
         /// </summary>
-        /// <returns>Returns the current builder instance.</returns>
-        INetworkRequestBuilder<T> Delete(Uri uri, bool append = false);
+        /// <param name="uri">The universal resource identifier the request is for.</param>
+        /// <returns>The current <see cref="INetworkRequestBuilder{T}"/> instance.</returns>
+        INetworkRequestBuilder<T> Delete(string uri);
         /// <summary>
-        /// Sets the method of the request to <see cref="NetworkRequestMethod.Get"/>.
+        /// Specifies that <see cref="HttpMethod.Get"/> should be used for the request to the specified resource.
         /// </summary>
-        /// <returns>Returns the current builder instance.</returns>
-        INetworkRequestBuilder<T> Get(Uri uri, bool append = false);
+        /// <param name="uri">The universal resource identifier the request is for.</param>
+        /// <returns>The current <see cref="INetworkRequestBuilder{T}"/> instance.</returns>
+        INetworkRequestBuilder<T> Get(string uri);
         /// <summary>
-        /// Sets the method of the request to <see cref="NetworkRequestMethod.Patch"/>.
+        /// Specifies that HttpMethod.Patch should be used for the request to the specified resource.
         /// </summary>
-        /// <returns>Returns the current builder instance.</returns>
-        INetworkRequestBuilder<T> Patch(Uri uri, bool append = false);
+        /// <param name="uri">The universal resource identifier the request is for.</param>
+        /// <returns>The current <see cref="INetworkRequestBuilder{T}"/> instance.</returns>
+        INetworkRequestBuilder<T> Patch(string uri);
         /// <summary>
-        /// Sets the method of the request to <see cref="NetworkRequestMethod.Post"/>.
+        /// Specifies that <see cref="HttpMethod.Post"/> should be used for the request to the specified resource.
         /// </summary>
-        /// <returns>Returns the current builder instance.</returns>
-        INetworkRequestBuilder<T> Post(Uri uri, bool append = false);
+        /// <param name="uri">The universal resource identifier the request is for.</param>
+        /// <returns>The current <see cref="INetworkRequestBuilder{T}"/> instance.</returns>
+        INetworkRequestBuilder<T> Post(string uri);
         /// <summary>
-        /// Sets the method of the request to <see cref="NetworkRequestMethod.Put"/>.
+        /// Specifies that <see cref="HttpMethod.Put"/> should be used for the request to the specified resource.
         /// </summary>
-        /// <returns>Returns the current builder instance.</returns>
-        INetworkRequestBuilder<T> Put(Uri uri, bool append = false);
+        /// <param name="uri">The universal resource identifier the request is for.</param>
+        /// <returns>The current <see cref="INetworkRequestBuilder{T}"/> instance.</returns>
+        INetworkRequestBuilder<T> Put(string uri);
         /// <summary>
-        /// 
+        /// Specifies which port the request should be sent through.
         /// </summary>
-        /// <param name="port"></param>
-        /// <returns></returns>
+        /// <param name="port">The port the request should be sent through.</param>
+        /// <returns>The current <see cref="INetworkRequestBuilder{T}"/> instance.</returns>
         INetworkRequestBuilder<T> UsingPort(int port);
         /// <summary>
-        /// Adds the specified header to the <see cref="INetworkRequest{T}"/>.
+        /// Adds a header to the request.
         /// </summary>
-        /// <typeparam name="T">Specifies the type of data the value for the header is.</typeparam>
+        /// <typeparam name="THeader">Specifies the type of data for the header.</typeparam>
         /// <param name="key">The key for the header.</param>
         /// <param name="value">The value of the header.</param>
-        /// <returns>Returns the current builder instance.</returns>
+        /// <returns>The current <see cref="INetworkRequestBuilder{T}"/> instance.</returns>
         INetworkRequestBuilder<T> WithHeader<THeader>(string key, THeader value);
         /// <summary>
-        /// 
+        /// Adds a parameter to the request.
         /// </summary>
-        /// <typeparam name="TParameter"></typeparam>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <typeparam name="TParameter">Specifies the type of data for the parameter.</typeparam>
+        /// <param name="key">The key for the parameter.</param>
+        /// <param name="value">The value of the parameter.</param>
+        /// <returns>The current <see cref="INetworkRequestBuilder{T}"/> instance.</returns>
         INetworkRequestBuilder<T> WithParameter<TParameter>(string name, TParameter value);
         /// <summary>
-        /// Writes the specified <see cref="TData"/> to the request.
+        /// Writes the specified data to the body of the request.
         /// </summary>
-        /// <param name="data">The data to send with the request.</param>
-        /// <returns>Returns the current builder instance.</returns>
+        /// <param name="data">The data to write to the request.</param>
+        /// <returns>The current <see cref="INetworkRequestBuilder{T}"/> instance.</returns>
         INetworkRequestBuilder<T> Write(T data);
     }
 }
