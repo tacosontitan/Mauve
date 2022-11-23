@@ -14,6 +14,5 @@ namespace Mauve.Net
         INetworkRequestBuilder UsingPort(int port);
         INetworkRequestBuilder WithHeader<T>(string key, T value);
         INetworkRequestBuilder WithParameter<T>(string key, T value);
-        INetworkRequestBuilder Write<T>(T data);
     }
 }
