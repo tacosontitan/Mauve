@@ -18,11 +18,6 @@ Mauve offers a variety of useful extension methods for the most common data type
 
 *See our [wiki](https://github.com/tacosontitan/Mauve/wiki/Mauve.Extensibility) for more details.*
 
-## Lacework
-Mauve provides the ability to quickly integrate with data sources via `Lacework`. While Mauve has a few predefined `Lacework` systems available as NuGet packages, it's also very easy to create one. The fastest way to get started is to use one of Mauve's predefined `LaceworkClient` implementations and...
-
-More info coming soon.
-
 ## Release Notes
 Here you can find the most recent release notes for each Mauve product.
 
@@ -32,13 +27,3 @@ Here you can find the most recent release notes for each Mauve product.
 ### Extension
  - Visual Studio Community: 🐣 Pre-Release
  - Visual Studio Code: 🐣 Pre-Release
-
----
-
- <p align="center">
-
-<a href="https://github.com/tacosontitan/Mauve" target="_blank" rel="noreferrer">
-<img src="https://raw.githubusercontent.com/tacosontitan/mauve/main/.resources/mauve-m.png" alt="Mauve" width="150" height="150"/>
-</a>
-
-</p>
