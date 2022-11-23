@@ -133,7 +133,7 @@
     <Compile Include="Runtime\Services\.deprecated\IServiceBuilderT3.cs" />
     <Compile Include="Runtime\Services\.deprecated\IServiceBuilderT2.cs" />
     <Compile Include="Runtime\Services\.deprecated\IServiceBuilderT.cs" />
-    <Compile Include="Runtime\Services\IServiceBuilder.cs" />
+    <Compile Include="Runtime\Services\IServiceCollection.cs" />
     <Compile Include="Runtime\Services\.deprecated\IServiceT9.cs" />
     <Compile Include="Runtime\Services\.deprecated\IServiceT8.cs" />
     <Compile Include="Runtime\Services\.deprecated\IServiceT7.cs" />

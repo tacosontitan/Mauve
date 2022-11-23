@@ -14,8 +14,8 @@ namespace Mauve.Runtime.Services
         /// <summary>
         /// Configures the service.
         /// </summary>
-        /// <param name="service">The <see cref="IServiceBuilder"/> used to configure the service.</param>
-        void Configure(IServiceBuilder service);
+        /// <param name="service">The <see cref="IServiceCollection"/> used to configure the service.</param>
+        void Configure(IServiceCollection service);
         /// <summary>
         /// Gets a resource from the service.
         /// </summary>
