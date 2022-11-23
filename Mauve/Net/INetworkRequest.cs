@@ -13,7 +13,7 @@ namespace Mauve.Net
         /// </summary>
         int? Port { get; set; }
         /// <summary>
-        /// The universal resource identifier of the resource being accessed.
+        /// The universal resource identifier the request is for.
         /// </summary>
         string Uri { get; set; }
         /// <summary>
