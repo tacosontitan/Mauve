@@ -1,7 +1,7 @@
 ﻿namespace Mauve.Net
 {
     /// <summary>
-    /// 
+    /// An <see langword="enum"/> representing different types of network tokens.
     /// </summary>
     public enum NetworkTokenType
     {
@@ -10,7 +10,7 @@
         /// </summary>
         None = 0,
         /// <summary>
-        /// 
+        /// Represents a standard bearer token.
         /// </summary>
         Bearer = 1,
         /// <summary>
