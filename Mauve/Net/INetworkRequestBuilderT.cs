@@ -1,6 +1,4 @@
-﻿using System;
-
-using Mauve.Patterns;
+﻿using Mauve.Patterns;
 
 namespace Mauve.Net
 {
@@ -24,31 +22,11 @@ namespace Mauve.Net
         /// <param name="password"></param>
         /// <returns></returns>
         INetworkRequestBuilder<T> Authorize(string username, string password);
-        /// <summary>
-        /// Sets the method of the request to <see cref="NetworkRequestMethod.Delete"/>.
-        /// </summary>
-        /// <returns>Returns the current builder instance.</returns>
-        INetworkRequestBuilder<T> Delete(Uri uri, bool append = false);
-        /// <summary>
-        /// Sets the method of the request to <see cref="NetworkRequestMethod.Get"/>.
-        /// </summary>
-        /// <returns>Returns the current builder instance.</returns>
-        INetworkRequestBuilder<T> Get(Uri uri, bool append = false);
-        /// <summary>
-        /// Sets the method of the request to <see cref="NetworkRequestMethod.Patch"/>.
-        /// </summary>
-        /// <returns>Returns the current builder instance.</returns>
-        INetworkRequestBuilder<T> Patch(Uri uri, bool append = false);
-        /// <summary>
-        /// Sets the method of the request to <see cref="NetworkRequestMethod.Post"/>.
-        /// </summary>
-        /// <returns>Returns the current builder instance.</returns>
-        INetworkRequestBuilder<T> Post(Uri uri, bool append = false);
-        /// <summary>
-        /// Sets the method of the request to <see cref="NetworkRequestMethod.Put"/>.
-        /// </summary>
-        /// <returns>Returns the current builder instance.</returns>
-        INetworkRequestBuilder<T> Put(Uri uri, bool append = false);
+        INetworkRequestBuilder Delete(string uri);
+        INetworkRequestBuilder Get(string uri);
+        INetworkRequestBuilder Patch(string uri);
+        INetworkRequestBuilder Post(string uri);
+        INetworkRequestBuilder Put(string uri);
         /// <summary>
         /// 
         /// </summary>
