@@ -4,25 +4,30 @@ From basic extension methods to complete implementations of design patterns, Mau
 
 <sub>***Note**: Our chosen shade of mauve has a hexadecimal color code of `0xe0b0ff`.*</sub>
 
-## Extensions
+## Extension Methods
 Mauve offers a variety of useful extension methods for the most common data types in the `C#` language:
 
+ - `int`
  - `string`
+ - `DateTime`
+ - `Exception`
  - `IComparable`
  - `IEnumerable<T>`
- - `DateTime`
 
  Additionally, there are a few extension methods using generics for type safety that apply to all types.
 
 *See our [wiki](https://github.com/tacosontitan/Mauve/wiki/Mauve.Extensibility) for more details.*
+
+## Lacework
+Mauve provides the ability to quickly integrate with data sources via `Lacework`. While Mauve has a few predefined `Lacework` systems available as NuGet packages, it's also very easy to create one. The fastest way to get started is to use one of Mauve's predefined `LaceworkClient` implementations and...
+
+More info coming soon.
 
 ## Release Notes
 Here you can find the most recent release notes for each Mauve product.
 
 ### Framework
  - Current Version: 🐣 Pre-Release
-   - Dapper Support Kit: 🐣 Pre-Release
-   - RestSharp Support Kit: 🐣 Pre-Release
 
 ### Extension
  - Visual Studio Community: 🐣 Pre-Release
