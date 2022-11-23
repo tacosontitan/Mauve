@@ -74,6 +74,7 @@
     <Compile Include="Lacework\ILaceworkRequest.cs" />
     <Compile Include="Lacework\ILaceworkRequestHandler.cs" />
     <Compile Include="Math\NumericBaseConverter.cs" />
+    <Compile Include="Net\INetworkClient.cs" />
     <Compile Include="Net\INetworkRequest.cs" />
     <Compile Include="Net\INetworkRequestT.cs" />
     <Compile Include="Net\INetworkRequestBuilder.cs" />
