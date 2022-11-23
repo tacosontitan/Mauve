@@ -67,7 +67,7 @@
     <Compile Include="IExecutableT4.cs" />
     <Compile Include="IExecutableT3.cs" />
     <Compile Include="IExecutableT2.cs" />
-    <Compile Include="IExecutableT.cs" />
+    <Compile Include="IExecutableTInTOut.cs" />
     <Compile Include="IExecutable.cs" />
     <Compile Include="IExecutableTOut.cs" />
     <Compile Include="IHandlerT.cs" />
