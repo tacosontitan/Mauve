@@ -15,11 +15,8 @@ namespace Mauve
         /// <summary>
         /// Executes the <see cref="IExecutable"/> asynchronously.
         /// </summary>
-        Task ExecuteAsync();
-        /// <summary>
-        /// Executes the <see cref="IExecutable"/> asynchronously.
-        /// </summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to cancel execution.</param>
-        Task ExecuteAsync(CancellationToken cancellationToken);
+        /// <returns>A <see cref="Task"/> describing the state of the operation.</returns>
+        Task Execute(CancellationToken cancellationToken);
     }
 }

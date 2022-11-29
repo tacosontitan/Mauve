@@ -42,16 +42,9 @@ namespace Mauve.Runtime.Processing
         /// Applies the <see cref="Ruleset{T}"/> to the specified input.
         /// </summary>
         /// <param name="input">The input to apply this <see cref="Ruleset{T}"/> to.</param>
-        /// <returns>A <see cref="Task"/> describing the state of the application.</returns>
-        public async Task ApplyAsync(T input) =>
-            await ApplyAsync(input, CancellationToken.None);
-        /// <summary>
-        /// Applies the <see cref="Ruleset{T}"/> to the specified input.
-        /// </summary>
-        /// <param name="input">The input to apply this <see cref="Ruleset{T}"/> to.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> through which the application can be cancelled.</param>
         /// <returns>A <see cref="Task"/> describing the state of the application.</returns>
-        public async Task ApplyAsync(T input, CancellationToken cancellationToken) =>
+        public async Task Apply(T input, CancellationToken cancellationToken) =>
             await Task.Run(() => Apply(input), cancellationToken);
         /// <summary>
         /// Clears the <see cref="Ruleset{T}"/> of all contained <see cref="IRule{T}"/> instances.

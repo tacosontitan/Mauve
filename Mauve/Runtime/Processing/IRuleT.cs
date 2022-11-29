@@ -14,17 +14,11 @@ namespace Mauve.Runtime.Processing
         /// <param name="input">The input to which the rule should be applied.</param>
         void Apply(T input);
         /// <summary>
-        /// Applies the rule asynchronously.
-        /// </summary>
-        /// <param name="input">The input to which the rule should be applied.</param>
-        /// <returns>A <see cref="Task"/> that describes the state of the application.</returns>
-        Task ApplyAsync(T input);
-        /// <summary>
-        /// Applies the rule asynchronously.
+        /// Applies the rule to the specified input.
         /// </summary>
         /// <param name="input">The input to which the rule should be applied.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> through which the application can be cancelled.</param>
         /// <returns>A <see cref="Task"/> that describes the state of the application.</returns>
-        Task ApplyAsync(T input, CancellationToken cancellationToken);
+        Task Apply(T input, CancellationToken cancellationToken);
     }
 }
