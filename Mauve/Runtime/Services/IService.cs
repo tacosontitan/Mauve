@@ -1,6 +1,8 @@
 ﻿
 using System;
 
+using Mauve.Patterns;
+
 namespace Mauve.Runtime.Services
 {
     /// <summary>
@@ -14,8 +16,8 @@ namespace Mauve.Runtime.Services
         /// <summary>
         /// Configures the service.
         /// </summary>
-        /// <param name="service">The <see cref="IServiceCollection"/> used to configure the service.</param>
-        void Configure(IServiceCollection service);
+        /// <param name="services">The <see cref="IServiceCollection"/> used to configure the service.</param>
+        void Configure(IDependencyCollection dependencies, IServicePipeline pipeline);
         /// <summary>
         /// Gets a resource from the service.
         /// </summary>

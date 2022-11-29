@@ -9,6 +9,12 @@ namespace Mauve.Patterns
     /// <remarks>Derives from <see cref="IList{T}"/>.</remarks>
     public interface IDependencyCollection : IList<DependencyDescriptor>
     {
+        IDependencyCollection AddScoped<T>();
+        IDependencyCollection AddScoped<T>(string alias);
+        IDependencyCollection AddScoped<T>(IFactory<T> factory);
+        IDependencyCollection AddScoped<T>(string alias, IFactory<T> factory);
+        IDependencyCollection AddScoped<T>(Func<T> factory);
+        IDependencyCollection AddScoped<T>(string alias, Func<T> factory);
         /// <summary>
         /// Adds an instance of the specified type to the collection.
         /// </summary>
@@ -23,5 +29,11 @@ namespace Mauve.Patterns
         /// <param name="instance">The instance to add to the collection.</param>
         /// <returns>Returns the current <see cref="IDependencyCollection"/>.</returns>
         IDependencyCollection AddSingleton(Type type, object instance);
+        IDependencyCollection AddTransient<T>();
+        IDependencyCollection AddTransient<T>(string alias);
+        IDependencyCollection AddTransient<T>(IFactory<T> factory);
+        IDependencyCollection AddTransient<T>(string alias, IFactory<T> factory);
+        IDependencyCollection AddTransient<T>(Func<T> factory);
+        IDependencyCollection AddTransient<T>(string alias, Func<T> factory);
     }
 }
