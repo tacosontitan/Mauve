@@ -63,6 +63,7 @@
     <Compile Include="Extensibility\Int32Extensions.cs" />
     <Compile Include="Extensibility\QueueExtensions.cs" />
     <Compile Include="Extensibility\StringExtensions.cs" />
+    <Compile Include="Extensibility\TypeExtensions.cs" />
     <Compile Include="IExecutableT5.cs" />
     <Compile Include="IExecutableT4.cs" />
     <Compile Include="IExecutableT3.cs" />
