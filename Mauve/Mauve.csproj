@@ -63,6 +63,7 @@
     <Compile Include="Extensibility\Int32Extensions.cs" />
     <Compile Include="Extensibility\QueueExtensions.cs" />
     <Compile Include="Extensibility\StringExtensions.cs" />
+    <Compile Include="Extensibility\TypeExtensions.cs" />
     <Compile Include="IExecutableT5.cs" />
     <Compile Include="IExecutableT4.cs" />
     <Compile Include="IExecutableT3.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Net\INetworkRequestBuilderT.cs" />
     <Compile Include="Math\NumericBase.cs" />
     <Compile Include="Net\Clients\MsSqlNetworkClient.cs" />
+    <Compile Include="Net\INetworkService.cs" />
     <Compile Include="Net\NetworkTokenType.cs" />
     <Compile Include="Patterns\Behavioral\IMediator.cs" />
     <Compile Include="Patterns\Creational\IFactory.cs" />
@@ -119,10 +121,11 @@
     <Compile Include="Runtime\EventMessageSmtpLogger.cs" />
     <Compile Include="Patterns\IDependencyCollection.cs" />
     <Compile Include="Runtime\Processing\DynamicRule.cs" />
+    <Compile Include="Runtime\Processing\IPipeline.cs" />
     <Compile Include="Runtime\Processing\IRuleT.cs" />
     <Compile Include="Runtime\Processing\Ruleset.cs" />
-    <Compile Include="Runtime\Services\AbstractService.cs" />
     <Compile Include="Runtime\Services\.deprecated\AbstractServiceT.cs" />
+    <Compile Include="Runtime\Services\IPipelineService.cs" />
     <Compile Include="Runtime\Services\IService.cs" />
     <Compile Include="Runtime\Services\.deprecated\IServiceBuilderT9.cs" />
     <Compile Include="Runtime\Services\.deprecated\IServiceBuilderT8.cs" />
@@ -143,7 +146,6 @@
     <Compile Include="Runtime\Services\.deprecated\IServiceT3.cs" />
     <Compile Include="Runtime\Services\.deprecated\IServiceT2.cs" />
     <Compile Include="Runtime\Services\.deprecated\IServiceT.cs" />
-    <Compile Include="Runtime\Services\IServicePipeline.cs" />
     <Compile Include="Runtime\Services\ServiceBuilder.cs" />
     <Compile Include="Security\CaesarCryptographyProvider.cs" />
     <Compile Include="Security\CryptographyProvider.cs" />
