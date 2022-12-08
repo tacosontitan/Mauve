@@ -1,22 +1,15 @@
 ﻿using Mauve.Patterns;
+using Mauve.Runtime.Processing;
 
 namespace Mauve.Runtime.Services
 {
-    /// <summary>
-    /// An <see langword="interface"/> which represents a basic service.
-    /// </summary>
-    public interface IService
+    internal interface IPipelineService
     {
-
-        #region General Methods
-
         /// <summary>
         /// Configures the service.
         /// </summary>
         /// <param name="dependencies">The <see cref="IDependencyCollection"/> maintained by the service.</param>
-        void Configure(IDependencyCollection dependencies);
-
-        #endregion
-
+        /// <param name="pipeline">The <see cref="IPipeline"/> utilized by the service to execute requests.</param>
+        void Configure(IDependencyCollection dependencies, IPipeline pipeline);
     }
 }
