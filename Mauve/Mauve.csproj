@@ -146,7 +146,6 @@
     <Compile Include="Runtime\Services\.deprecated\IServiceT3.cs" />
     <Compile Include="Runtime\Services\.deprecated\IServiceT2.cs" />
     <Compile Include="Runtime\Services\.deprecated\IServiceT.cs" />
-    <Compile Include="Runtime\Services\IServicePipeline.cs" />
     <Compile Include="Runtime\Services\ServiceBuilder.cs" />
     <Compile Include="Security\CaesarCryptographyProvider.cs" />
     <Compile Include="Security\CryptographyProvider.cs" />
