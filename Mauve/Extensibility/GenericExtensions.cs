@@ -156,6 +156,16 @@ namespace Mauve.Extensibility
         public static TOut Translate<TIn, TOut>(this TIn input, IAdapter<TIn, TOut> adapter) =>
             adapter.Convert(input);
         /// <summary>
+        /// Translates the specified input to a specified output type using a specified <see cref="IAdapter{T1, T2}"/>.
+        /// </summary>
+        /// <typeparam name="TIn">Specifies the type of input.</typeparam>
+        /// <typeparam name="TOut">Specifies the type of output expected.</typeparam>
+        /// <param name="input">The input to translate.</param>
+        /// <param name="adapter">The adapter to perform the translation with.</param>
+        /// <returns>Returns the input translated to the specified output type.</returns>
+        public static TOut Translate<TIn, TOut>(this TIn input, IAdapter<TOut, TIn> adapter) =>
+            adapter.Convert(input);
+        /// <summary>
         /// Serializes the current state of the specified input utilizing the specified <see cref="SerializationMethod"/>.
         /// </summary>
         /// <typeparam name="T">The type of the data to be serialized.</typeparam>
