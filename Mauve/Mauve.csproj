@@ -125,6 +125,7 @@
     <Compile Include="Runtime\Processing\IRuleT.cs" />
     <Compile Include="Runtime\Processing\Ruleset.cs" />
     <Compile Include="Runtime\Services\.deprecated\AbstractServiceT.cs" />
+    <Compile Include="Runtime\Services\IPipelineService.cs" />
     <Compile Include="Runtime\Services\IService.cs" />
     <Compile Include="Runtime\Services\.deprecated\IServiceBuilderT9.cs" />
     <Compile Include="Runtime\Services\.deprecated\IServiceBuilderT8.cs" />
