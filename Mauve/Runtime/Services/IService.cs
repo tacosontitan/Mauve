@@ -1,5 +1,8 @@
 ﻿
 using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 using Mauve.Patterns;
 
@@ -11,40 +14,61 @@ namespace Mauve.Runtime.Services
     public interface IService
     {
 
-        #region Methods
+        #region General Methods
 
         /// <summary>
         /// Configures the service.
         /// </summary>
-        /// <param name="services">The <see cref="IServiceCollection"/> used to configure the service.</param>
-        void Configure(IDependencyCollection dependencies, IServicePipeline pipeline);
-        /// <summary>
-        /// Gets a resource from the service.
-        /// </summary>
-        /// <typeparam name="T">Specifies the type of resource to get.</typeparam>
-        /// <param name="predicate">The predicate used to identify the resource.</param>
-        /// <returns>The identified instance of the resource.</returns>
-        T Get<T>(Predicate<T> predicate);
-        /// <summary>
-        /// Gets a resource from the service.
-        /// </summary>
-        /// <typeparam name="TOut">Specifies the type of resource to get.</typeparam>
-        /// <returns>Returns the identified instance of the resource.</returns>
-        TOut Get<TOut>();
-        /// <summary>
-        /// Gets a resource from the service.
-        /// </summary>
-        /// <typeparam name="TOut">Specifies the type of resource to get.</typeparam>
-        /// <param name="alias">The alias of the resource.</param>
-        /// <returns>Returns the identified instance of the resource.</returns>
-        TOut Get<TOut>(string alias);
-        /// <summary>
-        /// Gets a resource from the service.
-        /// </summary>
-        /// <typeparam name="TOut">Specifies the base type of the resource to get.</typeparam>
-        /// <param name="type">The specific type of resource to get.</param>
-        /// <returns>Returns the identified instance of the resource.</returns>
-        TOut Get<TOut>(Type type);
+        /// <param name="dependencies">The <see cref="IDependencyCollection"/> maintained by the service.</param>
+        /// <param name="pipeline">The <see cref="IServicePipeline{T}"/> utilized to execute requests.</param>
+        void Configure(IDependencyCollection dependencies, IServicePipeline<IRequest> pipeline);
+
+        #endregion
+
+        #region Delete Methods
+
+        void Delete<T>(T input);
+        Task Delete<T>(T input, CancellationToken cancellationToken);
+        void Delete<T>(IRequest request);
+        Task Delete<T>(IRequest request, CancellationToken cancellationToken);
+
+        #endregion
+
+        #region Get Methods
+
+        IEnumerable<T> Get<T>();
+        IEnumerable<T> Get<T>(IRequest<T> request);
+        IEnumerable<T> Get<T>(Predicate<T> predicate);
+        Task<IEnumerable<T>> Get<T>(CancellationToken cancellationToken);
+        Task<IEnumerable<T>> Get<T>(IRequest<T> request, CancellationToken cancellationToken);
+        Task<IEnumerable<T>> Get<T>(Predicate<T> predicate, CancellationToken cancellationToken);
+
+        #endregion
+
+        #region Patch Methods
+
+        T Patch<T>(T input);
+        T Patch<T>(IRequest request);
+        Task<T> Patch<T>(T input, CancellationToken cancellationToken);
+        Task<T> Patch<T>(IRequest request, CancellationToken cancellationToken);
+
+        #endregion
+
+        #region Post Methods
+
+        T Post<T>(T input);
+        T Post<T>(IRequest request);
+        Task<T> Post<T>(T input, CancellationToken cancellationToken);
+        Task<T> Post<T>(IRequest request, CancellationToken cancellationToken);
+
+        #endregion
+
+        #region Put Methods
+
+        T Put<T>(T input);
+        T Put<T>(IRequest request);
+        Task<T> Put<T>(T input, CancellationToken cancellationToken);
+        Task<T> Put<T>(IRequest request, CancellationToken cancellationToken);
 
         #endregion
 
