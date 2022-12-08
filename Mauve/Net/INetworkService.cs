@@ -3,16 +3,10 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-using Mauve.Runtime.Services;
-
 namespace Mauve.Net
 {
-    internal interface INetworkService : IService
+    internal interface INetworkService
     {
-
-        #region General Methods
-
-        #endregion
 
         #region Delete Methods
 
