@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 
 namespace Mauve.Net
 {
-    internal interface INetworkService
+    public interface INetworkService
     {
 
         #region Delete Methods
 
         void Delete<T>(T input);
         Task Delete<T>(T input, CancellationToken cancellationToken);
-        void Delete<T>(IRequest request);
-        Task Delete<T>(IRequest request, CancellationToken cancellationToken);
+        void Delete<T>(IRequest<T> request);
+        Task Delete<T>(IRequest<T> request, CancellationToken cancellationToken);
 
         #endregion
 
@@ -31,27 +31,27 @@ namespace Mauve.Net
         #region Patch Methods
 
         T Patch<T>(T input);
-        T Patch<T>(IRequest request);
+        T Patch<T>(IRequest<T> request);
         Task<T> Patch<T>(T input, CancellationToken cancellationToken);
-        Task<T> Patch<T>(IRequest request, CancellationToken cancellationToken);
+        Task<T> Patch<T>(IRequest<T> request, CancellationToken cancellationToken);
 
         #endregion
 
         #region Post Methods
 
         T Post<T>(T input);
-        T Post<T>(IRequest request);
+        T Post<T>(IRequest<T> request);
         Task<T> Post<T>(T input, CancellationToken cancellationToken);
-        Task<T> Post<T>(IRequest request, CancellationToken cancellationToken);
+        Task<T> Post<T>(IRequest<T> request, CancellationToken cancellationToken);
 
         #endregion
 
         #region Put Methods
 
         T Put<T>(T input);
-        T Put<T>(IRequest request);
+        T Put<T>(IRequest<T> request);
         Task<T> Put<T>(T input, CancellationToken cancellationToken);
-        Task<T> Put<T>(IRequest request, CancellationToken cancellationToken);
+        Task<T> Put<T>(IRequest<T> request, CancellationToken cancellationToken);
 
         #endregion
 

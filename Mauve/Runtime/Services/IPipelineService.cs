@@ -3,7 +3,7 @@ using Mauve.Runtime.Processing;
 
 namespace Mauve.Runtime.Services
 {
-    internal interface IPipelineService
+    public interface IPipelineService
     {
         /// <summary>
         /// Configures the service.
