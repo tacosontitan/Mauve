@@ -10,6 +10,10 @@ namespace Mauve.Net
     internal interface INetworkService : IService
     {
 
+        #region General Methods
+
+        #endregion
+
         #region Delete Methods
 
         void Delete<T>(T input);
