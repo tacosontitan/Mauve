@@ -85,6 +85,7 @@
     <Compile Include="Net\INetworkRequestBuilderT.cs" />
     <Compile Include="Math\NumericBase.cs" />
     <Compile Include="Net\Clients\MsSqlNetworkClient.cs" />
+    <Compile Include="Net\INetworkService.cs" />
     <Compile Include="Net\NetworkTokenType.cs" />
     <Compile Include="Patterns\Behavioral\IMediator.cs" />
     <Compile Include="Patterns\Creational\IFactory.cs" />
