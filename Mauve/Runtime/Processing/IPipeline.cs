@@ -2,7 +2,7 @@
 
 namespace Mauve.Runtime.Processing
 {
-    internal interface IPipeline
+    public interface IPipeline
     {
         /// <summary>
         /// Adds a terminal <see cref="IMiddleware"/> to the pipeline.
