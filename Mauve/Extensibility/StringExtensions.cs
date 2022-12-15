@@ -65,6 +65,13 @@ namespace Mauve.Extensibility
             // Return whether or not the input string is equal to the comparison string, with respect to the comparison type.
             return input?.Equals(target, comparisonType) == true;
         }
+
+        /// <summary>
+        /// Determines if the specified input contains data.
+        /// </summary>
+        /// <param name="input">The input to evaluate.</param>
+        /// <returns><see langword="true"/> if the input contains data, otherwise <see langword="false"/>.</returns>
+        public static bool IsPopulated(this string input) => !string.IsNullOrWhiteSpace(input);
         /// <summary>
         /// Replaces <see cref="Lexicon"/> instances within an input string.
         /// </summary>
