@@ -5,6 +5,7 @@ namespace Mauve
     /// <summary>
     /// Represents an <see cref="Attribute"/> that enables explicit discoverability.
     /// </summary>
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = false)]
     public class DiscoverableAttribute : Attribute
     {
 
