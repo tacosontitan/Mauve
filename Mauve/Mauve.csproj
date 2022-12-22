@@ -71,6 +71,7 @@
     <Compile Include="IExecutableTInTOut.cs" />
     <Compile Include="IExecutable.cs" />
     <Compile Include="IExecutableTOut.cs" />
+    <Compile Include="IgnoreAttribute.cs" />
     <Compile Include="IHandlerT.cs" />
     <Compile Include="IHandlerT2.cs" />
     <Compile Include="IRequest.cs" />
