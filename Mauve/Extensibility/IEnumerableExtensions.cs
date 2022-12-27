@@ -11,7 +11,7 @@ namespace Mauve.Extensibility
     /// </summary>
     public static class IEnumerableExtensions
     {
-        public static void Distinct<T, TResult>(this IEnumerable<T> collection, Func<T, TResult> selector) =>
+        public static IEnumerable<TResult> Distinct<T, TResult>(this IEnumerable<T> collection, Func<T, TResult> selector) =>
             collection.Select(selector).Distinct();
         /// <summary>
         /// Iterates over the objects within an <see cref="IEnumerable{T}"/> instance and performs the specified action.
@@ -85,8 +85,7 @@ namespace Mauve.Extensibility
                 return collection is null
                     ? default
                     : collection.Next(item);
-            }
-            catch
+            } catch
             {
                 return default;
             }
@@ -126,8 +125,7 @@ namespace Mauve.Extensibility
                 return collection is null
                     ? default
                     : collection.Previous(item);
-            }
-            catch
+            } catch
             {
                 return default;
             }
