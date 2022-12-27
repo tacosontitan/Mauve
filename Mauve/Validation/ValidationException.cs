@@ -11,9 +11,13 @@ namespace Mauve.Validation
         #region Properties
 
         /// <summary>
-        /// The result of the validation process.
+        /// The input that failed validation.
         /// </summary>
-        public ValidationResult ValidationResult { get; private set; }
+        public object Input { get; }
+        /// <summary>
+        /// The expectation the validation failed to meet.
+        /// </summary>
+        public object Expectation { get; set; }
 
         #endregion
 
@@ -22,11 +26,15 @@ namespace Mauve.Validation
         /// <summary>
         /// Creates a new <see cref="ValidationException"/> instance with the specified <see cref="ValidationResult"/> and message.
         /// </summary>
-        /// <param name="validationResult">The result of the validation process.</param>
+        /// <param name="input">The input that failed validation.</param>
+        /// <param name="expectation">The expectation the validation failed to meet.</param>
         /// <param name="message">The message explaining what happened.</param>
-        public ValidationException(ValidationResult validationResult, string message) :
-            base(message) =>
-                ValidationResult = validationResult;
+        public ValidationException(object input, object expectation, string message) :
+            base(message)
+        {
+            Input = input;
+            Expectation = expectation;
+        }
 
         #endregion
 

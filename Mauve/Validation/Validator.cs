@@ -1,54 +1,24 @@
-﻿using System.Collections.Generic;
-
-namespace Mauve.Validation
+﻿namespace Mauve.Validation
 {
     /// <summary>
-    /// Represents an implementation of <see cref="IValidatable"/> for the purpose of performing validation.
+    /// Represents a <see langword="class"/> that exposes methods for validating objects.
     /// </summary>
     /// <typeparam name="T">Specifies the type of data the validator is validating.</typeparam>
-    public abstract class Validator<T> : IValidatable
+    public abstract class Validator<T>
     {
-
-        #region Fields
-
-        private readonly T _input;
-
-        #endregion
-
-        #region Properties
-
-        /// <summary>
-        /// A collection of <see cref="ValidationResult"/> representing the results of the validation process.
-        /// </summary>
-        public List<ValidationResult> Results { get; private set; }
-
-        #endregion
-
-        #region Constructor
-
-        /// <summary>
-        /// Creates a new <see cref="Validator{T}"/> instance.
-        /// </summary>
-        /// <param name="input">The input to validate.</param>
-        public Validator(T input)
-        {
-            _input = input;
-            Results = new List<ValidationResult>();
-        }
-
-        #endregion
 
         #region Public Methods
 
         /// <summary>
         /// Attempts to validate the input for the <see cref="Validator{T}"/> instance.
         /// </summary>
+        /// <param name="input">The input to validate.</param>
         /// <returns><see langword="true"/> if the input is valid, otherwise <see langword="false"/>.</returns>
-        public bool TryValidate()
+        public bool TryValidate(T input)
         {
             try
             {
-                Validate();
+                Validate(input);
                 return true;
             } catch
             {
@@ -58,7 +28,8 @@ namespace Mauve.Validation
         /// <summary>
         /// Validates the input for the <see cref="Validator{T}"/> instance.
         /// </summary>
-        public abstract void Validate();
+        /// <param name="input">The input to validate.</param>
+        public abstract void Validate(T input);
 
         #endregion
 
