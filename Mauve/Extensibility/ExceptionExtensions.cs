@@ -18,6 +18,21 @@ namespace Mauve.Extensibility
         /// <param name="root">The exception to flatten.</param>
         /// <returns>Returns a recursively flattened the specified exception and all inner exceptions into a single <see cref="IEnumerable{T}"/>.</returns>
         public static IEnumerable<Exception> Flatten(this Exception root) => FlattenRecursive(root, new List<Exception>());
+        /// <summary>
+        /// Recursively flattens the specified exception and all inner exceptions into a single <see cref="IEnumerable{T}"/> and then joins the messages of each exception into a single string.
+        /// </summary>
+        /// <param name="root">The exception to flatten.</param>
+        /// <param name="separator">The string which should be utilized during the join process.</param>
+        /// <returns>A <see cref="string"/> containing the flattened exception messages.</returns>
+        public static string FlattenMessages(this Exception root, string separator)
+        {
+            if (root is null || string.IsNullOrWhiteSpace(separator))
+                return string.Empty;
+
+            IEnumerable<Exception> exceptions = root.Flatten();
+            IEnumerable<string> messages = exceptions.Select(s => s.Message);
+            return string.Join(separator, messages);
+        }
 
         #endregion
 
