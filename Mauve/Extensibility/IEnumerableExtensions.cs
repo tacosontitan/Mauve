@@ -11,6 +11,13 @@ namespace Mauve.Extensibility
     /// </summary>
     public static class IEnumerableExtensions
     {
+        public static IEnumerable<T> AfterOrDefault<T>(this IEnumerable<T> collection, T element)
+        {
+            int indexOfElement = collection.IndexOf(element);
+            return indexOfElement == -1 || indexOfElement == collection.Count() - 1
+                ? null
+                : collection.Skip(indexOfElement + 1);
+        }
         public static IEnumerable<TResult> Distinct<T, TResult>(this IEnumerable<T> collection, Func<T, TResult> selector) =>
             collection.Select(selector).Distinct();
         /// <summary>
