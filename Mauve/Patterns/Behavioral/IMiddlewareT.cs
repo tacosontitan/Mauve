@@ -14,14 +14,13 @@ namespace Mauve.Patterns
         /// </summary>
         /// <param name="input">The input for the middleware.</param>
         /// <param name="next">The next middleware to utilize.</param>
-        void Invoke(T input, MiddlewareDelegate<T> next);
+        void Invoke(T input, IMiddleware<T> next);
         /// <summary>
         /// Invokes the middleware.
         /// </summary>
         /// <param name="input">The input for the middleware.</param>
         /// <param name="next">The next middleware to utilize.</param>
-        /// <returns>A <see cref="Task"/> describing the result of the invocation.</returns>
-        Task InvokeAsync(T input, MiddlewareDelegate<T> next);
+        void Invoke(T input, MiddlewareDelegate<T> next);
         /// <summary>
         /// Invokes the middleware.
         /// </summary>
@@ -29,6 +28,14 @@ namespace Mauve.Patterns
         /// <param name="next">The next middleware to utilize.</param>
         /// <param name="cancellationToken">The cancellation token used to cancel asynchronous processing.</param>
         /// <returns>A <see cref="Task"/> describing the result of the invocation.</returns>
-        Task InvokeAsync(T input, MiddlewareDelegate<T> next, CancellationToken cancellationToken);
+        Task Invoke(T input, IMiddleware<T> next, CancellationToken cancellationToken);
+        /// <summary>
+        /// Invokes the middleware.
+        /// </summary>
+        /// <param name="input">The input for the middleware.</param>
+        /// <param name="next">The next middleware to utilize.</param>
+        /// <param name="cancellationToken">The cancellation token used to cancel asynchronous processing.</param>
+        /// <returns>A <see cref="Task"/> describing the result of the invocation.</returns>
+        Task Invoke(T input, MiddlewareDelegate<T> next, CancellationToken cancellationToken);
     }
 }
