@@ -15,13 +15,17 @@
     <Description>From basic extension methods to complete implementations of design patterns, unified network communication, and more; Mauve offers a colorful suite of functionality for utilization in even the grandest applications. Grab a brush and join us!</Description>
     <PackageProjectUrl>https://github.com/tacosontitan/Mauve</PackageProjectUrl>
     <PackageIcon>mauve.png</PackageIcon>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/tacosontitan/Mauve</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>events;framework;tools;extensions;design-patterns;abstraction;event-driven;extension-methods;dotnet;frameworks</PackageTags>
-    <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
-    <PackageOutputPath>$(OutputPath)\nuget</PackageOutputPath>
+    <PackageReleaseNotes>🐣 Pre-Release</PackageReleaseNotes>
+    <PackageOutputPath>$(OutputPath)</PackageOutputPath>
     <PackageId>mauve</PackageId>
+    <PackAsTool>False</PackAsTool>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Authors>tacosontitan</Authors>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
@@ -48,7 +52,11 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="..\README.md">
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.nuget.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
