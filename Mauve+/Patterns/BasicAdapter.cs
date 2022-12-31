@@ -1,5 +1,4 @@
-﻿
-using SystemConvert = System.Convert;
+﻿using SystemConvert = System.Convert;
 
 namespace Mauve.Patterns
 {

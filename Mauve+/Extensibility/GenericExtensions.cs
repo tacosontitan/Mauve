@@ -173,16 +173,14 @@ namespace Mauve.Extensibility
         /// <returns>Returns the input data serialized using the specified <see cref="SerializationMethod"/>.</returns>
         public static string Serialize<T>(this T input, SerializationMethod serializationMethod)
         {
-            SerializationProvider serializationProvider;
-            switch (serializationMethod)
+            SerializationProvider serializationProvider = serializationMethod switch
             {
-                case SerializationMethod.Binary: serializationProvider = new BinarySerializationProvider(); break;
-                case SerializationMethod.Xml: serializationProvider = new XmlSerializationProvider(); break;
-                case SerializationMethod.Json: serializationProvider = new JsonSerializationProvider(); break;
-                case SerializationMethod.Yaml: serializationProvider = new YamlSerializationProvider(); break;
-                default: serializationProvider = new RawSerializationProvider(); break;
-            }
-
+                SerializationMethod.Binary => new BinarySerializationProvider(),
+                SerializationMethod.Xml => new XmlSerializationProvider(),
+                SerializationMethod.Json => new JsonSerializationProvider(),
+                SerializationMethod.Yaml => new YamlSerializationProvider(),
+                _ => new RawSerializationProvider(),
+            };
             return serializationProvider.Serialize(input);
         }
 
