@@ -307,7 +307,7 @@ namespace Mauve.Extensibility
                 if (index >= 0)
                     return index == 0
                         ? string.Empty
-                        : input.Substring(0, index - 1);
+                        : input.Substring(0, index);
             }
 
             // Return the input if no values were found.
