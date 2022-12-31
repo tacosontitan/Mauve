@@ -224,7 +224,7 @@ namespace Mauve.Extensibility
                 int index = input.IndexOf(searchValue, comparison);
                 if (index >= 0)
                 {
-                    int startIndex = index + searchValue.Length + 1;
+                    int startIndex = index + searchValue.Length;
                     return startIndex > input.Length
                         ? string.Empty
                         : input.Substring(startIndex);
