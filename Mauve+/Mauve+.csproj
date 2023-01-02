@@ -11,7 +11,7 @@
     <RootNamespace>Mauve</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Mauve+</Title>
-    <Company>tacosontitan</Company>
+    <Company>Taco (タコス) 🌮</Company>
     <Description>From basic extension methods to complete implementations of design patterns, unified network communication, and more; Mauve offers a colorful suite of functionality for utilization in even the grandest applications. Grab a brush and join us!</Description>
     <PackageProjectUrl>https://github.com/tacosontitan/Mauve</PackageProjectUrl>
     <PackageIcon>mauve.png</PackageIcon>
@@ -19,13 +19,22 @@
     <RepositoryUrl>https://github.com/tacosontitan/Mauve</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>events;framework;tools;extensions;design-patterns;abstraction;event-driven;extension-methods;dotnet;frameworks</PackageTags>
-    <PackageReleaseNotes>🐣 Pre-Release</PackageReleaseNotes>
+    <PackageReleaseNotes>🐣 Pre-Release (2023.0.0.1)
+Fixes version, author, and package information. Attempts to fix an issue where documentation is missing from the release.</PackageReleaseNotes>
     <PackageOutputPath>$(OutputPath)</PackageOutputPath>
-    <PackageId>mauve</PackageId>
+    <PackageId>Mauve</PackageId>
     <PackAsTool>False</PackAsTool>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Authors>tacosontitan</Authors>
+    <Authors>Taco (タコス) 🌮</Authors>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Version>2023.0.0.1</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
