@@ -1,6 +1,9 @@
-﻿using Mauve.Patterns;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
-namespace Mauve.Runtime.Processing
+using Mauve.Patterns;
+
+namespace Mauve.Runtime
 {
     public interface IPipeline<T>
     {
@@ -15,5 +18,7 @@ namespace Mauve.Runtime.Processing
         /// <param name="middleware">The middleware to add.</param>
         /// <returns>The current <see cref="IPipeline{T}"/> instance.</returns>
         IPipeline<T> Use(IMiddleware<T> middleware);
+        Task Execute(T input);
+        Task Execute(T input, CancellationToken cancellationToken);
     }
 }

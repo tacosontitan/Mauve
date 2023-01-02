@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 
 using Mauve.Patterns;
@@ -13,7 +9,7 @@ namespace $rootnamespace$
     /// Represents an implementation of <see cref="IMiddleware"/> that...
     /// </summary>
     /// <inheritdoc/>
-    internal class $safeitemname$ : IMiddleware
+    internal class $safeitemname$ : IMiddleware<T>
     {
 
         #region Constructor
@@ -26,21 +22,21 @@ namespace $rootnamespace$
 
         }
 
-        #endregion
+#endregion
 
-        #region Public Methods
+#region Public Methods
 
-        /// <inheritdoc/>
-        public void Invoke(MiddlewareDelegate next)
-        {
-            
-        }
-        /// <inheritdoc/>
-        public async Task InvokeAsync(MiddlewareDelegate next) =>
-            await InvokeAsync(next, CancellationToken.None);
-        /// <inheritdoc/>
-        public async Task InvokeAsync(MiddlewareDelegate next, CancellationToken cancellationToken) =>
-            await Task.Run(() => Invoke(next), cancellationToken);
+/// <inheritdoc/>
+public void Invoke(T input, MiddlewareDelegate<object> next)
+{
+
+}
+/// <inheritdoc/>
+public async Task InvokeAsync(T input, MiddlewareDelegate<object> next) =>
+    await InvokeAsync(next, CancellationToken.None);
+/// <inheritdoc/>
+public async Task InvokeAsync(T input, MiddlewareDelegate<object> next, CancellationToken cancellationToken) =>
+    await Task.Run(() => Invoke(next), cancellationToken);
 
         #endregion
 
