@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mauve</RootNamespace>
-    <AssemblyName>Mauve.Core</AssemblyName>
+    <AssemblyName>Mauve.Framework</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>false</Deterministic>
@@ -29,9 +29,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Mauve.Framework.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>mauve-m.ico</ApplicationIcon>
+    <ApplicationIcon>mauve.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
@@ -147,6 +148,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="mauve-m.ico" />
+    <Content Include="mauve.ico" />
+    <Content Include="mauve.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mauve.png" Pack="true" Visible="false" PackagePath="images\mauve.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
