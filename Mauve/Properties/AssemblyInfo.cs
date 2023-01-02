@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Mauve.Framework")]
-[assembly: AssemblyDescription("From basic extension methods to complete implementations of design patterns, Mauve offers a colorful suite of functionality for utilization in even the grandest applications.")]
+[assembly: AssemblyDescription("From basic extension methods to complete implementations of design patterns, unified network communication, and more; Mauve offers a colorful suite of functionality for utilization in even the grandest applications. Grab a brush and join us!")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Taco (タコス) 🌮")]
 [assembly: AssemblyProduct("Mauve.Framework")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2023.0.*")]
-[assembly: AssemblyFileVersion("2023.0.0.2")]
+[assembly: AssemblyVersion("2023.0.0.3")]
+[assembly: AssemblyFileVersion("2023.0.0.3")]

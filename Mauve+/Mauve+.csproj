@@ -19,8 +19,8 @@
     <RepositoryUrl>https://github.com/tacosontitan/Mauve</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>events;framework;tools;extensions;design-patterns;abstraction;event-driven;extension-methods;dotnet;frameworks</PackageTags>
-    <PackageReleaseNotes>🐣 Pre-Release (2023.0.0.1)
-Fixes version, author, and package information. Attempts to fix an issue where documentation is missing from the release.</PackageReleaseNotes>
+    <PackageReleaseNotes>🐣 Pre-Release (2023.0.0.3)
+Synchronizes version with Mauve.Framework.</PackageReleaseNotes>
     <PackageOutputPath>$(OutputPath)</PackageOutputPath>
     <PackageId>Mauve</PackageId>
     <PackAsTool>False</PackAsTool>
@@ -28,7 +28,7 @@ Fixes version, author, and package information. Attempts to fix an issue where d
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <Authors>Taco (タコス) 🌮</Authors>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <Version>2023.0.0.1</Version>
+    <Version>2023.0.0.3</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>

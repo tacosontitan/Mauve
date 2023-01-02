@@ -149,6 +149,12 @@
   <ItemGroup>
     <Content Include="mauve-m.ico" />
     <Content Include="mauve.ico" />
+    <Content Include="mauve.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mauve.png" Pack="true" Visible="false" PackagePath="images\mauve.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

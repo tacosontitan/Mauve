@@ -8,8 +8,9 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <licenseUrl>https://github.com/tacosontitan/Mauve/blob/main/LICENSE</licenseUrl>
     <projectUrl>https://github.com/tacosontitan/Mauve</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/tacosontitan/Mauve/main/.resources/mauve.png</iconUrl>
     <description>$description$</description>
-    <releaseNotes>🐣 Pre-Release (2023.0.0.2)
+    <releaseNotes>🐣 Pre-Release (2023.0.0.3)
       Synchronizes Mauve packages.</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>events framework tools extensions design-patterns abstraction event-driven extension-methods dotnet frameworks</tags>
