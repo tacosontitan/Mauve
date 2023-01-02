@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/tacosontitan/Mauve/blob/main/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/tacosontitan/Mauve</projectUrl>
+    <description>$description$</description>
+    <releaseNotes>🐣 Pre-Release (2023.0.0.2)
+      Synchronizes Mauve packages.</releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>events framework tools extensions design-patterns abstraction event-driven extension-methods dotnet frameworks</tags>
+  </metadata>
+</package>
