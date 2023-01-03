@@ -15,7 +15,7 @@
     <Description>From basic extension methods to complete implementations of design patterns, unified network communication, and more; Mauve offers a colorful suite of functionality for utilization in even the grandest applications. Grab a brush and join us!</Description>
     <PackageProjectUrl>https://github.com/tacosontitan/Mauve</PackageProjectUrl>
     <PackageIcon>mauve.png</PackageIcon>
-    <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
+    <PackageReadmeFile>NUGET_README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/tacosontitan/Mauve</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>events;framework;tools;extensions;design-patterns;abstraction;event-driven;extension-methods;dotnet;frameworks</PackageTags>
@@ -38,7 +38,7 @@ Synchronizes version with Mauve.Framework.</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <HintPath>..\..\..\nuget\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
   </ItemGroup>
@@ -54,20 +54,20 @@ Synchronizes version with Mauve.Framework.</PackageReleaseNotes>
     <Content Include="mauve.ico" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="YamlDotNet" Version="12.0.1" />
+    <None Include="..\..\.resources\mauve.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\.resources\NUGET_README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\Downloads\mauve.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="..\README.nuget.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
+    <PackageReference Include="YamlDotNet" Version="12.0.1" />
   </ItemGroup>
 </Project>
